@@ -1,2 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'tailwindcss';
+
+/* define light theme (default) */
+[data-theme='light'] {
+  --primay-color: #ff4100;
+}
+/* define dark theme */
+[data-theme='dark'] {
+  --primay-color: black;
+}
+html {
+  background-color: var(--primay-color);
+}
+
+/* components: reusable class patterns */
+@layer components {
+}
