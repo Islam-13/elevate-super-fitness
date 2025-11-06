@@ -1,10 +1,11 @@
 import { inject } from '@angular/core';
 import { ThemeService } from '../services/theme-service.service';
+import { TranslationService } from '../services/translation.service';
 import { forkJoin } from 'rxjs';
 
 export const appInit = () => {
   const themeManager = inject(ThemeService);
-  return forkJoin([themeManager.initialTheme()]);
+  const langManger = inject(TranslationService);
 
-  // return themeManager.forkJoin.initialTheme();
+  return forkJoin([themeManager.initialTheme(), langManger.initTranslate()]);
 };
