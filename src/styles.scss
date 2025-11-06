@@ -1,16 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'tailwindcss';
 
+@font-face {
+  font-family: 'Baloo Thambi 2';
+  src: url('/fonts/BalooThambi2-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Rubik';
+  src: url('/fonts/Rubik-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 /* define light theme (default) */
 [data-theme='light'] {
   --primay-color: #ff4100;
 }
 /* define dark theme */
 [data-theme='dark'] {
-  --primay-color: black;
+  --primay-color: #ff4100;
 }
+
+@theme {
+  --font-rubik: 'Rubik';
+  --font-baloo: 'Baloo Thambi 2';
+  --font-inter: 'Inter';
+}
+
 html {
-  background-color: var(--primay-color);
+  //background-color: var(--primay-color);
+  font-family: 'Baloo Thambi 2';
 }
 
 /* components: reusable class patterns */
