@@ -21,10 +21,12 @@
   font-weight: normal;
   font-style: normal;
 }
+
 /* define light theme (default) */
 [data-theme='light'] {
   --primay-color: #ff4100;
 }
+
 /* define dark theme */
 [data-theme='dark'] {
   --primay-color: #ff4100;
@@ -34,6 +36,8 @@
   --font-rubik: 'Rubik';
   --font-baloo: 'Baloo Thambi 2';
   --font-inter: 'Inter';
+
+  --color-main: #ff4100;
 }
 
 html {
