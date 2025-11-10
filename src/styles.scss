@@ -21,19 +21,40 @@
   font-weight: normal;
   font-style: normal;
 }
-/* define light theme (default) */
 [data-theme='light'] {
   --primay-color: #ff4100;
+  --bg-section: rgba(255, 255, 255, 0.95);
+  --title-text: #242424;
+  --p-text: #242424;
 }
 /* define dark theme */
 [data-theme='dark'] {
   --primay-color: #ff4100;
+  --bg-section: #242424f2;
+  --title-text: #f3f3f4;
+  --p-text: #f3f3f4;
 }
 
 @theme {
   --font-rubik: 'Rubik';
   --font-baloo: 'Baloo Thambi 2';
   --font-inter: 'Inter';
+  --color-bg-section: var(--bg-section);
+  --color-primary: var(--primay-color);
+  --color-title-text: var(--title-text);
+  --color-p-text: var(--p-text);
+}
+
+html {
+  //background-color: var(--primay-color);
+  font-family: 'Baloo Thambi 2';
+}
+
+/* components: reusable class patterns */
+@layer components {
+  .main-heading {
+    @apply text-xl md:text-4xl font-bold font-baloo capitalize text-title-text;
+  }
 }
 
 html {
