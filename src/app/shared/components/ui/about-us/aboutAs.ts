@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { SectionTitle } from '../section-title/sectionTitle';
 import { PrimaryBtn } from '../primary-btn/primaryBtn';
-
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-about-as',
-  imports: [SectionTitle, PrimaryBtn],
+  imports: [SectionTitle, PrimaryBtn, TranslateModule],
   templateUrl: './aboutAs.html',
   styleUrl: './aboutAs.scss',
 })

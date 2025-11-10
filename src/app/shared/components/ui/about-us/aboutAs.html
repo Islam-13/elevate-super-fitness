@@ -38,23 +38,23 @@
     <!-- Right side: Content (on desktop) / Top (on mobile) -->
     <div class="flex flex-col justify-center gap-5 me-4">
       <!-- About Us label -->
-      <app-section-title [title]="'about us'"></app-section-title>
+      <app-section-title
+        [title]=" 'about.Title' | translate "
+      ></app-section-title>
 
       <!-- Main heading with highlighted text -->
       <div class="relative inline-block">
         <h2 class="main-heading">
-          EMPOWERING YOU TO ACHIEVE
+          {{'about.SubTitle'|translate}}
           <span class="text-primary">YOUR FITNESS</span> GOALS
         </h2>
         <span class="absolute inset-0 workouts translate-y-1 hidden md:flex">
-          about us
+          {{'about.Title'|translate}}
         </span>
       </div>
       <!-- Description text -->
       <p class="text-p-text font-rubik text-lg">
-        We believe fitness is more than just a workout—it's a lifestyle. With
-        top-of-the-line facilities, certified trainers, and a supportive
-        community, we're here to inspire and guide you every step of the way.
+        {{'about.Paragraph'|translate}}
       </p>
 
       <!-- Features grid -->
