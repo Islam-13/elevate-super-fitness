@@ -68,7 +68,18 @@ html {
   color: transparent;
   -webkit-text-stroke: 2px transparent;
   /* Gradient stroke */
-  background: linear-gradient(177.84deg, #242424 35.01%, #ffffff 70.99%);
+  border: 1px solid;
+
+  // border-image-source: linear-gradient(
+  //   177.84deg,
+  //   rgba(36, 36, 36, 0.5) -10.01%,
+  //   rgba(255, 255, 255, 0.5) 74.97%
+  // );
+  background: linear-gradient(
+    177.84deg,
+    rgba(36, 36, 36, 0.5) 35.01%,
+    rgba(255, 255, 255, 0.5) 74.97%
+  );
   -webkit-mask: linear-gradient(#fff 0 0) text, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
