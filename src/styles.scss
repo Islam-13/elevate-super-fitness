@@ -21,7 +21,6 @@
   font-weight: normal;
   font-style: normal;
 }
-/* define light theme (default) */
 [data-theme='light'] {
   --primay-color: #ff4100;
   --bg-section: rgba(255, 255, 255, 0.95);
@@ -50,7 +49,6 @@ html {
   //background-color: var(--primay-color);
   font-family: 'Baloo Thambi 2';
 }
-
 /* components: reusable class patterns */
 @layer components {
   .main-heading {

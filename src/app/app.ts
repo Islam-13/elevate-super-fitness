@@ -8,10 +8,5 @@ import { RouterModule } from '@angular/router';
   styleUrl: './app.scss',
 })
 export class App {
-  protected title = 'elevate-super-fitness';
-  // themeService = inject(ThemeService);
-
-  // toggleTheme() {
-  //   this.themeService.toggleTheme();
-  // }
+  protected title = 'Super Fitness';
 }
