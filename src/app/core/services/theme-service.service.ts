@@ -1,4 +1,4 @@
-import { inject, Inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { of, tap } from 'rxjs';
 import { CookiesService } from './cookies.service';
@@ -13,7 +13,6 @@ export class ThemeService {
 
   // Cookie utility instance
   private _CookiesService = inject(CookiesService);
-  constructor() {}
   setTheme(theme: Theme) {
     this.setHtmlTheme(theme); // Apply to <html>
   }
