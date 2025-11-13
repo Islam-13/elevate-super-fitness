@@ -11,16 +11,24 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withFetch,
+  withInterceptors,
+} from '@angular/common/http';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeuix/themes/aura';
 import { appInit } from './core/utills/app.utills';
-import { provideStore } from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-
+import * as healthyEffects from './features/meals-categories/store/effects';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import {
+  healthyFeatureKey,
+  healthyReducer,
+} from './features/meals-categories/store/reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -46,7 +54,15 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     provideStore(),
-    provideEffects(),
-    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    provideState(healthyFeatureKey, healthyReducer),
+    provideEffects([healthyEffects]),
+    provideStoreDevtools({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+      autoPause: true,
+      traceLimit: 75,
+      trace: true,
+    }),
+    provideHttpClient(withFetch(), withInterceptors([])),
   ],
 };

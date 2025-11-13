@@ -43,16 +43,26 @@
     </div>
   </ng-template>
 </p-carousel> -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-2">
-  @for(mealsCategory of visibleCategories; track $index){
-  <app-meals-category [mealsCategory]="mealsCategory"></app-meals-category>
 
-  }
-</div>
+<ng-container>
+  @if(data$ |async ;as data){ @if(data.isLoading){
+  <app-loading></app-loading>
+  } @if(!data.mealsCategories){
+  <h3>Something went wrong</h3>
+  } @else {
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+    @for(mealsCategory of getVisibleCategories(data.mealsCategories); track
+    $index){
+    <app-meals-category [mealsCategory]="mealsCategory"></app-meals-category>
 
-<button
-  class="text-primary font-inter font-semibold capitalize cursor-pointer block ms-auto mt-5"
-  (click)="toggleShowMore()"
->
-  {{ showAll ? 'See Less' : 'See More' }}
-</button>
+    }
+  </div>
+  <!-- see More btn -->
+  <button
+    class="text-primary font-inter font-semibold capitalize cursor-pointer block ms-auto mt-5"
+    (click)="toggleShowMore()"
+  >
+    {{ showAll ? 'See Less' : 'See More' }}
+  </button>
+  } }
+</ng-container>
