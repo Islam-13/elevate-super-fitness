@@ -1,18 +1,22 @@
 <section
   id="healthy-nutritions"
-  class="bg-[url(/images/healthBg.jpg)] h-[705px] my-5 bg-cover bg-center bg-no-repeat"
+  class="bg-[url(/images/healthBg.jpg)] h-auto bg-cover bg-center bg-no-repeat relative pb-3"
 >
-  <div class="flex flex-col gap-[25px] main-padding text-center">
+  <div class="flex flex-col items-center gap-[25px] main-padding text-center">
     <app-section-title
       [title]="'healthy'"
       [subTitle]="'Healthy Nutritions'"
       [subTitlePositionStart]="false"
-      class="flex justify-center pt-[15px]"
+      class="flex justify-center pt-[15px] z-10"
     ></app-section-title>
-    <h2 class="main-heading">
+
+    <h2 class="main-heading z-10 md:w-150 m-auto">
       Fuel your fitness journey with customized
       <span class="text-primary">meal plans</span> for you
     </h2>
-    <h1 class="section-title">healthy</h1>
+    <app-meals-categories class="z-10"></app-meals-categories>
   </div>
+  <div
+    class="h-[414px] w-full bg-bg-gray backdrop-filter-[86px] absolute top-[61px] z-0"
+  ></div>
 </section>

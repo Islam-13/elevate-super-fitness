@@ -26,6 +26,8 @@
   --bg-section: rgba(255, 255, 255, 0.95);
   --title-text: #242424;
   --p-text: #242424;
+  --bg-gray: #ffffff99;
+  --dark-border: #24242424;
 }
 /* define dark theme */
 [data-theme='dark'] {
@@ -33,6 +35,8 @@
   --bg-section: #242424f2;
   --title-text: #f3f3f4;
   --p-text: #f3f3f4;
+  --bg-gray: #24242499;
+  --dark-border: #f3f3f424;
 }
 
 @theme {
@@ -43,6 +47,8 @@
   --color-primary: var(--primay-color);
   --color-title-text: var(--title-text);
   --color-p-text: var(--p-text);
+  --color-bg-gray: var(--bg-gray);
+  --color-dark-border: var(--dark-border);
 }
 
 html {
@@ -56,6 +62,9 @@ html {
   }
   .main-padding {
     @apply px-4 md:px-20;
+  }
+  .card-title {
+    @apply font-baloo font-bold uppercase text-xl tracking-[2.24px] text-title-text mb-2;
   }
 }
 .workouts {
@@ -79,7 +88,7 @@ html {
   background: linear-gradient(
     177.84deg,
     rgba(36, 36, 36, 0.5) 35.01%,
-    rgba(255, 255, 255, 0.5) 74.97%
+    rgba(255, 255, 255, 1) 74.97%
   );
   -webkit-mask: linear-gradient(#fff 0 0) text, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
