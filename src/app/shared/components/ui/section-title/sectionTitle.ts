@@ -8,4 +8,6 @@ import { Component, input, InputSignal } from '@angular/core';
 })
 export class SectionTitle {
   title: InputSignal<string> = input.required<string>();
+  subtitle: InputSignal<string> = input.required<string>();
+
 }
