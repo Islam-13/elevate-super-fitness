@@ -1,12 +1,15 @@
-<div class=" w-[390px] h-[370px] rounded-[1.125rem] bg-bg-workouts m-2 bg-card overflow-hidden">
-
-    <img
+<div
+  class="max-w-[403px] h-[370px] rounded-[1.125rem] bg-bg-workouts m-2 bg-card"
+>
+  <img
     [src]="muscle?.image ? muscle.image : '/images/img.png'"
     [alt]="muscle?.name || 'static image'"
-    class="w-full h-[300px] object-cover rounded-[18px] mb-2"/>
-    <h3
-    class="font-baloo font-bold pl-2.5 text-[1.375rem] leading-[2.1rem] tracking-[.14rem] text-title-text uppercase text-left">
+    class="w-full h-[300px] object-cover rounded-[18px] mb-2"
+  />
+  <h3
+    class="font-baloo font-bold pl-2.5 text-[1.375rem] leading-[2.1rem] tracking-[.14rem] text-title-text uppercase text-left"
+  >
     {{ muscle?.name || '' }}
-    </h3>
-    <button class="block pl-2.5 text-left">explore</button>
+  </h3>
+  <button class="block pl-2.5 text-left">explore</button>
 </div>
