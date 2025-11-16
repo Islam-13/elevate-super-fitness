@@ -12,10 +12,10 @@ export const getMealsCategoriesEffect = createEffect(
       switchMap(() => {
         return mealsCategories.getAllCategories().pipe(
           map((mealsGroupEsponse: MealsCategoriesDTO) => {
-            return mealsActions['getMealsGroupsSuccess'](mealsGroupEsponse);
+            return mealsActions.getMealsGroupsSuccess(mealsGroupEsponse);
           }),
           catchError(() => {
-            return of(mealsActions['getMealsGroupsFailure']());
+            return of(mealsActions.getMealsGroupsFailure());
           })
         );
       })

@@ -20,7 +20,6 @@ import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.inter
   styleUrl: './mealsCategories.scss',
 })
 export class MealsCategories implements OnInit {
-  //mealsCategories: MealsCategoryDTO[];
   showAll = false;
   store = inject(Store);
   data$: Observable<MealsCategoriesStateInterface>;

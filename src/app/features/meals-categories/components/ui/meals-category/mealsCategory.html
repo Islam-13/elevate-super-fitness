@@ -2,12 +2,19 @@
   class="relative w-[400px] h-[400px] max-w-full rounded-2xl overflow-hidden shadow-lg flex flex-col justify-end text-start border border-[#24242424]"
 >
   <!-- Background image -->
-  <img
+  <!-- <img
     [src]="mealsCategory().strCategoryThumb"
     alt="Lunch"
     class="absolute inset-0 w-full h-full object-cover"
+  /> -->
+  <img
+    [ngSrc]="mealsCategory().strCategoryThumb"
+    alt="Lunch"
+    class="absolute inset-0 w-full h-full object-cover"
+    width="400"
+    height="400"
+    loading="lazy"
   />
-
   <!-- Content -->
   <div class="relative p-4 h-[100px] backdrop-blur-[58.2px] bottom-0">
     <!-- Gradient overlay

@@ -4,7 +4,7 @@ import { mealsActions } from './actions';
 
 const initialState: MealsStateInterface = {
   isLoading: false,
-  data: null,
+  data: [],
   error: null,
 };
 
@@ -12,16 +12,16 @@ export const MealsFeature = createFeature({
   name: 'Healthy',
   reducer: createReducer(
     initialState,
-    on(mealsActions['getMealsGroups'], (state) => ({
+    on(mealsActions.getMealsGroups, (state) => ({
       ...state,
       isLoading: true,
     })),
-    on(mealsActions['getMealsGroupsSuccess'], (state, action) => ({
+    on(mealsActions.getMealsGroupsSuccess, (state, action) => ({
       ...state,
       isLoading: false,
       data: action.categories,
     })),
-    on(mealsActions['getMealsGroupsFailure'], (state) => ({
+    on(mealsActions.getMealsGroupsFailure, (state) => ({
       ...state,
       isLoading: false,
     }))

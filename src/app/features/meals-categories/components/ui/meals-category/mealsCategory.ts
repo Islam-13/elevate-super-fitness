@@ -1,9 +1,10 @@
 import { Component, input, InputSignal } from '@angular/core';
 import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.interface';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-meals-category',
-  imports: [],
+  imports: [NgOptimizedImage],
   templateUrl: './mealsCategory.html',
   styleUrl: './mealsCategory.scss',
 })
