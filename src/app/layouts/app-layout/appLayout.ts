@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { Home } from "../../pages/home/home";
 
 @Component({
   selector: 'app-app-layout',
-  imports: [],
+  imports: [Home],
   templateUrl: './appLayout.html',
   styleUrl: './appLayout.scss',
 })

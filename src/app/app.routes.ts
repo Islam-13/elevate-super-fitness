@@ -6,4 +6,11 @@ export const appRoutes: Route[] = [
     loadComponent: () =>
       import('../app/layouts/app-layout/appLayout').then((m) => m.AppLayout),
   },
+   {
+        path: 'home',
+        loadComponent: () =>
+          import('./pages/home/home').then(
+            (c) => c.Home
+          ),
+      },
 ];
