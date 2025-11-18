@@ -1,1 +1,22 @@
-<p>auth-layout works!</p>
+<section class="relative h-dvh">
+  <img
+    src="images/auth-bg.png"
+    class="absolute w-full h-full -z-10"
+    alt="background image"
+  />
+
+  <main class="h-full grid sm:grid-cols-2 bg-[#24242499] backdrop-blur-2xl">
+    <div class="sm:flex flex-col items-center justify-center hidden">
+      <img src="logo.png" class="max-w-[250px] max-h-[150px]" alt="logo" />
+      <img
+        src="images/auth.png"
+        class="max-w-full max-h-[475px]"
+        alt="auth image"
+      />
+    </div>
+
+    <div class="flex justify-center items-center text-white p-4">
+      <router-outlet />
+    </div>
+  </main>
+</section>
