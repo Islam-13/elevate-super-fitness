@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
-import { MealsCategory } from '../../ui/meals-category/mealsCategory';
+import { MealsCategory } from '../../ui/meals-category/meals-category';
 import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import {
@@ -16,8 +16,8 @@ import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.inter
 @Component({
   selector: 'app-meals-categories',
   imports: [CarouselModule, MealsCategory, AsyncPipe, LoadingComponent],
-  templateUrl: './mealsCategories.html',
-  styleUrl: './mealsCategories.scss',
+  templateUrl: './meals-categories.html',
+  styleUrl: './meals-categories.scss',
 })
 export class MealsCategories implements OnInit {
   showAll = false;

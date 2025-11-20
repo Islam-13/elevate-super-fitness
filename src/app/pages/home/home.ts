@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AboutAs } from "../../shared/components/ui/about-us/aboutAs";
-import { HealthyNutritions } from "../../features/meals-categories/components/healthyNutritions";
+import { AboutAs } from '../../shared/components/ui/about-us/about-as';
+import { HealthyNutritions } from '../../features/meals-categories/components/healthy-nutritions';
 
 @Component({
   selector: 'app-home',

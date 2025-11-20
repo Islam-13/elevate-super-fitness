@@ -5,8 +5,8 @@ import { NgOptimizedImage } from '@angular/common';
 @Component({
   selector: 'app-meals-category',
   imports: [NgOptimizedImage],
-  templateUrl: './mealsCategory.html',
-  styleUrl: './mealsCategory.scss',
+  templateUrl: './meals-category.html',
+  styleUrl: './meals-category.scss',
 })
 export class MealsCategory {
   mealsCategory: InputSignal<MealsCategoryDTO> =
