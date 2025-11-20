@@ -14,6 +14,10 @@
     background-color: #ff4100;
 }
 
-.tabs button:first-child.active {
+.tabs button.active {
     color: var(--bg-section);
+}
+
+.dark .tabs button.active {
+    color: var(--p-text);
 }

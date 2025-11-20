@@ -96,3 +96,13 @@ html {
 /* components: reusable class patterns */
 @layer components {
 }
+
+/*  LIGHT MODE */
+[data-theme='light'] .tabs button.active {
+  color: var(--bg-section) !important;
+}
+
+/*  DARK MODE */
+[data-theme='dark'] .tabs button.active {
+  color: var(--p-text) !important;
+}

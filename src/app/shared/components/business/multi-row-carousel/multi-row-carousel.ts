@@ -1,12 +1,12 @@
-import { Component,} from '@angular/core';
-import { CarouselModule } from 'primeng/carousel';
+import { Component, Input,} from '@angular/core';
+import { Muscle } from '../../../interfaces/all-muscles';
 
 @Component({
   selector: 'app-multi-row-carousel',
-  imports: [ CarouselModule],
   templateUrl: './multi-row-carousel.html',
-  styleUrl: './multi-row-carousel.scss',
+  styleUrls: ['./multi-row-carousel.scss'],
+  imports: [],
 })
 export class MultiRowCarousel  {
-
+  @Input() muscles: Muscle[] = [];
 }

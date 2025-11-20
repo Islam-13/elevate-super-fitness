@@ -3,11 +3,11 @@ import { SectionTitle } from "../../shared/components/ui/section-title/sectionTi
 import { Taps } from "../../shared/components/business/taps/taps";
 import { TranslateModule } from '@ngx-translate/core';
 import { Muscle } from '../../shared/interfaces/all-muscles';
-import { Caursoul } from "../../shared/components/business/caursoul/caursoul";
+import { MultiRowCarousel } from "../../shared/components/business/multi-row-carousel/multi-row-carousel";
 
 @Component({
   selector: 'app-classes',
-  imports: [Taps, SectionTitle, TranslateModule, Caursoul],
+  imports: [Taps, SectionTitle, TranslateModule, MultiRowCarousel],
   templateUrl: './classes.html',
   styleUrl: './classes.scss',
 })
