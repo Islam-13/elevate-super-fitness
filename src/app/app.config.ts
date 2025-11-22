@@ -21,6 +21,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -37,6 +38,7 @@ export const appConfig: ApplicationConfig = {
         suffix: '.json',
       }),
     }),
+
     providePrimeNG({
       theme: {
         preset: Aura,
@@ -45,8 +47,10 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    provideAnimations(),
     provideStore(),
     provideEffects(),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+    
   ],
 };

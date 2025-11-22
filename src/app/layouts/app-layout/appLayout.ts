@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { Workouts } from "../../features/workouts/workouts";
-import { Classes } from "../../features/classes/classes";
+import { Home } from "../../pages/home/home";
 
 @Component({
   selector: 'app-app-layout',
-  imports: [Workouts, Classes],
+  imports: [Home],
   templateUrl: './appLayout.html',
   styleUrl: './appLayout.scss',
 })

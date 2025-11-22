@@ -1,15 +1,26 @@
 <section class="text-center main-sec my-20">
+    <!-- Section Title -->
     <app-section-title
-    [title]="'WORKOUTS_PAGE.TITLE' | translate"
-    [subtitle]="'WORKOUTS_PAGE.SUBTITLE' | translate">
-    </app-section-title>
+    [title]="'CLASSES_PAGE.TITLE' | translate"
+    [subTitle]="'CLASSES_PAGE.SUBTITLE' | translate"
+    [subTitlePositionStart]="false"
+    class="flex justify-center pt-[15px]">
+</app-section-title>
 
-    <div class="bg-img pt-7">
+<div class="bg-img pt-7">
+    <!-- Description -->
     <h1
     class="font-baloo font-bold text-[2.5rem] leading-[120%] tracking-[0%] text-center text-title-text uppercase mb-2"
-    [innerHTML]="'WORKOUTS_PAGE.DESCRIPTION' | translate">
+    [innerHTML]="'CLASSES_PAGE.DESCRIPTION' | translate">
     </h1>
-    <app-taps (musclesChanged)="onMusclesChanged($event)"></app-taps> 
+
+    <!-- Tabs -->
+    <app-taps
+    [muscleGroups]="muscleGroupsSignal"
+    [selectedGroupId]="selectedGroupIdSignal"
+    (groupSelected)="onGroupSelected($event)">
+    </app-taps> 
+
     <div class="muscles">
     <app-caursoul [muscles]="muscles"></app-caursoul> 
     </div>
