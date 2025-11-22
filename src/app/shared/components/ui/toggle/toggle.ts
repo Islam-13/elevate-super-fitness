@@ -14,7 +14,7 @@ import { Drawer } from 'primeng/drawer';
   styleUrl: './toggle.scss',
 })
 export class Toggle {
-   @ViewChild('drawerRef') drawerRef!: Drawer;
+  @ViewChild('drawerRef') drawerRef!: Drawer;
 
     closeCallback(e): void {
         this.drawerRef.close(e);

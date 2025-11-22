@@ -26,6 +26,10 @@
   --bg-section: rgba(255, 255, 255, 0.95);
   --title-text: #242424;
   --p-text: #242424;
+  --bg-card: #C7C6C3;
+  --bg-workouts: #A8A7A7;
+
+
 }
 /* define dark theme */
 [data-theme='dark'] {
@@ -33,7 +37,11 @@
   --bg-section: #242424f2;
   --title-text: #f3f3f4;
   --p-text: #f3f3f4;
+  --bg-card: #212121;
+  --bg-workouts: #212121;
 }
+
+
 
 @theme {
   --font-rubik: 'Rubik';
@@ -43,12 +51,36 @@
   --color-primary: var(--primay-color);
   --color-title-text: var(--title-text);
   --color-p-text: var(--p-text);
+  --color-bg-card: var(--bg-card);
+  --color-bg-workouts: var(--bg-workouts);
 }
+
+:root {
+  --p-carousel-indicator-active-background: #ff4100 !important;
+  --p-carousel-indicator-background: black !important;
+  --p-carousel-indicator-hover-background: black !important;
+}
+[data-theme='dark'] {
+  --p-carousel-indicator-background: white !important;
+  --p-carousel-indicator-hover-background: white !important;
+  --p-carousel-indicator-active-background: #ff4100 !important;
+}
+.p-carousel .p-carousel-indicators .p-carousel-indicator:hover {
+  background-color: var(--p-carousel-indicator-background) !important;
+}
+
 
 html {
   //background-color: var(--primay-color);
   font-family: 'Baloo Thambi 2';
 }
+
+/* Global container */
+.app-container {
+  padding-left: 5rem;
+  padding-right:5rem;
+}
+
 /* components: reusable class patterns */
 @layer components {
   .main-heading {

@@ -1,4 +1,9 @@
 {
+  "WORKOUTS_PAGE": {
+    "TITLE": "Workouts",
+    "SUBTITLE": "Fitness Class",
+    "DESCRIPTION": "Transform your body with our<br>dynamic <span class='text-primary'>upcoming workouts</span>"
+  },
   "about": {
     "Title": "About us",
     "SubTitle": "EMPOWERING YOU TO ACHIEVE YOUR FITNESS GOALS",

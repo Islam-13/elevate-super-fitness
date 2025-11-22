@@ -3,7 +3,7 @@ import { Home } from "../../pages/home/home";
 
 @Component({
   selector: 'app-app-layout',
-  imports: [Home],
+  imports: [ Home],
   templateUrl: './appLayout.html',
   styleUrl: './appLayout.scss',
 })
