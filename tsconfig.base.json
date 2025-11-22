@@ -1,0 +1,17 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "emitDecoratorMetadata": false,
+    "target": "es2022",
+    "module": "preserve",
+    "lib": ["es2020", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["./src/app/shared/*"],
+      "@env/*": ["./src/app/core/env/*"],
+      "@elevate-super-fitness/auth-api": ["libs/auth-api/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

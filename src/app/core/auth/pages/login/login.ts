@@ -11,8 +11,8 @@ import { MessageModule } from 'primeng/message';
 import { env } from '@env/env';
 import { SubmitBtn } from '../../components/submit-btn/submit-btn';
 import { CtrlError } from '../../components/ctrl-error/ctrl-error';
-import { AuthService } from '../../../services/auth.service';
 import { LocalStorageService } from '@shared/services/local-storage.service';
+import { AuthApiService } from './../../../../../../libs/auth-api/src/lib/auth-api/auth-api.service';
 
 @Component({
   selector: 'app-login',
@@ -33,7 +33,7 @@ export class Login implements OnInit {
   error = signal<string>('');
 
   private readonly _destroyRef = inject(DestroyRef);
-  private readonly _authService = inject(AuthService);
+  private readonly _authService = inject(AuthApiService);
   private readonly _router = inject(Router);
   private readonly _localStorage = inject(LocalStorageService);
 
@@ -61,7 +61,7 @@ export class Login implements OnInit {
 
       const subscription = this._authService.login(this.form.value).subscribe({
         next: (res) => {
-          this._localStorage.set('logged-user', res);
+          this._localStorage.set('logged-user', res.token);
 
           this._router.navigate(['/']);
         },
