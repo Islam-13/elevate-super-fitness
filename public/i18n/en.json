@@ -1,11 +1,9 @@
 {
-<<<<<<< HEAD
-    "WORKOUTS_PAGE": {
+  "WORKOUTS_PAGE": {
     "TITLE": "Workouts",
     "SUBTITLE": "Fitness Class",
-    "DESCRIPTION": "Transform your body with our<br>dynamic <span class='text-primary'>upcoming workouts</span>"}
-}
-=======
+    "DESCRIPTION": "Transform your body with our<br>dynamic <span class='text-primary'>upcoming workouts</span>"
+  },
   "about": {
     "Title": "About us",
     "SubTitle": "EMPOWERING YOU TO ACHIEVE YOUR FITNESS GOALS",
@@ -13,4 +11,3 @@
     "start": "Get Started"
   }
 }
->>>>>>> 6ac2fc41c99b8371458967a0bc50743e270359e2

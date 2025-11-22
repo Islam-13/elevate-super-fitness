@@ -1,12 +1,9 @@
 {
-<<<<<<< HEAD
-    "WORKOUTS_PAGE": {
+  "WORKOUTS_PAGE": {
     "TITLE": "تمارين",
     "SUBTITLE": "صفوف اللياقة",
     "DESCRIPTION": "حوّلي جسمك مع<br>تماريننا <span class='text-primary-color'>القادمة الديناميكية</span>"
-}
-}
-=======
+  },
   "about": {
     "Title": "معلومات عنا",
     "SubTitle": "تمكينك من تحقيق أهدافك",
@@ -14,4 +11,3 @@
     "start": "البدء"
   }
 }
->>>>>>> 6ac2fc41c99b8371458967a0bc50743e270359e2

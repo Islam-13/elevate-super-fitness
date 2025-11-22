@@ -8,6 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './aboutAs.scss',
 })
 export class AboutAs {
+  
   features = [
     {
       title: 'Personal Trainer',
