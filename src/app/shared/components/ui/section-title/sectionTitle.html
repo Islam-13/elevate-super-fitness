@@ -1,6 +1,9 @@
 <div class="relative">
-  <h1 class="workouts">{{title()}}</h1>
-  <div class="flex flex-row items-center gap-3 absolute -bottom-px start-0">
+  <h1 class="workouts hidden md:flex">{{title()}}</h1>
+  <div
+    class="flex flex-row items-center gap-3 md:absolute -bottom-px"
+    [class]="subTitlePositionStart() ? 'start-0' : 'start-[65px]' "
+  >
     <svg
       width="34"
       height="26"
@@ -13,9 +16,14 @@
         fill="#FF4100"
       />
     </svg>
+<<<<<<< HEAD
     <span
       class="font-baloo text-[var(--primay-color)] text-sm font-semibold capitalize"
       >{{subtitle()}}</span
+=======
+    <span class="font-baloo text-primary text-sm font-semibold capitalize"
+      >{{subTitle()}}</span
+>>>>>>> 6ac2fc41c99b8371458967a0bc50743e270359e2
     >
   </div>
 </div>

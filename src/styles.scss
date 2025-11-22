@@ -74,6 +74,7 @@ html {
   //background-color: var(--primay-color);
   font-family: 'Baloo Thambi 2';
 }
+<<<<<<< HEAD
 
 /* Global container */
 .app-container {
@@ -81,18 +82,44 @@ html {
   padding-right:5rem;
 }
 
+=======
+>>>>>>> 6ac2fc41c99b8371458967a0bc50743e270359e2
 /* components: reusable class patterns */
 @layer components {
   .main-heading {
     @apply text-xl md:text-4xl font-bold font-baloo capitalize text-title-text;
   }
+  .main-padding {
+    @apply px-4 md:px-20;
+  }
 }
+.workouts {
+  font-family: 'Baloo Thambi 2', sans-serif;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 120%;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  /* Make text transparent */
+  color: transparent;
+  -webkit-text-stroke: 2px transparent;
+  /* Gradient stroke */
+  border: 1px solid;
 
-html {
-  //background-color: var(--primay-color);
-  font-family: 'Baloo Thambi 2';
-}
+  // border-image-source: linear-gradient(
+  //   177.84deg,
+  //   rgba(36, 36, 36, 0.5) -10.01%,
+  //   rgba(255, 255, 255, 0.5) 74.97%
+  // );
+  background: linear-gradient(
+    177.84deg,
+    rgba(36, 36, 36, 0.5) 35.01%,
+    rgba(255, 255, 255, 0.5) 74.97%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) text, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 
-/* components: reusable class patterns */
-@layer components {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
