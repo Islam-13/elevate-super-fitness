@@ -26,10 +26,9 @@
   --bg-section: rgba(255, 255, 255, 0.95);
   --title-text: #242424;
   --p-text: #242424;
-  --bg-card: #C7C6C3;
-  --bg-workouts: #A8A7A7;
-
-
+  --bg-card: #c7c6c3;
+  --bg-workouts: #a8a7a7;
+  --bg-gray: #ffffff99;
 }
 /* define dark theme */
 [data-theme='dark'] {
@@ -42,8 +41,6 @@
   --bg-gray: #24242499;
   --dark-border: #f3f3f424;
 }
-
-
 
 @theme {
   --font-rubik: 'Rubik';
@@ -73,7 +70,6 @@
   background-color: var(--p-carousel-indicator-background) !important;
 }
 
-
 html {
   //background-color: var(--primay-color);
   font-family: 'Baloo Thambi 2';
@@ -82,7 +78,7 @@ html {
 /* Global container */
 .app-container {
   padding-left: 5rem;
-  padding-right:5rem;
+  padding-right: 5rem;
 }
 
 /* components: reusable class patterns */
