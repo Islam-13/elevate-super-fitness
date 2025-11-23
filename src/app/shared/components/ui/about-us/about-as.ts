@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { SectionTitle } from '../section-title/sectionTitle';
 import { TranslateModule } from '@ngx-translate/core';
+import { SectionTitle } from '../section-title/sectionTitle';
 @Component({
   selector: 'app-about-as',
   imports: [SectionTitle, TranslateModule],
-  templateUrl: './aboutAs.html',
-  styleUrl: './aboutAs.scss',
+  templateUrl: './about-as.html',
+  styleUrl: './about-as.scss',
 })
 export class AboutAs {
   
