@@ -13,8 +13,13 @@ import { MusclesServices } from '../../shared/services/muscles/muscles-services'
   templateUrl: './workouts.html',
   styleUrl: './workouts.scss',
 })
+<<<<<<< HEAD
 export class Workouts implements OnInit {
   private _musclesServices = inject(MusclesServices);
+=======
+export class Workouts implements OnInit{
+  private _musclesServices = inject(MusclesServices)
+>>>>>>> 66931d89b1c8456af7af1c029a2bb0df122bd7e6
   private _destroyRef = inject(DestroyRef);
   muscles: Muscle[] = [];
   muscleGroupsSignal = signal([]);
@@ -23,6 +28,10 @@ export class Workouts implements OnInit {
   ngOnInit() {
     this.loadMuscleGroups();
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 66931d89b1c8456af7af1c029a2bb0df122bd7e6
   loadMuscleGroups() {
     const subscription = this._musclesServices.getAllMsclesByGroups().subscribe(groups => {
       this.muscleGroupsSignal.set(groups.slice(0, 7));
@@ -32,16 +41,26 @@ export class Workouts implements OnInit {
         this.onGroupSelected(firstId);
       }
     });
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66931d89b1c8456af7af1c029a2bb0df122bd7e6
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
 
   onGroupSelected(groupId: string) {
     this.selectedGroupIdSignal.set(groupId);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66931d89b1c8456af7af1c029a2bb0df122bd7e6
     const subscription = this._musclesServices.getAllMuscles(groupId).subscribe(data => {
       this.muscles = data;
     });
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 66931d89b1c8456af7af1c029a2bb0df122bd7e6
