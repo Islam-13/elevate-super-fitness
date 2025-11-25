@@ -92,6 +92,9 @@ html {
   .card-title {
     @apply font-baloo font-bold uppercase text-xl tracking-[2.24px] text-title-text mb-2;
   }
+  .border-bottom {
+    @apply border-b border-[#2D2D2D] mt-1;
+  }
 }
 .workouts {
   font-family: 'Baloo Thambi 2', sans-serif;
@@ -113,4 +116,10 @@ html {
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* show only 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
