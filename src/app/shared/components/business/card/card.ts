@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { Muscle } from '../../../interfaces/all-muscles';
 
 @Component({
   selector: 'app-card',
@@ -9,6 +8,5 @@ import { Muscle } from '../../../interfaces/all-muscles';
   styleUrl: './card.scss',
 })
 export class Card {
-    @Input() muscle: Muscle; 
-
+  @Input() item!: { id: string; name: string; image?: string | null };
 }

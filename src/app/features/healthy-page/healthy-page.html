@@ -1,8 +1,8 @@
 <section class="text-center main-sec">
     <!-- Section Title -->
     <app-section-title
-    [title]="'WORKOUTS_PAGE.TITLE' | translate"
-    [subTitle]="'WORKOUTS_PAGE.SUBTITLE' | translate"
+    [title]="'HEALTHY_PAGE.TITLE' | translate"
+    [subTitle]="'HEALTHY_PAGE.SUBTITLE' | translate"
     [subTitlePositionStart]="false"
     class="flex justify-center pt-[15px]">
     </app-section-title>
@@ -11,19 +11,15 @@
     <!-- Description -->
     <h1
     class="font-baloo font-bold text-[2.5rem] leading-[120%] tracking-[0%] text-center text-title-text uppercase mb-2"
-    [innerHTML]="'WORKOUTS_PAGE.DESCRIPTION' | translate">
+    [innerHTML]="'HEALTHY_PAGE.DESCRIPTION' | translate">
     </h1>
 
     <!-- Tabs -->
     <app-taps
-    [data]="muscleGroupsSignal()"
-    [module]="'muscles'"
-    [selected]="selectedGroupIdSignal()"
-    (tabClicked)="onGroupSelected($event)">
-</app-taps>
+    [data]="mealsGroupsSignal()"
+    (tabClicked)="getAllMealsInCard($event)">
+    </app-taps>
 
-    <div class="muscles">
-    <app-caursoul [muscles]="muscles"></app-caursoul> 
-    </div>
-    </div>
+
+</div>
 </section>

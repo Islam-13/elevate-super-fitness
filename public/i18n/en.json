@@ -4,6 +4,11 @@
     "SUBTITLE": "Fitness Class",
     "DESCRIPTION": "Transform your body with our<br>dynamic <span class='text-primary'>upcoming workouts</span>"
   },
+  "HEALTHY_PAGE": {
+    "TITLE": "Healthy",
+    "SUBTITLE": "Healthy Nutritions",
+    "DESCRIPTION": "fuelyour your fitness journey with<br>customized <span class='text-primary'>meals plans</span> for you"
+  },
   "about": {
     "Title": "About us",
     "SubTitle": "EMPOWERING YOU TO ACHIEVE YOUR FITNESS GOALS",

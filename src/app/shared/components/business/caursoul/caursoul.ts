@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Muscle } from '../../../interfaces/all-muscles';
 import { CarouselModule } from 'primeng/carousel';
 import { Card } from "../card/card";
+import { MealsByCategories } from '../../../types/meals-by-categories';
 
 @Component({
   selector: 'app-caursoul',
@@ -12,14 +13,14 @@ import { Card } from "../card/card";
 })
 export class Caursoul implements OnChanges {
   @Input() muscles: Muscle[] = [];
+  @Input() meals: MealsByCategories[] = [];
 
   responsiveOptions = [
-    { breakpoint: '1400px', numVisible: 3, numScroll: 1 },
-    { breakpoint: '1199px', numVisible: 3, numScroll: 1 },
-    { breakpoint: '767px', numVisible: 2, numScroll: 1 },
+    { breakpoint: '1400px', numVisible: 3, numScroll: 3 },
+    { breakpoint: '1199px', numVisible: 3, numScroll: 3 },
+    { breakpoint: '767px', numVisible: 2, numScroll: 2 },
     { breakpoint: '575px', numVisible: 1, numScroll: 1 },
   ];
-
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['muscles'] && (!this.muscles || this.muscles.length === 0)) {
@@ -31,5 +32,4 @@ export class Caursoul implements OnChanges {
     }
   }
 }
-
 

@@ -4,6 +4,11 @@
     "SUBTITLE": "صفوف اللياقة",
     "DESCRIPTION": "حوّلي جسمك مع<br>تماريننا <span class='text-primary-color'>القادمة الديناميكية</span>"
   },
+  "HEALTHY_PAGE": {
+  "TITLE": "الصحي",
+  "SUBTITLE": "تغذية صحية",
+  "DESCRIPTION": "زوّد رحلتك الرياضية<br>بـ <span class='text-primary'>خطط وجبات</span> مخصصة لك"
+},
   "about": {
     "Title": "معلومات عنا",
     "SubTitle": "تمكينك من تحقيق أهدافك",

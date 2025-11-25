@@ -38,8 +38,7 @@ export class Workouts implements OnInit{
 
   onGroupSelected(groupId: string) {
     this.selectedGroupIdSignal.set(groupId);
-
-const subscription = this._musclesServices.getAllMuscles(groupId).subscribe(data => {
+    const subscription = this._musclesServices.getAllMuscles(groupId).subscribe(data => {
       this.muscles = data;
     });
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
