@@ -1,130 +1,35 @@
 <section
-  class="pt-30 bg-[url(/images/bg.jpg)] bg-cover bg-center bg-no-repeat relative pb-3"
+  class="pt-60 bg-[url(/images/bg.jpg)] bg-cover bg-center bg-no-repeat relative pb-3"
 >
   <div class="bg-bg-gray backdrop-blur-[86px] absolute inset-0 z-0"></div>
-  <div class="main-padding z-20 relative">
-    <h3>Healthy</h3>
-
+  <div class="main-padding relative">
     <div class="flex flex-col lg:flex-row gap-8">
       <!-- categories -->
-      <div class="border-2 border-[#282828] backdrop-blur-xl w-[409px]"></div>
-      <!-- details -->
+      <div
+        class="border-2 border-[#282828] backdrop-blur-xl lg:w-[409px] h-[736px] z-10"
+      >
+        <app-taps
+          [mealsCategories]="mealsCategories|async"
+          [selectedGroupId]="selectedGroupId"
+          (groupSelected)="onGroupSelected($event)"
+        ></app-taps>
 
+        <ng-container>
+          @if(mealsData$|async; as meals) { @if(meals.isLoading){
+          <app-loading></app-loading>
+          }
+          <div class="max-h-[600px] overflow-y-scroll hide-scroll">
+            @for(meal of meals.meals ;track meal.idMeal){
+            <app-meal [meal]="meal"></app-meal>
+            }
+          </div>
+
+          }
+        </ng-container>
+      </div>
+      <!--Meal  details -->
       <div class="flex-1">
-        <div
-          class="bg-[url(/images/hDetailsbg.jpg)] bg-cover bg-center bg-no-repeat relative h-[536px] w-full"
-        >
-          <img
-            ngSrc="/images/pasta.jpg"
-            alt="Lunch"
-            loading="lazy"
-            fill
-            class="z-20 bg-[linear-gradient(180.07deg,rgba(0,0,0,0)_25.67%,#242424_93.35%)] backdrop-blur-[55.3px] rounded-bl-2xl rounded-t-2xl"
-          />
-
-          <div
-            class="relative z-25 flex flex-col gap-5 justify-end h-full px-8 font-baloo capitalize text-[#F3F3F4]"
-          >
-            <h3 class="font-medium text-5xl text-center">pasta with meat</h3>
-            <p class="font-normal text-lg pe-49 clamp-3">
-              Lorem ipsum dolor sit amet consectetur. Tempus volutpat ut nisi
-              morbi. Lorem ipsum dolor sit amet consectetur. Tempus volutpat ut
-              nisi morbi. Lorem ipsum dolor sit amet consectetur. Tempus
-              volutpat ut nisi morbi.
-            </p>
-
-            <div class="flex flex-row mb-8 justify-between">
-              <div
-                class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]"
-              >
-                <span>100 k</span>
-                <span class="text-primary font-bold text-base">Energy</span>
-              </div>
-              <div
-                class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]"
-              >
-                <span>100 k</span>
-                <span class="text-primary font-bold text-base">Energy</span>
-              </div>
-              <div
-                class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]"
-              >
-                <span>100 k</span>
-                <span class="text-primary font-bold text-base">Energy</span>
-              </div>
-              <div
-                class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]"
-              >
-                <span>100 k</span>
-                <span class="text-primary font-bold text-base">Energy</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="backdrop-blur-[55.3px] absolute inset-0 z-0"></div>
-        </div>
-
-        <!--ingredients  -->
-        <h3 class="mt-6 mb-4 font-medium font-baloo text-3xl text-p-text">
-          ingredients
-        </h3>
-
-        <div class="bg-[#242424CC] backdrop-blur-[20px] rounded-3xl px-2 py-4">
-          <div class="flex flex-row gap-30 justify-between">
-            <div class="flex-1">
-              <div
-                class="flex flex-row items-center justify-between border-bottom font-baloo"
-              >
-                <main class="font-semibold text-p-text text-base">
-                  Meal Breasts
-                </main>
-                <span class="text-primary text-base">250g</span>
-              </div>
-              <div
-                class="flex flex-row items-center justify-between border-bottom font-baloo"
-              >
-                <main class="font-semibold text-p-text text-base">
-                  Meal Breasts
-                </main>
-                <span class="text-primary text-base">250g</span>
-              </div>
-              <div
-                class="flex flex-row items-center justify-between border-bottom font-baloo"
-              >
-                <main class="font-semibold text-p-text text-base">
-                  Meal Breasts
-                </main>
-                <span class="text-primary text-base">250g</span>
-              </div>
-            </div>
-            <div class="flex-1">
-              <div
-                class="flex flex-row items-center justify-between border-bottom font-baloo"
-              >
-                <main class="font-semibold text-p-text text-base">
-                  Meal Breasts
-                </main>
-                <span class="text-primary text-base">250g</span>
-              </div>
-              <div
-                class="flex flex-row items-center justify-between border-bottom font-baloo"
-              >
-                <main class="font-semibold text-p-text text-base">
-                  Meal Breasts
-                </main>
-                <span class="text-primary text-base">250g</span>
-              </div>
-              <div
-                class="flex flex-row items-center justify-between border-bottom font-baloo"
-              >
-                <main class="font-semibold text-p-text text-base">
-                  Meal Breasts
-                </main>
-                <span class="text-primary text-base">250g</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <app-meal-details></app-meal-details>
       </div>
     </div>
   </div>

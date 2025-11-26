@@ -22,7 +22,10 @@
       class="absolute inset-0 bg-gradient-to-t from-white/80 via-white/30 to-transparent"
     ></div> -->
     <h3 class="card-title">{{mealsCategory().strCategory}}</h3>
-    <div class="flex flex-row gap-2 items-center cursor-pointer">
+    <button
+      class="flex flex-row gap-2 items-center cursor-pointer"
+      (click)="goToHealthyPage()"
+    >
       <h3 class="font-baloo font-medium text-xl text-primary capitalize">
         read more
       </h3>
@@ -44,6 +47,6 @@
           />
         </svg>
       </div>
-    </div>
+    </button>
   </div>
 </div>

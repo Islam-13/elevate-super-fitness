@@ -1,0 +1,124 @@
+<ng-container>
+  @if(mealDetails$|async; as mealDetails){ @if(mealDetails.isLoading){
+  <app-loading></app-loading>
+  }
+  <div
+    class="bg-[url(/images/hDetailsbg.jpg)] z-30 bg-cover bg-center bg-no-repeat relative h-[536px] w-full"
+  >
+    <h3
+      class="absolute top-[-52px] start-[60px] workouts translate-y-1 z-30 hidden md:flex"
+    >
+      Healthy
+    </h3>
+    @if(mealDetails.mealDetails.strMealThumb){
+    <img
+      [ngSrc]="mealDetails.mealDetails.strMealThumb"
+      alt="meal"
+      loading="lazy"
+      fill
+      class="z-20 bg-[linear-gradient(180.07deg,rgba(0,0,0,0)_25.67%,#242424_93.35%)] backdrop-blur-[55.3px] rounded-bl-2xl rounded-t-2xl"
+    />
+    }@else {
+    <!-- <video controls class="h-[536px] w-full rounded-lg z-30">
+      <source
+        src="https://www.youtube.com/watch?v=xvPR2Tfw5k0"
+        type="video/mp4"
+      />
+    </video> -->
+    }
+
+    <div
+      class="relative z-25 flex flex-col gap-5 justify-end h-full px-8 font-baloo capitalize text-[#F3F3F4]"
+    >
+      <h3 class="font-medium text-5xl text-center">
+        {{mealDetails.mealDetails.strMeal}}
+      </h3>
+      <p class="font-normal text-lg pe-49 line-clamp-3">
+        {{mealDetails.mealDetails.strInstructions}}
+      </p>
+      <!--  -->
+      <div class="flex flex-row mb-8 justify-between">
+        <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
+          <span>100 k</span>
+          <span class="text-primary font-bold text-base">Energy</span>
+        </div>
+        <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
+          <span>15 6</span>
+          <span class="text-primary font-bold text-base">Protein</span>
+        </div>
+        <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
+          <span>58 g</span>
+          <span class="text-primary font-bold text-base">Carbs</span>
+        </div>
+        <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
+          <span>20 g</span>
+          <span class="text-primary font-bold text-base">Fat</span>
+        </div>
+      </div>
+    </div>
+    <!-- background overlay -->
+    <div class="backdrop-blur-[55.3px] absolute inset-0 z-19"></div>
+  </div>
+
+  <!--ingredients  -->
+  <h3 class="mt-6 mb-4 font-medium font-baloo text-3xl text-p-text">
+    ingredients
+  </h3>
+
+  <div class="bg-[#242424CC] backdrop-blur-[20px] rounded-3xl px-2 py-4">
+    <div class="flex flex-row gap-30 justify-between">
+      <div class="flex-1">
+        <div
+          class="flex flex-row items-center justify-between border-bottom font-baloo"
+        >
+          <main class="font-semibold text-p-text text-base">
+            {{mealDetails.mealDetails.strIngredient1}}
+          </main>
+          <span class="text-primary text-base">250g</span>
+        </div>
+        <div
+          class="flex flex-row items-center justify-between border-bottom font-baloo"
+        >
+          <main class="font-semibold text-p-text text-base">
+            {{mealDetails.mealDetails.strIngredient2}}
+          </main>
+          <span class="text-primary text-base">250g</span>
+        </div>
+        <div
+          class="flex flex-row items-center justify-between border-bottom font-baloo"
+        >
+          <main class="font-semibold text-p-text text-base">
+            {{mealDetails.mealDetails.strIngredient3}}
+          </main>
+          <span class="text-primary text-base">250g</span>
+        </div>
+      </div>
+      <div class="flex-1">
+        <div
+          class="flex flex-row items-center justify-between border-bottom font-baloo"
+        >
+          <main class="font-semibold text-p-text text-base">
+            {{mealDetails.mealDetails.strIngredient4}}
+          </main>
+          <span class="text-primary text-base">250g</span>
+        </div>
+        <div
+          class="flex flex-row items-center justify-between border-bottom font-baloo"
+        >
+          <main class="font-semibold text-p-text text-base">
+            {{mealDetails.mealDetails.strIngredient5}}
+          </main>
+          <span class="text-primary text-base">250g</span>
+        </div>
+        <div
+          class="flex flex-row items-center justify-between border-bottom font-baloo"
+        >
+          <main class="font-semibold text-p-text text-base">
+            {{mealDetails.mealDetails.strIngredient6}}
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</ng-container>

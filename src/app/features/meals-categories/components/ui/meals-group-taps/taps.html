@@ -1,0 +1,13 @@
+<div
+  class="flex flex-row gap-3 justify-around my-4 overflow-x-scroll "
+>
+  @for (group of mealsCategories; track group.strCategory) {
+  <button
+    (click)="selectGroup(group.strCategory)"
+    [class.active]="group.strCategory === selectedGroupId"
+    class="px-4 py-2 rounded-3xl font-baloo font-bold capitalize transition-colors text-xl sm:text-base cursor-pointer text-p-text"
+  >
+    {{ group.strCategory }}
+  </button>
+  }
+</div>

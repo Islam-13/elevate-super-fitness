@@ -11,4 +11,9 @@ import { NgOptimizedImage } from '@angular/common';
 export class MealsCategory {
   mealsCategory: InputSignal<MealsCategoryDTO> =
     input.required<MealsCategoryDTO>();
+
+  goToHealthyPage() {
+    console.log('see more');
+    
+  }
 }

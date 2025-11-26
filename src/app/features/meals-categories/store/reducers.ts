@@ -4,7 +4,11 @@ import { mealsActions } from './actions';
 
 const initialState: MealsStateInterface = {
   isLoading: false,
-  data: [],
+  mealsCategories: [],
+  meals: null,
+  mealDetail: null,
+  selectedCategoryOfMeals: null,
+  selectedMeal: null,
   error: null,
 };
 
@@ -19,11 +23,55 @@ export const MealsFeature = createFeature({
     on(mealsActions.getMealsGroupsSuccess, (state, action) => ({
       ...state,
       isLoading: false,
-      data: action.categories,
+      mealsCategories: action.categories,
+      selectedCategoryOfMeals: action.categories[0].strCategory,
     })),
     on(mealsActions.getMealsGroupsFailure, (state) => ({
       ...state,
       isLoading: false,
+    })),
+
+    /////////////////Meals/////////////
+    on(mealsActions.getMealsByGroupsName, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(mealsActions.getMealsByGroupsNameSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      meals: action.meals,
+    })),
+    on(mealsActions.getMealsByGroupsNameFailure, (state) => ({
+      ...state,
+      isLoading: false,
+    })),
+
+    /////////////////Meal Details/////////////
+    on(mealsActions.getMealDetail, (state) => ({
+      ...state,
+      isLoading: true,
+    })),
+    on(mealsActions.getMealDetailSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
+      mealDetail: action.meals[0],
+      selectedMeal:action.meals[0].idMeal
+    })),
+    on(mealsActions.getMealDetailFailure, (state) => ({
+      ...state,
+      isLoading: false,
+    })),
+    //select category/////////////
+    on(mealsActions.selectCategory, (state, action) => ({
+      ...state,
+      selectedCategoryOfMeals: action.category,
+    })),
+
+    //select meal/////////////
+    on(mealsActions.selectMeal, (state, action) => ({
+      ...state,
+      selectedMeal: action.mealID,
+       
     }))
   ),
 });
@@ -32,5 +80,9 @@ export const {
   reducer: healthyReducer, // feature reducer
   selectIsLoading, //  selector for `loading` property
   selectError, // selector for `error` property
-  selectData: selectMealsCategoriesData, // feature selector
+  selectMealsCategories: selectMealsCategoriesData,
+  selectMealDetail,
+  selectMeals,
+  selectSelectedCategoryOfMeals,
+  selectSelectedMeal // feature selector
 } = MealsFeature;
