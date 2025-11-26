@@ -22,9 +22,12 @@ export class MealDetails implements OnInit {
     isLoading: this._store.select(selectIsLoading),
   });
   ngOnInit(): void {
-    this._store.select(selectSelectedMeal).subscribe((mealID) => {
-      console.log(mealID);
-      this._store.dispatch(mealsActions.getMealDetail({ mealID: mealID }));
-    });
+    this._store
+      .select(selectSelectedMeal)
+      .pipe(take(1))
+      .subscribe((mealID) => {
+        console.log(mealID);
+        this._store.dispatch(mealsActions.getMealDetail({ mealID: mealID }));
+      });
   }
 }

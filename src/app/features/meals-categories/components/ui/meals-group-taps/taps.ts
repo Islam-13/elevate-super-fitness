@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.interface';
 
 @Component({

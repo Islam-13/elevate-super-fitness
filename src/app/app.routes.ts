@@ -24,4 +24,10 @@ export const appRoutes: Route[] = [
       },
     ],
   },
+
+  {
+    path: 'account',
+    loadComponent: () =>
+      import('../app/features/account/account').then((m) => m.Account),
+  },
 ];

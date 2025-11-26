@@ -3,7 +3,7 @@
   <app-loading></app-loading>
   }
   <div
-    class="bg-[url(/images/hDetailsbg.jpg)] z-30 bg-cover bg-center bg-no-repeat relative h-[536px] w-full"
+    class="relative bg-[linear-gradient(180.07deg,rgba(0,0,0,0)_25.67%,#242424_93.35%)] backdrop-blur-[55.3px] h-[536px] w-full"
   >
     <h3
       class="absolute top-[-52px] start-[60px] workouts translate-y-1 z-30 hidden md:flex"
@@ -16,7 +16,7 @@
       alt="meal"
       loading="lazy"
       fill
-      class="z-20 bg-[linear-gradient(180.07deg,rgba(0,0,0,0)_25.67%,#242424_93.35%)] backdrop-blur-[55.3px] rounded-bl-2xl rounded-t-2xl"
+      class="rounded-bl-2xl rounded-t-2xl"
     />
     }@else {
     <!-- <video controls class="h-[536px] w-full rounded-lg z-30">
@@ -28,7 +28,7 @@
     }
 
     <div
-      class="relative z-25 flex flex-col gap-5 justify-end h-full px-8 font-baloo capitalize text-[#F3F3F4]"
+      class="relative z-40 flex flex-col gap-5 justify-end h-full px-8 font-baloo capitalize text-p-text"
     >
       <h3 class="font-medium text-5xl text-center">
         {{mealDetails.mealDetails.strMeal}}
@@ -57,7 +57,7 @@
       </div>
     </div>
     <!-- background overlay -->
-    <div class="backdrop-blur-[55.3px] absolute inset-0 z-19"></div>
+    <!-- <div class="backdrop-blur-[55.3px] absolute inset-0 z-30"></div> -->
   </div>
 
   <!--ingredients  -->
