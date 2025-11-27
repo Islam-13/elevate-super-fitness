@@ -2,12 +2,12 @@
   background-color: #ff4100;
   color: #f3f3f4;
 }
-.hide-scroll {
-  overflow: auto; /* enables scroll */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
-}
+// .hide-scroll {
+//   overflow: auto; /* enables scroll */
+//   scrollbar-width: none; /* Firefox */
+//   -ms-overflow-style: none; /* IE/Edge */
+// }
 
-.hide-scroll::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
+// .hide-scroll::-webkit-scrollbar {
+//   display: none; /* Chrome/Safari */
+// }

@@ -1,4 +1,4 @@
-<div
+<!-- <div
   class="flex flex-row gap-3 justify-around my-4 overflow-x-scroll pb-4 px-5"
 >
   @for (group of mealsCategories; track group.strCategory) {
@@ -10,4 +10,22 @@
     {{ group.strCategory }}
   </button>
   }
-</div>
+</div> -->
+<p-carousel
+  [value]="mealsCategories"
+  [numVisible]="3"
+  [numScroll]="3"
+  [responsiveOptions]="responsiveOptions"
+  [showIndicators]="false"
+  class="my-4"
+>
+  <ng-template let-group #item>
+    <button
+      (click)="selectGroup(group.strCategory)"
+      [class.active]="group.strCategory === selectedGroupId"
+      class="px-4 py-2 rounded-3xl font-baloo font-bold capitalize transition-colors text-xl sm:text-base cursor-pointer text-p-text"
+    >
+      {{ group.strCategory }}
+    </button>
+  </ng-template>
+</p-carousel>
