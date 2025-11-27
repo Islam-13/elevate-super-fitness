@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './account.html',
   styleUrl: './account.scss',
 })
-export class Account {}
+export class Account {
+  changePassword() {}
+  changeLanguage() {}
+  toggleMood() {}
+  logout() {
+    console.log('logout');
+  }
+}

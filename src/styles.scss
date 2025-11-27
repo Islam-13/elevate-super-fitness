@@ -95,6 +95,9 @@ html {
   .border-bottom {
     @apply border-b border-[#2D2D2D] mt-1;
   }
+  .setting-box {
+    @apply flex flex-col items-center justify-center gap-4 border border-p-text p-8 rounded-2xl w-[209px] h-[168px] cursor-pointer;
+  }
 }
 .workouts {
   font-family: 'Baloo Thambi 2', sans-serif;
