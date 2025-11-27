@@ -1,4 +1,5 @@
-<section class="text-center main-sec">
+<section>
+  <div class="text-center main-sec">
   <!-- Section Title -->
   <app-section-title
     [title]="'WORKOUTS_PAGE.TITLE' | translate"
@@ -22,9 +23,10 @@
     (tabClicked)="onGroupSelected($event)">
 </app-taps>
 
-
-    <div class="muscles">
-      <app-caursoul [muscles]="muscles"></app-caursoul> 
+    <div class="main-padding">
+      <app-caursoul [muscles]="muscles">
+      </app-caursoul> 
     </div>
+  </div>
   </div>
 </section>

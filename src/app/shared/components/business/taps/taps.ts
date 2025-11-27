@@ -14,7 +14,7 @@ export class Taps {
   private _selected: string | null = null;
   @Input() set selected(value: string | null) {
     this._selected = value;
-    this.selectedItemId = value; 
+    this.selectedItemId = value;
   }
   get selected() {
     return this._selected;
@@ -25,10 +25,22 @@ export class Taps {
       this._data = [];
       return;
     }
+    this._data = value.map((item: any, index: number) => ({
+      id:
+        item.id ||
+        item._id ||
+        item.code ||
+        item.key ||
+        item.idCategory ||              
+        (index + 1).toString(),        
 
-    this._data = value.map((item: any) => ({
-      id: item.id || item._id || item.code || item.key || '',
-      label: item.label || item.title || item.name || item.group || ''
+      label:
+        item.label ||
+        item.title ||
+        item.name ||
+        item.group ||
+        item.strCategory ||             
+        ''
     }));
   }
   get data() {

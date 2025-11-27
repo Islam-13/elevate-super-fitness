@@ -1,15 +1,15 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { Component, DestroyRef, inject, Input, OnInit, signal } from '@angular/core';
 import { Taps } from '../../shared/components/business/taps/taps';
 import { SectionTitle } from "../../shared/components/ui/section-title/sectionTitle";
 import { TranslateModule, } from '@ngx-translate/core';
 import { Caursoul } from "../../shared/components/business/caursoul/caursoul";
-import { Muscle } from '../../shared/interfaces/all-muscles';
 import { MusclesServices } from '../../shared/services/muscles/muscles-services';
+import { Muscle } from '../../shared/interfaces/all-muscles';
 
 
 @Component({
   selector: 'app-workouts',
-  imports: [Taps, SectionTitle, TranslateModule, Caursoul],
+  imports: [Taps, SectionTitle, TranslateModule, Caursoul,],
   templateUrl: './workouts.html',
   styleUrl: './workouts.scss',
 })
@@ -18,6 +18,8 @@ export class Workouts implements OnInit{
   private _destroyRef = inject(DestroyRef);
   muscles: Muscle[] = [];
   muscleGroupsSignal = signal([]);
+  @Input() muscle: Muscle[] = [];
+
   selectedGroupIdSignal = signal<string | null>(null);
 
   ngOnInit() {
