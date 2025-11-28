@@ -1,0 +1,25 @@
+@if (!inputCtrl() || !inputCtrl().touched || !inputCtrl().errors) { }
+
+@else {
+
+    @if (inputCtrl().errors['required']) {
+      <p-message severity="error" variant="simple" styleClass="mt-1">
+        {{fieldName()}} is required!!
+      </p-message>}
+
+    @if(inputCtrl().errors['email']) {
+      <p-message severity="error" variant="simple" styleClass="mt-1">
+        {{fieldName()}} is invalid!!
+      </p-message>}
+      
+    @if (inputCtrl().errors['pattern']) {
+      <p-message severity="error" variant="simple" styleClass="mt-1">
+        Password should have at least uppercase and lowercase letter, number and
+        special char!!
+      </p-message>}
+
+    @if(inputCtrl().errors['misMatch']) {
+      <p-message severity="error" variant="simple" styleClass="mt-1">
+        Password and confirm password should match!!
+      </p-message>}
+}

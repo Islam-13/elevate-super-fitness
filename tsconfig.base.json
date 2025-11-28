@@ -10,6 +10,7 @@
     "paths": {
       "@shared/*": ["./src/app/shared/*"],
       "@env/*": ["./src/app/core/env/*"],
+      "@store/*": ["./src/app/store/*"],
       "@elevate-super-fitness/auth-api": ["libs/auth-api/src/index.ts"]
     }
   },

@@ -12,7 +12,7 @@ import { env } from '@env/env';
 import { SubmitBtn } from '../../components/submit-btn/submit-btn';
 import { CtrlError } from '../../components/ctrl-error/ctrl-error';
 import { LocalStorageService } from '@shared/services/local-storage.service';
-import { AuthApiService } from './../../../../../../libs/auth-api/src/lib/auth-api/auth-api.service';
+import { AuthApiService } from 'libs/auth-api/src/lib/auth-api/auth-api.service';
 
 @Component({
   selector: 'app-login',

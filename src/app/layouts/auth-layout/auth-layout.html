@@ -1,18 +1,17 @@
-<section class="relative h-dvh">
+<section class="relative">
   <img
-    src="images/auth-bg.png"
-    class="absolute w-full h-full -z-10"
+    class="-z-10"
+    ngSrc="images/auth-bg.png"
     alt="background image"
+    priority="true"
+    fill
   />
 
-  <main class="h-full grid sm:grid-cols-2 bg-[#24242499] backdrop-blur-2xl">
-    <div class="sm:flex flex-col items-center justify-center hidden">
-      <img src="logo.png" class="max-w-[250px] max-h-[150px]" alt="logo" />
-      <img
-        src="images/auth.png"
-        class="max-w-full max-h-[475px]"
-        alt="auth image"
-      />
+  <main class="grid sm:grid-cols-2 min-h-dvh bg-[#24242499] backdrop-blur-2xl">
+    <div class="relative sm:flex flex-col items-center justify-start hidden">
+      <img ngSrc="logo.png" width="150" height="150" alt="logo" />
+
+      <img ngSrc="images/auth.png" fill alt="auth image" priority="true" />
     </div>
 
     <div class="flex justify-center items-center text-white p-4">

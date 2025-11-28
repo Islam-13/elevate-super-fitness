@@ -11,7 +11,5 @@ import { MessageModule } from 'primeng/message';
 })
 export class CtrlError {
   inputCtrl = input.required<AbstractControl | null>();
-  validation = input.required<string>();
-  message1 = input.required<string>();
-  message2 = input.required<string>();
+  fieldName = input<string>();
 }

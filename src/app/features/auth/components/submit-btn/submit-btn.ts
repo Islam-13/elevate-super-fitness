@@ -7,6 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './submit-btn.scss',
 })
 export class SubmitBtn {
-  isSubmitting = input.required<boolean>();
+  isSubmitting = input<boolean>();
   label = input.required<string>();
+  disable = input<boolean>();
 }

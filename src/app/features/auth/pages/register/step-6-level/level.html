@@ -1,0 +1,25 @@
+<div>
+  @if (error()) {
+  <div>
+    <p-message severity="error" icon="pi pi-times-circle"
+      >{{error()}}</p-message
+    >
+  </div>
+  }
+
+  <app-register-header
+    [stepNum]="6"
+    heading="your regular physicalactivity level ?"
+    description="this helps us create Your personalized plan"
+  />
+
+  <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmit()">
+    <app-option-picker [options]="options" (payload)="onSelect($event)" />
+
+    <app-submit-btn
+      label="Register"
+      [disable]="!level()"
+      [isSubmitting]="isSubmitting()"
+    />
+  </form>
+</div>

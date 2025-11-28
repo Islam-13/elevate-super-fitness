@@ -1,7 +1,7 @@
 <div>
   <div class="text-center mb-4">
     <span>Hey There</span>
-    <h2 class="text-3xl font-black">WELCOME BACK</h2>
+    <h2 class="text-4xl font-extrabold">WELCOME BACK</h2>
   </div>
 
   <form
@@ -52,12 +52,7 @@
         </span>
       </div>
 
-      <app-ctrl-error
-        [inputCtrl]="emailCtrl"
-        validation="email"
-        message1="Email"
-        message2="Email is invalid"
-      />
+      <app-ctrl-error [inputCtrl]="emailCtrl" fieldName="Email" />
     </div>
 
     <div>
@@ -93,12 +88,7 @@
         </span>
       </div>
 
-      <app-ctrl-error
-        [inputCtrl]="passwordCtrl"
-        validation="pattern"
-        message1="Password"
-        message2="Password should have at least uppercase and lowercase letter, number and special char."
-      />
+      <app-ctrl-error [inputCtrl]="passwordCtrl" fieldName="Password" />
     </div>
 
     <a routerLink="" class="text-primary underline w-fit ms-auto font-bold">
@@ -183,11 +173,15 @@
       </li>
     </ul>
 
-    <app-submit-btn [isSubmitting]="isSubmitting()" label="Login" />
+    <app-submit-btn
+      [isSubmitting]="isSubmitting()"
+      label="Login"
+      [disable]="form.invalid"
+    />
 
     <p>
       Dont have an account yet ?
-      <a routerLink="" class="text-primary">Register</a>
+      <a routerLink="/auth/register" class="text-primary">Register</a>
     </p>
   </form>
 </div>

@@ -1,0 +1,9 @@
+<div class="text-center">
+  <div class="proggress" [style]="`--percent: ${(stepNum() / 6) * 100}%`">
+    <span class="text-xl font-medium z-20"> {{stepNum()}} / 6 </span>
+  </div>
+
+  <h2 class="text-5xl font-extrabold uppercase">{{ heading() }}</h2>
+
+  <p class="text-lg capitalize">{{ description() }}</p>
+</div>

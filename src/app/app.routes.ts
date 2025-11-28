@@ -8,10 +8,18 @@ export const appRoutes: Route[] = [
         (c) => c.AuthLayout
       ),
     children: [
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       {
         path: 'login',
         loadComponent: () =>
-          import('../app/core/auth/pages/login/login').then((c) => c.Login),
+          import('../app/features/auth/pages/login/login').then((c) => c.Login),
+      },
+      {
+        path: 'register',
+        loadComponent: () =>
+          import('../app/features/auth/pages/register/register').then(
+            (c) => c.Register
+          ),
       },
     ],
   },
