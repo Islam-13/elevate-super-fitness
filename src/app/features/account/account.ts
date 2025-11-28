@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, WritableSignal } from '@angular/core';
+import { ThemeService } from '../../core/services/theme-service.service';
 
 @Component({
   selector: 'app-account',
@@ -7,9 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './account.scss',
 })
 export class Account {
+  themeService = inject(ThemeService);
+  currentTheme: WritableSignal<string> = this.themeService.getTheme();
   changePassword() {}
   changeLanguage() {}
-  toggleMood() {}
+  toggleMood() {
+    this.themeService.toggleTheme();
+  }
   logout() {
     console.log('logout');
   }

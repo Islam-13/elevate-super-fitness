@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { of, tap } from 'rxjs';
 import { CookiesService } from './cookies.service';
@@ -15,13 +15,21 @@ export class ThemeService {
   private _CookiesService = inject(CookiesService);
   setTheme(theme: Theme) {
     this.setHtmlTheme(theme); // Apply to <html>
+    this.theme.set(theme);
   }
-  getTheme(): string {
-    return this._CookiesService.getCookie(this.storageKey);
-    // ('light' as Theme)) as Theme;
+  // getTheme(): string {
+  //   return this._CookiesService.getCookie(this.storageKey);
+  //   // ('light' as Theme)) as Theme;
+  // }
+  getTheme() {
+    return this.theme; // returns signal<string>
   }
+  // Create a signal with the initial theme value
+  theme = signal<string>(
+    this._CookiesService.getCookie(this.storageKey) || 'light'
+  );
   initialTheme() {
-    let currentTheme = this.getTheme();
+    let currentTheme = this.theme();
     //get '' if no theme
     currentTheme = currentTheme == '' ? 'light' : currentTheme;
     if (currentTheme) {

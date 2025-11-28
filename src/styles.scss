@@ -96,7 +96,10 @@ html {
     @apply border-b border-[#2D2D2D] mt-1;
   }
   .setting-box {
-    @apply flex flex-col items-center justify-center gap-4 border border-p-text p-8 rounded-2xl w-[209px] h-[168px] cursor-pointer;
+    @apply flex flex-col items-center justify-center  border border-p-text p-8 rounded-2xl w-[209px] h-[168px] cursor-pointer;
+  }
+  .bg-container {
+    @apply flex items-center gap-15 border border-p-text bg-primary backdrop-blur-sm rounded-3xl py-2 px-4;
   }
 }
 .workouts {
@@ -119,12 +122,6 @@ html {
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3; /* show only 3 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .hide-scroll {
   overflow: auto;
