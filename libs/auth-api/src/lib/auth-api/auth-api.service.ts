@@ -3,8 +3,8 @@ import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, throwError } from 'rxjs';
 
 import { AuthApi } from './base/authApi';
-import { LoginRes } from './interfaces/loginRes';
- import { LoginData } from './interfaces/loginData';
+import { LoginApiData, LoginRes } from './interfaces/loginRes';
+import { LoginData } from './interfaces/loginData';
 import { AuthEndPoint } from './enums/AuthApi.endPoints';
 import { RegisterData } from './interfaces/registerData';
 import { Code, CodeRes } from './interfaces/verifyCodeData';
@@ -25,46 +25,56 @@ export class AuthApiService implements AuthApi {
   private readonly _baseURL = inject(BASE_URL);
 
   login(data: LoginData): Observable<LoginRes> {
-    return this._http.post(`${this._baseURL}${AuthEndPoint.SIGNIN}`, data).pipe(
-      map((res: any) => this._authAdaptor.adapt(res)),
-      catchError((err) =>
-        throwError(() => new Error('Incorrect email or password!!'))
-      )
-    );
+    return this._http
+      .post<LoginApiData>(`${this._baseURL}${AuthEndPoint.SIGNIN}`, data)
+      .pipe(
+        map((res) => this._authAdaptor.adapt(res)),
+        catchError(() =>
+          throwError(() => new Error('Incorrect email or password!!'))
+        )
+      );
   }
 
   register(data: RegisterData): Observable<LoginRes> {
-    return this._http.post(`${this._baseURL}${AuthEndPoint.SIGNUP}`, data).pipe(
-      map((res: any) => this._authAdaptor.adapt(res)),
-      catchError(() =>
-        throwError(() => new Error('Email or user name already exists!!'))
-      )
-    );
+    return this._http
+      .post<LoginApiData>(`${this._baseURL}${AuthEndPoint.SIGNUP}`, data)
+      .pipe(
+        map((res) => this._authAdaptor.adapt(res)),
+        catchError(() =>
+          throwError(() => new Error('Email or user name already exists!!'))
+        )
+      );
   }
 
   forgetPassword(data: ForgetPasswordData): Observable<ForgetPasswordRes> {
     return this._http
-      .post(`${this._baseURL}${AuthEndPoint.FORGET_PASSWORD}`, data)
+      .post<ForgetPasswordRes>(
+        `${this._baseURL}${AuthEndPoint.FORGET_PASSWORD}`,
+        data
+      )
       .pipe(
-        map((res: any) => res),
+        map((res) => res),
         catchError(() => throwError(() => new Error('Email is not exist!!')))
       );
   }
 
   verifyCode(data: Code): Observable<CodeRes> {
     return this._http
-      .post(`${this._baseURL}${AuthEndPoint.VERIFY_CODE}`, data)
+      .post<CodeRes>(`${this._baseURL}${AuthEndPoint.VERIFY_CODE}`, data)
       .pipe(
-        map((res: any) => res),
+        map((res) => res),
         catchError(() => throwError(() => new Error('Invalid code!!')))
       );
   }
 
   resetPassword(data: SetPassword): Observable<SetPasswordRes> {
     return this._http
-      .put(`${this._baseURL}${AuthEndPoint.RESET_PASSWORD}`, data)
+      .put<SetPasswordRes>(
+        `${this._baseURL}${AuthEndPoint.RESET_PASSWORD}`,
+        data
+      )
       .pipe(
-        map((res: any) => res),
+        map((res) => res),
         catchError(() =>
           throwError(() => new Error('Incorrect email or password!!'))
         )

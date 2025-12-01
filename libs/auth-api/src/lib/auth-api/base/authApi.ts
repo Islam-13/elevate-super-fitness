@@ -5,5 +5,5 @@ import { LoginRes } from '../interfaces/loginRes';
 
 export abstract class AuthApi {
   abstract login(data: LoginData): Observable<LoginRes>;
-  abstract register(data: RegisterData): Observable<any>;
+  abstract register(data: RegisterData): Observable<LoginRes>;
 }

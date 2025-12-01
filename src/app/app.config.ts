@@ -25,7 +25,6 @@ import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { env } from '@env/env';
 import { BASE_URL } from 'libs/auth-api/src/lib/auth-api/base/token';
-import { AuthApi } from 'libs/auth-api/src/lib/auth-api/base/authApi';
 
 export const appConfig: ApplicationConfig = {
   providers: [

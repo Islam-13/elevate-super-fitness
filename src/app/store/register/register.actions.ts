@@ -12,7 +12,7 @@ export const onInfo = createAction(
 );
 
 export const onGender = createAction(
-  '[register] onInfo',
+  '[register] onGender',
   props<{ gender: string }>()
 );
 
