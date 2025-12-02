@@ -1,12 +1,7 @@
 <div
-  class="relative w-[400px] h-[400px] max-w-full rounded-2xl overflow-hidden shadow-lg flex flex-col justify-end text-start border border-[#24242424]"
+  class="relative w-[400px] h-[400px] max-w-full rounded-2xl overflow-hidden 
+  shadow-lg flex flex-col justify-end text-start border border-[#24242424] bg-white"
 >
-  <!-- Background image -->
-  <!-- <img
-    [src]="mealsCategory().strCategoryThumb"
-    alt="Lunch"
-    class="absolute inset-0 w-full h-full object-cover"
-  /> -->
   <img
     [ngSrc]="mealsCategory().strCategoryThumb"
     alt="Lunch"
@@ -22,7 +17,10 @@
       class="absolute inset-0 bg-gradient-to-t from-white/80 via-white/30 to-transparent"
     ></div> -->
     <h3 class="card-title">{{mealsCategory().strCategory}}</h3>
-    <div class="flex flex-row gap-2 items-center cursor-pointer">
+    <button
+      class="flex flex-row gap-2 items-center cursor-pointer"
+      (click)="goToHealthyPage()"
+    >
       <h3 class="font-baloo font-medium text-xl text-primary capitalize">
         read more
       </h3>
@@ -44,6 +42,6 @@
           />
         </svg>
       </div>
-    </div>
+    </button>
   </div>
 </div>

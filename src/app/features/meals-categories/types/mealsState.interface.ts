@@ -1,8 +1,14 @@
 import { MealsCategoryDTO } from '../../../shared/types/mealCategory.interface';
+import { MealDetailDTO } from './meal-details-response.interface';
+import { MealDTO } from './meal-response.interface';
 
 export interface MealsStateInterface {
   isLoading: boolean;
-  data: MealsCategoryDTO[]  ;
+  mealsCategories: MealsCategoryDTO[];
+  meals: MealDTO[] | null;
+  mealDetail: MealDetailDTO | null;
+  selectedCategoryOfMeals: string | null;
+  selectedMeal:string|null;
   error: null;
 }
 
