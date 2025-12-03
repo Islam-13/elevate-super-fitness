@@ -3,7 +3,7 @@
 <nav
   class="absolute top-0 left-0 w-full z-50 min-w-[343px]  mx-auto pt-8 pr-4 pl-4 pb-6 md:pb-[104px]  md:pt-10 md:pl-20 md:pr-20 "
 >
-  <div class="max-w-screen-xl  flex flex-wrap items-center justify-between  ">
+  <div class="flex flex-wrap items-center justify-between  ">
   <a href="/home" class="flex items-center space-x-3 rtl:space-x-reverse">
 
 <svg width="87" height="55" viewBox="0 0 87 55" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -31,15 +31,18 @@
   <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
 
     <div class="hidden lg:flex gap-6 ">
-       <app-primary-btn text="LOGIN" type="filled"></app-primary-btn>
-    <app-primary-btn text="SIGN UP" type="outlined"></app-primary-btn>
+       <app-primary-btn text="{{'navbar.filled-btn' |translate}}" type="filled"></app-primary-btn>
+    <app-primary-btn text="{{'navbar.outlined-btn' |translate}}" type="outlined"></app-primary-btn>
     </div>
    
     
      
      
     
-<p-drawer #drawerRef [(visible)]="visible">
+<p-drawer #drawerRef
+ [(visible)]="visible"
+ [style]="{height:'500px',background:'var(--bg-section)' , border:'none' }"
+ >
     <ng-template #headless>
         <div class="flex flex-col h-[550px]">
             <div class="flex items-center px-3 pt-4 shrink-0">
@@ -81,23 +84,23 @@
                         <ul class="list-none p-0 m-0 overflow-hidden">
                             <li>
                                 <a pRipple class="flex items-center cursor-pointer p-4 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple">
-                                   <a  routerLink="/" routerLinkActive="text-primary" class="block py-2 px-3 text-title text-xl font-bold bg-transparent rounded-sm md:p-0 md:dark:text-title " aria-current="page">Home</a>
+                                   <a  routerLink="/" routerLinkActive="text-primary" class="block py-2 px-3 text-p-text text-xl font-bold bg-transparent rounded-sm md:p-0 md:dark:text-p-text " aria-current="page">{{'navbar.home' | translate}}</a>
                                 </a>
                             </li>
                             <li>
                                 <a pRipple class="flex items-center cursor-pointer p-4 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple">
-                                     <a routerLink="/about" routerLinkActive="text-primary" class="block py-2 px-3 font-bold  text-xl text-title bg-transparent rounded-sm md:p-0 md:dark:text-title">About</a>
+                                     <a routerLink="/about" routerLinkActive="text-primary" class="block py-2 px-3 font-bold  text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text">{{'navbar.about' | translate}}</a>
                                 </a>
                             </li>
                              <li>
                                 <a pRipple class="flex items-center cursor-pointer p-4 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple">
-        <a routerLink="/classes" routerLinkActive="text-primary" class="block py-2 px-3 font-bold text-xl text-title bg-transparent rounded-sm md:p-0 md:dark:text-title">Classes</a>
+        <a routerLink="/classes" routerLinkActive="text-primary" class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text">{{'navbar.classes' | translate}}</a>
                                 </a>
                             </li>
 
                              <li>
                                 <a pRipple class="flex items-center cursor-pointer p-4 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple">
-             <a routerLink="healthy" routerLinkActive="text-primary" class="block py-2 px-3 font-bold text-xl text-title bg-transparent rounded-sm md:p-0 md:dark:text-title">Healthy</a>
+             <a routerLink="healthy" routerLinkActive="text-primary" class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text">{{'navbar.healthy' | translate}}</a>
                                 </a>
                             </li>
                            
@@ -106,19 +109,12 @@
                 </ul>
                
             </div>
-            <!-- <div class="mt-auto">
-                <hr class="mb-4 mx-4 border-t border-0 border-surface" />
-
-                <a pRipple class="m-4 flex items-center cursor-pointer p-4 gap-2 rounded-border text-surface-700 dark:text-surface-100 hover:bg-surface-100 dark:hover:bg-surface-700 duration-150 transition-colors p-ripple">
-                    <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />
-                    <span class="font-bold">Amy Elsner</span>
-                </a>
-            </div> -->
+        
         </div>
     </ng-template>
 </p-drawer>
 
-<div class="flex gap-4 block lg:hidden items-center max-w-[110px]">
+<div class="flex gap-4 lg:hidden items-center max-w-[110px]">
  <a href="/login">
       <img src="./images/user.png" alt="" >
 
@@ -135,16 +131,16 @@
   <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1  " id="navbar-sticky">
     <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
       <li>
-        <a  routerLink="/" routerLinkActive="text-primary" class="block py-2 px-3 text-title text-xl font-bold bg-transparent rounded-sm md:p-0 md:dark:text-title " aria-current="page">Home</a>
+        <a  routerLink="/" routerLinkActive="text-primary" class="block py-2 px-3 text-p-text text-xl font-bold bg-transparent rounded-sm md:p-0 md:dark:text-p-text " aria-current="page">{{'navbar.home' | translate}}</a>
       </li>
       <li>
-        <a routerLink="/about" routerLinkActive="text-primary" class="block py-2 px-3 font-bold  text-xl text-title bg-transparent rounded-sm md:p-0 md:dark:text-title">About</a>
+        <a routerLink="/about" routerLinkActive="text-primary" class="block py-2 px-3 font-bold  text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text">{{'navbar.about' | translate}}</a>
       </li>
       <li>
-        <a routerLink="/classes" routerLinkActive="text-primary" class="block py-2 px-3 font-bold text-xl text-title bg-transparent rounded-sm md:p-0 md:dark:text-title">Classes</a>
+        <a routerLink="/classes" routerLinkActive="text-primary" class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text">{{'navbar.classes' | translate}}</a>
       </li>
       <li>
-        <a routerLink="healthy" routerLinkActive="text-primary" class="block py-2 px-3 font-bold text-xl text-title bg-transparent rounded-sm md:p-0 md:dark:text-title">Healthy</a>
+        <a routerLink="healthy" routerLinkActive="text-primary" class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text">{{'navbar.healthy' | translate}}</a>
       </li>
     </ul>
   </div>
