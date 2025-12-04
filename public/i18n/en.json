@@ -9,5 +9,32 @@
     "SubTitle": "EMPOWERING YOU TO ACHIEVE YOUR FITNESS GOALS",
     "Paragraph": "We believe fitness is more than just a workout—it's a lifestyle. With top-of-the-line facilities, certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.",
     "start": "Get Started"
+  },
+
+ "navbar":{
+     "home":"Home",
+  "about":"About",
+  "classes":"Classes",
+  "healthy":"Healthy",
+   "filled-btn":"LOGIN",
+    "outlined-btn":"SIGN UP"
+  },
+  "hero":{
+    "header-1":"Your body can",
+    "header-2":"stand almost",
+    "header-3":"anything",
+    "details": "It's your mind that needs convincing. Push past your limits, stay committed, and watch as your body transform into a powerhouse of strength and resilience. Start your journey today & become truly capable!",
+    "heroCount-firstCount-num":"1200+",
+    "heroCount-firstCount-text":"Active Members",
+    "heroCount-secondCount-num":"12+",
+    "heroCount-secondCount-text":"Certified Trainers",
+     "heroCount-thirdCount-num":"20+",
+    "heroCount-thirdCount-text":"Year Of Experience",
+    "filled-btn":"Get Started",
+    "outlined-btn":"Explore More"
   }
+
+  
+ 
+  
 }

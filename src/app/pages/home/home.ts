@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Hero } from "../../features/hero/hero";
-import { AboutAs } from "../../shared/components/ui/about-us/aboutAs";
-import { HealthyNutritions } from "../../features/meals-categories/components/healthyNutritions";
+import { AboutAs } from '../../shared/components/ui/about-us/about-as';
+import { HealthyNutritions } from '../../features/meals-categories/components/healthy-nutritions';
 import { Workouts } from "../../features/workouts/workouts";
 
 @Component({

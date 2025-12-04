@@ -12,10 +12,11 @@ import { Ripple } from 'primeng/ripple';
 import { AvatarModule } from 'primeng/avatar';
 import { StyleClass } from 'primeng/styleclass';
 import { Drawer } from 'primeng/drawer';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive, PrimaryBtn, Home, Hero,CommonModule,DrawerModule, ButtonModule, Ripple, AvatarModule, StyleClass],
+  imports: [RouterLink, RouterLinkActive, PrimaryBtn, Home, Hero,CommonModule,DrawerModule, ButtonModule, Ripple, AvatarModule, StyleClass, TranslateModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
