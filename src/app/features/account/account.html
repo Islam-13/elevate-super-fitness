@@ -8,11 +8,13 @@
     <div class="flex flex-col md:flex-row md:gap-20 gap-10">
       <!-- Goal  -->
       <div class="flex flex-col items-center text-p-text font-baloo">
-        <main class="font-extrabold text-3xl capitalize">your Goal</main>
+        <main class="font-extrabold text-3xl capitalize">
+          {{'account.yourGoal'|translate}}
+        </main>
         <button
           class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
         >
-          tAP TO CHANGE
+          {{'account.tAPTOCHANGE'|translate}}
         </button>
         <div class="bg-container">
           <h6 class="font-bold font-baloo text-base">lose weight</h6>
@@ -33,11 +35,13 @@
 
       <!-- level -->
       <div class="flex flex-col items-center text-p-text font-baloo">
-        <main class="font-extrabold text-3xl capitalize">level</main>
+        <main class="font-extrabold text-3xl capitalize">
+          {{'account.level'|translate}}
+        </main>
         <button
           class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
         >
-          tAP TO CHANGE
+          {{'account.tAPTOCHANGE'|translate}}
         </button>
         <div class="bg-container">
           <h6 class="font-bold font-baloo text-base">lose weight</h6>
@@ -57,11 +61,13 @@
       </div>
       <!-- weight -->
       <div class="flex flex-col items-center text-p-text font-baloo">
-        <main class="font-extrabold text-3xl capitalize">weight</main>
+        <main class="font-extrabold text-3xl capitalize">
+          {{'account.weight'|translate}}
+        </main>
         <button
           class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
         >
-          tAP TO CHANGE
+          {{'account.tAPTOCHANGE'|translate}}
         </button>
         <div class="bg-container">
           <h6 class="font-bold font-baloo text-base">lose weight</h6>
@@ -84,7 +90,7 @@
     <!--Settings  -->
     <div class="flex flex-col md:flex-row gap-10">
       <!-- Change Password -->
-      <button class="setting-box" (click)=" changePassword() ">
+      <button class="setting-box" (click)="openChangePasswordModal() ">
         <svg
           width="24"
           height="24"
@@ -99,7 +105,7 @@
         </svg>
 
         <main class="font-semibold text-lg text-p-text font-baloo">
-          Change Password
+          {{'account.ChangePassword'|translate}}
         </main>
       </button>
       <!-- change language  -->
@@ -144,10 +150,14 @@
         </svg>
 
         <main class="font-semibold text-lg text-p-text font-baloo">
-          Select Language
+          {{'account.SelectLanguage'|translate}}
         </main>
         <span class="font-semibold text-lg text-p-text font-baloo"
-          >( <span class="text-primary pt-0">English</span> )</span
+          >(
+          <span class="text-primary pt-0">
+            {{'account.English'|translate}}</span
+          >
+          )</span
         >
       </button>
       <!-- mood  -->
@@ -221,8 +231,9 @@
           </g>
         </svg>
 
-        <main class="font-semibold text-lg text-p-text font-baloo  ">
-          Mood ( <span class="text-primary">{{currentTheme()}}</span> )
+        <main class="font-semibold text-lg text-p-text font-baloo">
+          {{'account.Mood'|translate}} (
+          <span class="text-primary">{{currentTheme()}}</span> )
         </main>
         @if(currentTheme()==='dark'){
         <svg
@@ -420,7 +431,9 @@
         />
       </svg>
 
-      <main class="font-semibold text-lg text-primary font-baloo">Logout</main>
+      <main class="font-semibold text-lg text-primary font-baloo">
+        {{'account.logout'|translate}}
+      </main>
     </button>
     <!--  -->
   </div>

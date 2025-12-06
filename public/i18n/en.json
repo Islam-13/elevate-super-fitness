@@ -8,6 +8,20 @@
     "Title": "About us",
     "SubTitle": "EMPOWERING YOU TO ACHIEVE YOUR FITNESS GOALS",
     "Paragraph": "We believe fitness is more than just a workout—it's a lifestyle. With top-of-the-line facilities, certified trainers, and a supportive community, we're here to inspire and guide you every step of the way.",
-    "start": "Get Started"
+    "start": "Get Started",
+    "YOURFITNESS":"YOUR FITNESS",
+    "GOALS":"GOALS"
+  },
+  "account":{
+    "English":"English",
+    "yourGoal":"your Goal",
+    "level":"level",
+    "weight":"weight",
+    "tAPTOCHANGE":"tAP TO CHANGE",
+    "ChangePassword":"Change Password",
+    "SelectLanguage":"Select Language",
+    "logout":"Logout",
+    "Mood":"mood"
+
   }
 }
