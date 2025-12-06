@@ -18,7 +18,13 @@
       fill
       class="rounded-bl-2xl rounded-t-2xl"
     />
-    }@else {
+    } @else {
+
+    <div
+      class="w-full h-full font-baloo capitalize text-title-text font-medium text-5xl text-center flex justify-center items-center"
+    >
+      No preview Available
+    </div>
     <!-- <video controls class="h-[536px] w-full rounded-lg z-30">
       <source
         src="https://www.youtube.com/watch?v=xvPR2Tfw5k0"
@@ -33,11 +39,11 @@
       <h3 class="font-medium text-5xl text-center">
         {{mealDetails.mealDetails.strMeal}}
       </h3>
-      <p class="font-normal text-lg pe-49 line-clamp-3">
+      <p class="font-normal text-lg pe-49 line-clamp-3 mb-8">
         {{mealDetails.mealDetails.strInstructions}}
       </p>
-      <!--  -->
-      <div class="flex flex-row mb-8 justify-between">
+      <!-- Not getting from API  -->
+      <!-- <div class="flex flex-row mb-8 justify-between">
         <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
           <span>100 k</span>
           <span class="text-primary font-bold text-base">Energy</span>
@@ -54,12 +60,12 @@
           <span>20 g</span>
           <span class="text-primary font-bold text-base">Fat</span>
         </div>
-      </div>
+      </div> -->
     </div>
     <!-- background overlay -->
     <!-- <div class="backdrop-blur-[55.3px] absolute inset-0 z-30"></div> -->
   </div>
-
+  @if(mealDetails.mealDetails.strIngredient1){
   <!--ingredients  -->
   <h3 class="mt-6 mb-4 font-medium font-baloo text-3xl text-p-text">
     ingredients
@@ -72,25 +78,25 @@
           class="flex flex-row items-center justify-between border-bottom font-baloo"
         >
           <main class="font-semibold text-p-text text-base">
-            {{mealDetails.mealDetails.strIngredient1}}
+            {{mealDetails.mealDetails.strIngredient1??''}}
           </main>
-          <span class="text-primary text-base">250g</span>
+          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         <div
           class="flex flex-row items-center justify-between border-bottom font-baloo"
         >
           <main class="font-semibold text-p-text text-base">
-            {{mealDetails.mealDetails.strIngredient2}}
+            {{mealDetails.mealDetails.strIngredient2??''}}
           </main>
-          <span class="text-primary text-base">250g</span>
+          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         <div
           class="flex flex-row items-center justify-between border-bottom font-baloo"
         >
           <main class="font-semibold text-p-text text-base">
-            {{mealDetails.mealDetails.strIngredient3}}
+            {{mealDetails.mealDetails.strIngredient3??''}}
           </main>
-          <span class="text-primary text-base">250g</span>
+          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
       </div>
       <div class="flex-1">
@@ -98,27 +104,27 @@
           class="flex flex-row items-center justify-between border-bottom font-baloo"
         >
           <main class="font-semibold text-p-text text-base">
-            {{mealDetails.mealDetails.strIngredient4}}
+            {{mealDetails.mealDetails.strIngredient4??''}}
           </main>
-          <span class="text-primary text-base">250g</span>
+          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         <div
           class="flex flex-row items-center justify-between border-bottom font-baloo"
         >
           <main class="font-semibold text-p-text text-base">
-            {{mealDetails.mealDetails.strIngredient5}}
+            {{mealDetails.mealDetails.strIngredient5??''}}
           </main>
-          <span class="text-primary text-base">250g</span>
+          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         <div
           class="flex flex-row items-center justify-between border-bottom font-baloo"
         >
           <main class="font-semibold text-p-text text-base">
-            {{mealDetails.mealDetails.strIngredient6}}
+            {{mealDetails.mealDetails.strIngredient6 ??''}}
           </main>
         </div>
       </div>
     </div>
   </div>
-  }
+  } }
 </ng-container>
