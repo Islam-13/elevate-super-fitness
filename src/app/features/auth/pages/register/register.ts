@@ -1,14 +1,7 @@
-import {
-  Component,
-  inject,
-  OnInit,
-  TemplateRef,
-  viewChild,
-} from '@angular/core';
-
+import { Component, OnInit, TemplateRef, viewChild } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
+
 import { Info } from './step-0-info/info';
-import { Store } from '@ngrx/store';
 import { Gender } from './step-1-gender/gender';
 import { Age } from './step-2-age/age';
 import { Weight } from './step-3-weight/weight';
@@ -33,16 +26,8 @@ export class Register implements OnInit {
   goal = viewChild.required<TemplateRef<any>>('goal');
   level = viewChild.required<TemplateRef<any>>('level');
 
-  private _store = inject(Store);
-
   ngOnInit(): void {
     this.currentStep = this.info();
-
-    this._store.select('register').subscribe({
-      next: (state) => {
-        console.log(state);
-      },
-    });
   }
 
   onInfo() {

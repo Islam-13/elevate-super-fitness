@@ -1,13 +1,16 @@
-import { Component, input } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { Knob } from 'primeng/knob';
 
 @Component({
   selector: 'app-register-header',
-  imports: [],
+  imports: [Knob, FormsModule],
   templateUrl: './register-header.html',
   styleUrl: './register-header.scss',
 })
 export class RegisterHeader {
-  stepNum = input.required<number>();
+  @Input({ required: true }) stepNum!: number;
   heading = input.required<string>();
   description = input.required<string>();
 }
