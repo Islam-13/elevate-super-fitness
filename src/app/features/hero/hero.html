@@ -6,42 +6,40 @@
   <div class="w-full ">
 
     
-     <div class="overlay   ">
-   <div class="relative z-10    ">
+     <div class="overlay bg-bg-overlay ">
+   <div class="relative z-10  ">
     <div class="hero-details  flex flex-col lg:flex-row   pt-[110px] pr-4 pl-4  md:pt-[200px] md:pr-20 md:pl-20   gap-4    ">
 
        <div class="hero-content flex-col  order-1 min-w-[343px]  md:max-w-[695.3756713867188px] ">
         
-        <p class="uppercase font-baloo font-bold pb-4 pr-[18px] text-[24px]  md:text-[64px]">Your body can <span class="text-primary">stand almost</span> anything</p>
+        <p class="uppercase text-p-text font-baloo font-bold pb-4 pr-[18px] text-[24px]  md:text-[64px]">{{'hero.header-1' | translate}} <span class="text-primary">{{'hero.header-2' | translate}}</span> {{'hero.header-3' | translate}}</p>
         
         <div class="paragraph flex gap-2">
-          <div class="border-[2px] max-h-[214px] md:max-h-[96.37999725341797px]  border max-w-[4px] text-primary rounded-[10px]"></div>
+          <div class="border-[2px] max-h-[214px] md:max-h-[96.37999725341797px]   max-w-1 text-primary rounded-[10px]"></div>
           
-          <p class="w-[559px] font-rubik pt-[5px] pr-[57px]">
-          It's your mind that needs convincing. Push past your limits, stay 
-          committed, and watch as your body transform into powerhouse of 
-          strength and resilience. Start your journey today & truly capable of!
+          <p class="w-[559px] font-rubik pt-[5px] pr-[57px] text-p-text">
+         {{'hero.details' | translate}}
         </p>
         </div>
 
-        <div class="hero-count pt-[64px] pb-[64px] flex flex-col md:flex-row gap-[32px]">
+        <div class="hero-count pt-16 pb-16 flex flex-col md:flex-row gap-8 text-p-text">
 
           <div class="first-count flex-col">
-            <p class="font-bold text-[22.3px]">1200+</p>
-            <p class="font-rubik text-[18px]">Active Members</p>
+            <p class="font-bold text-[22.3px]">{{'hero.heroCount-firstCount-num' | translate}}</p>
+            <p class="font-rubik text-[18px]">{{'hero.heroCount-firstCount-text' | translate}}</p>
 
           </div>
 
            <div class="second-count flex-col">
-            <p class="font-bold text-[22.3px]">12+</p>
-            <p class="font-rubik text-[18px]">Certified Trainers</p>
+            <p class="font-bold text-[22.3px]">{{'hero.heroCount-secondCount-num' | translate}}</p>
+            <p class="font-rubik text-[18px]">{{'hero.heroCount-secondCount-text' | translate}}</p>
 
           </div>
 
 
            <div class="third-count flex-col">
-            <p class="font-bold text-[22.3px]">20+</p>
-            <p class="font-rubik text-[18px]">Year Of Experience</p>
+            <p class="font-bold text-[22.3px]">{{'hero.heroCount-thirdCount-num' | translate}}</p>
+            <p class="font-rubik text-[18px]">{{'hero.heroCount-thirdCount-text' | translate}}</p>
 
           </div>
 
@@ -49,12 +47,12 @@
 
         <div class="hero-btn flex max-w-[342.9700012207031px] md:max-w-[620px] gap-[68px]">
           <app-primary-btn
-          text="Get Started"
+          text="{{'hero.filled-btn' | translate}}"
           type="filled"
           ></app-primary-btn>
 
            <app-primary-btn
-          text="Explore More"
+          text="{{'hero.outlined-btn' | translate}}"
           type="outlined"
           ></app-primary-btn>
 
