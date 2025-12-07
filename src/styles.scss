@@ -96,6 +96,15 @@ html {
   .card-title {
     @apply font-baloo font-bold uppercase text-xl tracking-[2.24px] text-title-text mb-2;
   }
+  .border-bottom {
+    @apply border-b border-[#2D2D2D] mt-1;
+  }
+  .setting-box {
+    @apply flex flex-col items-center justify-center  border border-p-text p-8 rounded-2xl w-[209px] h-[168px] cursor-pointer;
+  }
+  .bg-container {
+    @apply flex items-center gap-15 border border-p-text bg-primary backdrop-blur-sm rounded-3xl py-2 px-4;
+  }
 }
 .workouts {
   font-family: 'Baloo Thambi 2', sans-serif;
@@ -117,4 +126,13 @@ html {
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.hide-scroll {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }

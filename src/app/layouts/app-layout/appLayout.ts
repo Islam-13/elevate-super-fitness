@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Home } from "../../pages/home/home";
-import { About } from "../../pages/about/about";
+import { Navbar } from "../../shared/components/ui/navbar/navbar";
+import { RouterModule } from "@angular/router";
 
 @Component({
   selector: 'app-app-layout',
-  imports: [Home, About],
+  imports: [Home, Navbar, RouterModule],
   templateUrl: './appLayout.html',
   styleUrl: './appLayout.scss',
 })
