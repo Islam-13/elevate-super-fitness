@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -8,5 +8,12 @@ import { Component, Input } from '@angular/core';
   styleUrl: './card.scss',
 })
 export class Card {
-  @Input() item!: { id: string; name: string; image?: string | null };
+  @Input() id!: string;
+  @Input() title!: string;
+  @Input() image!: string;
+  @Output() cardClick = new EventEmitter<string>();
+  
+  handleClick() {
+    this.cardClick.emit(this.id);
+  }
 }

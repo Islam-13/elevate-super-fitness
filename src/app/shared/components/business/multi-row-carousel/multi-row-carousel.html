@@ -1,0 +1,13 @@
+<div class="container">
+    <h1 class="mt-5" style="text-align:center;">Partners logos</h1>
+    <app-multi-row-carousel [options]="options">
+    <ng-template
+    carouselSlide
+      *ngFor="let group of partnerLogosCarousel; let i = index">
+      <div class="slide" *ngFor="let logo of group">
+        <div class="logo">{{ logo.name }}</div>
+        <div>slide {{ i + 1 }}</div>
+    </div>
+    </ng-template>
+    </app-multi-row-carousel>
+</div>

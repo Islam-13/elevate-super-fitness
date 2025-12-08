@@ -9,7 +9,7 @@ import { Muscle } from '../../shared/interfaces/all-muscles';
 
 @Component({
   selector: 'app-workouts',
-  imports: [Taps, SectionTitle, TranslateModule, Caursoul,],
+  imports: [Taps, SectionTitle, TranslateModule, Caursoul, ],
   templateUrl: './workouts.html',
   styleUrl: './workouts.scss',
 })
@@ -44,4 +44,11 @@ export class Workouts implements OnInit{
       this.muscles = data;
     });
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
-  }}
+
+  }
+onMuscleClicked(id: string) {
+  console.log("Muscle clicked => ", id);
+  // هنا هتحطي navigation للصفحة
+  // this.router.navigate(['/muscle', id]);
+}
+}

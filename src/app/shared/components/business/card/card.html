@@ -1,12 +1,13 @@
-  <div class="max-w-[403px] h-[403px] rounded-[1.125rem] bg-bg-workouts m-2 bg-card">
-    <img
-  [src]="item?.image ? item.image : '/images/img.png'"
-  [alt]="item?.name || 'static image'"
-  class="card-image"/>
+<div class="max-w-[403px] h-[403px] rounded-[1.125rem] bg-bg-workouts m-2 bg-card">
+  <img
+    [src]="image ? image : '/images/img.png'"
+    [alt]="title || 'static image'"
+    class="card-image"
+  />
   <h3 class="font-baloo font-bold pl-2.5 text-[1.375rem] leading-[2.1rem] tracking-[.14rem] text-title-text uppercase text-left">
-    {{ item?.name || '' }}
+    {{ title || '' }}
   </h3>
-  <div class="flex flex-row gap-2 items-center cursor-pointer ml-2">
+    <div class="flex flex-row gap-2 items-center cursor-pointer ml-2">
     <h3 class="font-baloo font-medium text-xl text-primary capitalize">
       read more
     </h3>
