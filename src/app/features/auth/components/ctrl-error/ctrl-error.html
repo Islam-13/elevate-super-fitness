@@ -1,6 +1,4 @@
-@if (!inputCtrl() || !inputCtrl().touched || !inputCtrl().errors) { }
-
-@else {
+@if (inputCtrl().errors && inputCtrl().touched) { 
 
     @if (inputCtrl().errors['required']) {
       <p-message severity="error" variant="simple" styleClass="mt-1">
