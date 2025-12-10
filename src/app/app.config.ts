@@ -11,6 +11,7 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
   provideHttpClient,
   withFetch,
@@ -31,12 +32,17 @@ import {
   healthyReducer,
 } from './features/meals-categories/store/reducers';
 
+import { env } from '@env/env';
+import { BASE_URL } from 'libs/auth-api/src/lib/auth-api/base/token';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAppInitializer(() => appInit()),
+    { provide: BASE_URL, useValue: env.baseURL },
     provideClientHydration(withEventReplay()),
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
+    provideAnimationsAsync(),
     provideRouter(appRoutes),
     provideHttpClient(),
     provideTranslateService({
@@ -67,6 +73,5 @@ export const appConfig: ApplicationConfig = {
       trace: true,
     }),
     provideHttpClient(withFetch(), withInterceptors([])),
-    
   ],
 };

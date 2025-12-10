@@ -1,0 +1,31 @@
+<div>
+  <ng-container [ngTemplateOutlet]="currentStep"></ng-container>
+
+  <ng-template #info>
+    <app-info (steps)="onInfo()" />
+  </ng-template>
+
+  <ng-template #gender>
+    <app-gender (steps)="onGender()" />
+  </ng-template>
+
+  <ng-template #age>
+    <app-age (steps)="onAge()" />
+  </ng-template>
+
+  <ng-template #weight>
+    <app-weight (steps)="onWeight()" />
+  </ng-template>
+
+  <ng-template #height>
+    <app-height (steps)="onHeight()" />
+  </ng-template>
+
+  <ng-template #goal>
+    <app-goal (steps)="onGoal()" />
+  </ng-template>
+
+  <ng-template #level>
+    <app-level (steps)="onLevel()" />
+  </ng-template>
+</div>

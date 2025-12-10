@@ -1,0 +1,29 @@
+import { Component, inject, output, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import { onGender } from '@store/register/register.actions';
+import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
+import { RegisterHeader } from '../../../components/register-header/register-header';
+
+@Component({
+  selector: 'app-gender',
+  imports: [RegisterHeader, SubmitBtn, FormsModule],
+  templateUrl: './gender.html',
+  styleUrl: './gender.scss',
+})
+export class Gender {
+  steps = output();
+
+  gender = signal<string>('');
+
+  private _store = inject(Store);
+
+  onSubmit() {
+    if (!this.gender()) return;
+
+    this._store.dispatch(onGender({ gender: this.gender() }));
+
+    this.steps.emit();
+  }
+}

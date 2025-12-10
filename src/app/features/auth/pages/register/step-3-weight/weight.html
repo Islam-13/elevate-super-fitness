@@ -1,0 +1,17 @@
+<div>
+  <app-register-header
+    [stepNum]="3"
+    heading="what is your weight ?"
+    description="this helps us create Your personalized plan"
+  />
+
+  <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmit()">
+    <app-number-picker
+      [numbersRange]="numbersRange"
+      (payload)="onSelect($event)"
+      unit="Kg"
+    />
+
+    <app-submit-btn label="Next" [disable]="!weight()" />
+  </form>
+</div>
