@@ -24,6 +24,7 @@
 [data-theme='light'] {
   --primay-color: #ff4100;
   --bg-section: rgba(255, 255, 255, 0.95);
+  --bg-overlay: rgba(255, 255, 255, 0.6);
   --title-text: #242424;
   --p-text: #242424;
   --bg-card: #c7c6c3;
@@ -34,6 +35,8 @@
 [data-theme='dark'] {
   --primay-color: #ff4100;
   --bg-section: #242424f2;
+  --bg-overlay: #242424f2;
+
   --title-text: #f3f3f4;
   --p-text: #f3f3f4;
   --bg-card: #212121;
@@ -47,6 +50,7 @@
   --font-baloo: 'Baloo Thambi 2';
   --font-inter: 'Inter';
   --color-bg-section: var(--bg-section);
+  --color-bg-overlay: var(--bg-overlay);
   --color-primary: var(--primay-color);
   --color-title-text: var(--title-text);
   --color-p-text: var(--p-text);
@@ -92,6 +96,15 @@ html {
   .card-title {
     @apply font-baloo font-bold uppercase text-xl tracking-[2.24px] text-title-text mb-2;
   }
+  .border-bottom {
+    @apply border-b border-[#2D2D2D] mt-1;
+  }
+  .setting-box {
+    @apply flex flex-col items-center justify-center  border border-p-text p-8 rounded-2xl w-[209px] h-[168px] cursor-pointer;
+  }
+  .bg-container {
+    @apply flex items-center gap-15 border border-p-text bg-primary backdrop-blur-sm rounded-3xl py-2 px-4;
+  }
 }
 .workouts {
   font-family: 'Baloo Thambi 2', sans-serif;
@@ -113,4 +126,13 @@ html {
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.hide-scroll {
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }

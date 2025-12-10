@@ -15,7 +15,7 @@ import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.inter
 
 @Component({
   selector: 'app-meals-categories',
-  imports: [CarouselModule, MealsCategory, AsyncPipe, LoadingComponent],
+  imports: [CarouselModule, MealsCategory, AsyncPipe, LoadingComponent, ],
   templateUrl: './meals-categories.html',
   styleUrl: './meals-categories.scss',
 })
@@ -30,6 +30,7 @@ export class MealsCategories implements OnInit {
       isLoading: this.store.select(selectIsLoading),
     });
     this.store.dispatch(mealsActions.getMealsGroups());
+    
   }
 
   getVisibleCategories(mealsCategories: MealsCategoryDTO[]) {

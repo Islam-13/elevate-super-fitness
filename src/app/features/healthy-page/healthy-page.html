@@ -1,4 +1,4 @@
-<section class="text-center bg-bg-workouts pb-24">
+<section class="text-center bg-bg-workouts pt-30">
     <!-- Section Title -->
     <app-section-title
     [title]="'HEALTHY_PAGE.TITLE' | translate"
@@ -16,10 +16,16 @@
     <!-- Tabs -->
     <app-taps
     [data]="mealsGroupsSignal()"
+    [module]="'healthy'"
     [selected]="selectedGroupIdSignal()"
     (tabClicked)="getAllMealsInCard($event)">
 </app-taps>
 
-
+    <!-- Caursoul -->
+    <div class="main-padding">
+    <app-caursoul [data]="data">
+    </app-caursoul> 
+    </div>
 </div>
 </section>
+<app-banner></app-banner>

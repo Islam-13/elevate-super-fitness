@@ -4,50 +4,58 @@ import { Meal } from '../../shared/types/meals-by-categories';
 import { SectionTitle } from "../../shared/components/ui/section-title/sectionTitle";
 import { Taps } from "../../shared/components/business/taps/taps";
 import { TranslateModule } from '@ngx-translate/core';
-import { Card } from "../../shared/components/business/card/card";
+import { Banner } from "../../shared/components/ui/banner/banner";
+import { Caursoul } from "../../shared/components/business/caursoul/caursoul";
+import { GlobalData } from '../../shared/interfaces/global-data/global-data';
+import { MealsCategoryDTO } from '../../shared/types/mealCategory.interface';
 
 @Component({
   selector: 'app-healthy-page',
-  imports: [SectionTitle, Taps, TranslateModule, Card],
+  imports: [SectionTitle, Taps, TranslateModule, Banner, Caursoul],
   templateUrl: './healthy-page.html',
   styleUrl: './healthy-page.scss',
 })
 export class HealthyPage implements OnInit {
   private _mealsCategories = inject(MealsCategories);
   private _destroyRef = inject(DestroyRef);
+  data: GlobalData[] = [];
   meals: Meal[] = [];
-  mealsGroupsSignal = signal<{ id: string; label: string; raw?: any }[]>([]);
+  mealsGroupsSignal = signal<MealsCategoryDTO[]>([]);
   selectedGroupIdSignal = signal<string | null>(null);
-
-  ngOnInit() {
+  categories: MealsCategoryDTO[] = [];
+  ngOnInit(): void {
     this.getAllCategories();
   }
 
   getAllCategories() {
     const subscription = this._mealsCategories.getAllCategories().subscribe(res => {
     const categories = res.categories ?? [];
-    const mapped = categories.map((c: any) => ({
-        id: String(c.strCategory ?? ''),    
-        label: String(c.strCategory ?? ''),
-        raw: c
-      }));
-
-      this.mealsGroupsSignal.set(mapped);
-      if (mapped.length > 0) {
-        const firstId = mapped[0].id;
+    this.categories = categories;
+    this.mealsGroupsSignal.set(categories);
+      if (categories.length > 0) {
+        const firstId = categories[0].idCategory;
         this.selectedGroupIdSignal.set(firstId);
         this.getAllMealsInCard(firstId);
       }
     });
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
-  getAllMealsInCard(categoryName: string) {
-    this.selectedGroupIdSignal.set(categoryName);
-    const subscription = this._mealsCategories.getAllMealsInCard(categoryName)
-      .subscribe(meals => {
-        this.meals = meals ?? [];
-        console.log('dataaaaa', categoryName, this.meals )
 
+  getAllMealsInCard(categoryId: string) {
+    this.selectedGroupIdSignal.set(categoryId);
+    const category = this.categories.find(
+      c => c.idCategory === categoryId
+    );
+    if (!category) return;
+    const subscription = this._mealsCategories
+      .getMealsByCategory(category.strCategory)
+      .subscribe(res => {
+        this.meals = res.meals ?? [];
+        this.data = this.meals.map(meal => ({
+          id: meal.idMeal,
+          label: meal.strMeal,
+          image: meal.strMealThumb,
+        }));
       });
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }

@@ -5,6 +5,7 @@ import { TranslateModule, } from '@ngx-translate/core';
 import { Caursoul } from "../../shared/components/business/caursoul/caursoul";
 import { MusclesServices } from '../../shared/services/muscles/muscles-services';
 import { Muscle } from '../../shared/interfaces/all-muscles';
+import { GlobalData } from '../../shared/interfaces/global-data/global-data';
 
 
 @Component({
@@ -14,6 +15,7 @@ import { Muscle } from '../../shared/interfaces/all-muscles';
   styleUrl: './workouts.scss',
 })
 export class Workouts implements OnInit{
+  data:GlobalData[] = [];
   private _musclesServices = inject(MusclesServices)
   private _destroyRef = inject(DestroyRef);
   muscles: Muscle[] = [];
@@ -28,7 +30,7 @@ export class Workouts implements OnInit{
 
   loadMuscleGroups() {
     const subscription = this._musclesServices.getAllMsclesByGroups().subscribe(groups => {
-      this.muscleGroupsSignal.set(groups.slice(0, 7));
+      this.muscleGroupsSignal.set(groups);
       if (groups.length > 0) {
         const firstId = groups[0]._id;
         this.selectedGroupIdSignal.set(firstId);
@@ -42,13 +44,12 @@ export class Workouts implements OnInit{
     this.selectedGroupIdSignal.set(groupId);
     const subscription = this._musclesServices.getAllMuscles(groupId).subscribe(data => {
       this.muscles = data;
+      this.data = this.muscles.map(muscle=>({
+        id: muscle._id,
+        label: muscle.name,
+        image: muscle.image
+      }))
     });
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
-
   }
-onMuscleClicked(id: string) {
-  console.log("Muscle clicked => ", id);
-  // هنا هتحطي navigation للصفحة
-  // this.router.navigate(['/muscle', id]);
-}
 }

@@ -1,4 +1,4 @@
-<section class="text-center main-sec">
+<section class="text-center bg-bg-workouts pt-30">
     <!-- Section Title -->
     <app-section-title
     [title]="'WORKOUTS_PAGE.TITLE' | translate"
@@ -21,6 +21,13 @@
     [selected]="selectedGroupIdSignal()"
     (tabClicked)="onGroupSelected($event)">
 </app-taps>
+
+    <!-- Caursoul -->
+    <div class="main-padding">
+    <app-caursoul [data]="data">
+    </app-caursoul> 
     </div>
 
+    </div>
 </section>
+<app-banner></app-banner>

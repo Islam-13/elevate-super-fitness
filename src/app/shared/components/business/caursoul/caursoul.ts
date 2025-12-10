@@ -1,8 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Muscle } from '../../../interfaces/all-muscles';
+import { Component, Input, OnChanges, SimpleChanges, } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { Card } from "../card/card";
-import { MealsByCategories } from '../../../types/meals-by-categories';
+import { GlobalData } from '../../../interfaces/global-data/global-data';
 
 @Component({
   selector: 'app-caursoul',
@@ -11,11 +10,8 @@ import { MealsByCategories } from '../../../types/meals-by-categories';
   templateUrl: './caursoul.html',
   styleUrl: './caursoul.scss',
 })
-export class Caursoul implements OnChanges {
-  @Input() muscles: Muscle[] = [];
-  @Input() meals: MealsByCategories[] = [];
-
-
+export class Caursoul implements OnChanges  {
+  @Input() data: GlobalData[] = [];
   responsiveOptions = [
     { breakpoint: '1400px', numVisible: 3, numScroll: 3 },
     { breakpoint: '1199px', numVisible: 3, numScroll: 3 },
@@ -24,16 +20,18 @@ export class Caursoul implements OnChanges {
   ];
 
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['muscles'] && (!this.muscles || this.muscles.length === 0)) {
-      this.muscles = [{
-        _id: 'placeholder',
+  goToDetails(data) {
+  console.log("Muscle clicked => ", data);
+}
+ngOnChanges(changes: SimpleChanges) {
+    if (changes['muscles'] && (!this.data || this.data.length === 0)) {
+      this.data = [{
+        id: 'placeholder',
         name: '',
-        image: null
+        image: null,
+        label: ''
       }];
     }
   }
-  goToDetails(id: string) {
-  console.log("Muscle clicked => ", id);
-}
+
 }

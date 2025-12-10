@@ -1,15 +1,13 @@
 <p-carousel
-    [value]="muscles"
+    [value]="data"
     [numVisible]="3"
     [numScroll]="3"
     [responsiveOptions]="responsiveOptions"
     class="w-full">
-    <ng-template pTemplate="item" let-muscle>
+    <ng-template pTemplate="item" let-data>
         <app-card
-            [id]="muscle._id"
-            [title]="muscle.name"
-            [image]="muscle.image"
-            (cardClick)="goToDetails($event)">
+            [data]="data"
+            (cardClick)="goToDetails(data)">
         </app-card>
         </ng-template>
 </p-carousel>

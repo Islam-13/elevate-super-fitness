@@ -19,7 +19,7 @@ export class Taps {
   get selected() {
     return this._selected;
   }
-  private _data: { id: string; label: string }[] = [];
+  @Input() _data: { id: string; label: string }[] = [];
   @Input() set data(value: any[]) {
     if (!value) {
       this._data = [];
