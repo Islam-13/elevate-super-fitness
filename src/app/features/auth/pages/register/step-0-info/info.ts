@@ -13,10 +13,11 @@ import { env } from '@env/env';
 import { equalValues } from '@shared/utils/validateRePassword';
 import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { CtrlError } from '../../../components/ctrl-error/ctrl-error';
+import { BaseInput } from '../../../components/base-input/base-input';
 
 @Component({
   selector: 'app-info',
-  imports: [SubmitBtn, CtrlError, ReactiveFormsModule, RouterLink],
+  imports: [SubmitBtn, CtrlError, ReactiveFormsModule, RouterLink, BaseInput],
   templateUrl: './info.html',
   styleUrl: './info.scss',
 })

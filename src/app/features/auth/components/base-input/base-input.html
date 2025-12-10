@@ -1,0 +1,8 @@
+<input
+  class="border border-[#D3D3D3] rounded-3xl py-2 ps-10 w-full outline-none"
+  [type]="type()"
+  [placeholder]="placeholder()"
+  (input)="onChange()"
+  (blur)="control().markAsTouched()"
+  [(ngModel)]="value"
+/>
