@@ -1,5 +1,13 @@
-import { Component, OnInit, TemplateRef, viewChild } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  signal,
+  TemplateRef,
+  viewChild,
+} from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
+
+import { MessageModule } from 'primeng/message';
 
 import { Info } from './step-0-info/info';
 import { Gender } from './step-1-gender/gender';
@@ -11,11 +19,22 @@ import { Level } from './step-6-level/level';
 
 @Component({
   selector: 'app-register',
-  imports: [NgTemplateOutlet, Info, Gender, Age, Weight, Height, Goal, Level],
+  imports: [
+    NgTemplateOutlet,
+    MessageModule,
+    Info,
+    Gender,
+    Age,
+    Weight,
+    Height,
+    Goal,
+    Level,
+  ],
   templateUrl: './register.html',
   styleUrl: './register.scss',
 })
 export class Register implements OnInit {
+  error = signal<string>('');
   currentStep!: TemplateRef<any>;
 
   info = viewChild.required<TemplateRef<any>>('info');
@@ -32,6 +51,7 @@ export class Register implements OnInit {
 
   onInfo() {
     this.currentStep = this.gender();
+    this.error.set('');
   }
 
   onGender() {
@@ -54,7 +74,9 @@ export class Register implements OnInit {
     this.currentStep = this.level();
   }
 
-  onLevel() {
-    this.currentStep = this.gender();
+  onLevel(err: string) {
+    this.currentStep = this.info();
+
+    this.error.set(err);
   }
 }

@@ -1,34 +1,41 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  output,
+  signal,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
-import { RegisterHeader } from '../../../components/register-header/register-header';
-import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
-import { OptionPicker } from '../../../components/option-picker/option-picker';
+import { AuthApiService } from 'libs/auth-api/src/lib/auth-api/auth-api.service';
 import { Store } from '@ngrx/store';
 import { onLevel } from '@store/register/register.actions';
 import { RegisterData } from '@shared/types/auth-register';
-import { AuthApiService } from 'libs/auth-api/src/lib/auth-api/auth-api.service';
-import { Router } from '@angular/router';
-import { MessageModule } from 'primeng/message';
+import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
+import { OptionPicker } from '../../../components/option-picker/option-picker';
+import { RegisterHeader } from '../../../components/register-header/register-header';
 
 @Component({
   selector: 'app-level',
-  imports: [
-    RegisterHeader,
-    SubmitBtn,
-    FormsModule,
-    OptionPicker,
-    MessageModule,
-  ],
+  imports: [RegisterHeader, SubmitBtn, FormsModule, OptionPicker],
   templateUrl: './level.html',
   styleUrl: './level.scss',
 })
 export class Level implements OnInit {
-  options = ['Rookie', 'Beginner', 'Intermediate', 'Advance', 'True Beast'];
+  options = [
+    { label: 'Rookie', value: 'level1' },
+    { label: 'Beginner', value: 'level2' },
+    { label: 'Intermediate', value: 'level3' },
+    { label: 'Advance', value: 'level4' },
+    { label: 'True Beast', value: 'level5' },
+  ];
+
+  steps = output<string>();
 
   level = signal<string>('');
   isSubmitting = signal<boolean>(false);
-  error = signal<string>('');
 
   data = signal<RegisterData>({
     firstName: '',
@@ -51,7 +58,11 @@ export class Level implements OnInit {
 
   ngOnInit(): void {
     this._store.select('register').subscribe({
-      next: (state) => this.data.set(state),
+      next: (state) => {
+        const { type, ...formData } = state;
+
+        this.data.set(formData);
+      },
     });
   }
 
@@ -65,17 +76,15 @@ export class Level implements OnInit {
       return;
     } else {
       this.isSubmitting.set(true);
-      this.error.set('');
 
       const subscription = this._authService.register(this.data()).subscribe({
-        next: () => this._router.navigate(['/']),
+        next: () => this._router.navigate(['auth/login']),
         error: (err) => {
-          this.error.set(err);
           this.isSubmitting.set(false);
+
+          this.steps.emit(err);
         },
-        complete: () => {
-          this.isSubmitting.set(false);
-        },
+        complete: () => this.isSubmitting.set(false),
       });
 
       this._destroyRef.onDestroy(() => subscription.unsubscribe());
