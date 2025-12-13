@@ -9,8 +9,9 @@ import { Router, RouterLink } from '@angular/router';
 import { MessageModule } from 'primeng/message';
 
 import { env } from '@env/env';
-import { SubmitBtn } from '../../components/submit-btn/submit-btn';
+import { BaseInput } from '../../components/base-input/base-input';
 import { CtrlError } from '../../components/ctrl-error/ctrl-error';
+import { SubmitBtn } from '../../components/submit-btn/submit-btn';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { AuthApiService } from 'libs/auth-api/src/lib/auth-api/auth-api.service';
 
@@ -22,6 +23,7 @@ import { AuthApiService } from 'libs/auth-api/src/lib/auth-api/auth-api.service'
     RouterLink,
     SubmitBtn,
     CtrlError,
+    BaseInput,
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',
@@ -58,11 +60,9 @@ export class Login implements OnInit {
     } else {
       this.isSubmitting.set(true);
       this.error.set('');
-
       const subscription = this._authService.login(this.form.value).subscribe({
         next: (res) => {
           this._localStorage.set('logged-user', res.token);
-
           this._router.navigate(['/']);
         },
         error: (err) => {
@@ -74,7 +74,6 @@ export class Login implements OnInit {
           this.form.reset();
         },
       });
-
       this._destroyRef.onDestroy(() => subscription.unsubscribe());
     }
   }

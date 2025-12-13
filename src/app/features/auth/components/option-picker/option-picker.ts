@@ -7,7 +7,7 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './option-picker.scss',
 })
 export class OptionPicker {
-  options = input.required<string[]>();
+  options = input.required<{ label: string; value: string }[]>();
 
   payload = output<string>();
 
