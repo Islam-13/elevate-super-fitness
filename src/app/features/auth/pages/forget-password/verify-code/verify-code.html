@@ -1,0 +1,54 @@
+<div>
+  <div class="text-center mb-4">
+    <h2 class="text-4xl font-extrabold">OTP CODE</h2>
+  </div>
+
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="border border-[#D3D3D3] p-9 rounded-3xl flex flex-col gap-6"
+  >
+    <h3 class="text-center">Enter Your OTP Check your email</h3>
+
+    @if (error()) {
+    <div>
+      <p-message severity="error" icon="pi pi-times-circle"
+        >{{error()}}</p-message
+      >
+    </div>
+    }
+
+    <div>
+      @let codeCtrl = form.get("resetCode");
+
+      <p-inputotp formControlName="resetCode" [length]="6" [integerOnly]="true">
+        <ng-template #input let-token let-events="events">
+          <input
+            class="custom-otp-input"
+            (input)="events.input($event)"
+            (keydown)="events.keydown($event)"
+            type="text"
+            [attr.value]="token"
+            [maxLength]="1"
+          />
+        </ng-template>
+      </p-inputotp>
+
+      <app-ctrl-error [inputCtrl]="codeCtrl" fieldName="Code" />
+    </div>
+
+    <app-submit-btn
+      [isSubmitting]="isSubmitting()"
+      label="Confirm"
+      [disable]="form.invalid"
+    />
+
+    <div class="text-center">
+      <p>didn't recieve verification code?</p>
+
+      <button type="button" class="text-primary underline cursor-pointer">
+        Resend Code?
+      </button>
+    </div>
+  </form>
+</div>

@@ -21,6 +21,13 @@ export const appRoutes: Route[] = [
             (c) => c.Register
           ),
       },
+      {
+        path: 'forget-password',
+        loadComponent: () =>
+          import(
+            '../app/features/auth/pages/forget-password/forget-password'
+          ).then((c) => c.ForgetPassword),
+      },
     ],
   },
   {

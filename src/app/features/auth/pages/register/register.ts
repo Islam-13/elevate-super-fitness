@@ -35,15 +35,15 @@ import { Level } from './step-6-level/level';
 })
 export class Register implements OnInit {
   error = signal<string>('');
-  currentStep!: TemplateRef<any>;
+  currentStep!: TemplateRef<unknown>;
 
-  info = viewChild.required<TemplateRef<any>>('info');
-  gender = viewChild.required<TemplateRef<any>>('gender');
-  age = viewChild.required<TemplateRef<any>>('age');
-  weight = viewChild.required<TemplateRef<any>>('weight');
-  height = viewChild.required<TemplateRef<any>>('height');
-  goal = viewChild.required<TemplateRef<any>>('goal');
-  level = viewChild.required<TemplateRef<any>>('level');
+  info = viewChild.required<TemplateRef<unknown>>('info');
+  gender = viewChild.required<TemplateRef<unknown>>('gender');
+  age = viewChild.required<TemplateRef<unknown>>('age');
+  weight = viewChild.required<TemplateRef<unknown>>('weight');
+  height = viewChild.required<TemplateRef<unknown>>('height');
+  goal = viewChild.required<TemplateRef<unknown>>('goal');
+  level = viewChild.required<TemplateRef<unknown>>('level');
 
   ngOnInit(): void {
     this.currentStep = this.info();
