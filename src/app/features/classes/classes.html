@@ -1,4 +1,4 @@
-<section class="text-center bg-bg-workouts pt-30">
+<section class="text-center pt-30 bg-bg-workouts">
     <!-- Section Title -->
     <app-section-title
     [title]="'WORKOUTS_PAGE.TITLE' | translate"
@@ -24,7 +24,8 @@
 
     <!-- Caursoul -->
     <div class="main-padding">
-    <app-caursoul [data]="data">
+    <app-caursoul [data]="data"
+    (itemClicked)="goToDetails($any($event))">
     </app-caursoul> 
     </div>
 

@@ -7,6 +7,7 @@ import { MusclesServices } from '../../shared/services/muscles/muscles-services'
 import { Banner } from "../../shared/components/ui/banner/banner";
 import { Caursoul } from "../../shared/components/business/caursoul/caursoul";
 import { GlobalData } from '../../shared/interfaces/global-data/global-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-classes',
@@ -17,6 +18,7 @@ import { GlobalData } from '../../shared/interfaces/global-data/global-data';
 export class Classes implements OnInit {
   private _musclesServices = inject(MusclesServices);
   private _destroyRef = inject(DestroyRef);
+  private _router = inject(Router);
   data:GlobalData[] = [];
   muscles: Muscle[] = [];
   muscleGroupsSignal = signal([]);
@@ -26,28 +28,46 @@ export class Classes implements OnInit {
     this.loadMuscleGroups();
   }
 
-  loadMuscleGroups() {
-    const subscription = this._musclesServices.getAllMsclesByGroups().subscribe(groups => {
+loadMuscleGroups() {
+  const subscription = this._musclesServices.getAllMsclesByGroups().subscribe({
+    next: (groups) => {
       this.muscleGroupsSignal.set(groups);
       if (groups.length > 0) {
         const firstId = groups[0]._id;
         this.selectedGroupIdSignal.set(firstId);
         this.onGroupSelected(firstId);
       }
-    });
-    this._destroyRef.onDestroy(() => subscription.unsubscribe());
-  }
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  });
+  this._destroyRef.onDestroy(() => subscription.unsubscribe());
+}
 
   onGroupSelected(groupId: string) {
+    console.log(groupId)
+    this.data = [];
     this.selectedGroupIdSignal.set(groupId);
-    const subscription = this._musclesServices.getAllMuscles(groupId).subscribe(data => {
-      this.muscles = data;
-      this.data = this.muscles.map(muscle=>({
-        id: muscle._id,
-        label: muscle.name,
-        image: muscle.image
-      }))
-    });
+    const subscription = this._musclesServices.getAllMuscles(groupId).subscribe({
+      next:(res)=> {
+        console.log(res)
+        this.muscles = res;
+        this.data = this.muscles.map(muscle=>({
+          id: muscle._id,
+          label: muscle.name,
+          image: muscle.image
+        }))
+      },
+      error:(err)=>{
+        console.log(err)
+      }
+    })
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
+  goToDetails(cardData: GlobalData) {
+  this._router.navigate(['/muscles/details', cardData.id], {
+    state: { data: cardData },
+  });
+}
 }

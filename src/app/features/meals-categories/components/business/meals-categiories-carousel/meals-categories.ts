@@ -21,21 +21,33 @@ import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.inter
 })
 export class MealsCategories implements OnInit {
   showAll = false;
-  store = inject(Store);
+  private store = inject(Store);
   data$: Observable<MealsCategoriesStateInterface>;
+  
+  ngOnInit(): void {
+    this.initData();
+  }
 
-  ngOnInit() {
+  private initData(): void {
+    this.prepareDataStream();
+    this.loadMealsCategories();
+  }
+
+  private prepareDataStream(): void {
     this.data$ = combineLatest({
       mealsCategories: this.store.select(selectMealsCategoriesData),
       isLoading: this.store.select(selectIsLoading),
     });
+  }
+
+  private loadMealsCategories(): void {
     this.store.dispatch(mealsActions.getMealsGroups());
-    
   }
 
   getVisibleCategories(mealsCategories: MealsCategoryDTO[]) {
     return this.showAll ? mealsCategories : mealsCategories.slice(0, 3);
   }
+
   toggleShowMore() {
     this.showAll = !this.showAll;
   }

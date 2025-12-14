@@ -28,28 +28,38 @@ export class Workouts implements OnInit{
     this.loadMuscleGroups();
   }
 
-  loadMuscleGroups() {
-    const subscription = this._musclesServices.getAllMsclesByGroups().subscribe(groups => {
+loadMuscleGroups() {
+  const subscription = this._musclesServices.getAllMsclesByGroups().subscribe({
+    next: (groups) => {
       this.muscleGroupsSignal.set(groups);
       if (groups.length > 0) {
         const firstId = groups[0]._id;
         this.selectedGroupIdSignal.set(firstId);
         this.onGroupSelected(firstId);
       }
-    });
-    this._destroyRef.onDestroy(() => subscription.unsubscribe());
-  }
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  });
+  this._destroyRef.onDestroy(() => subscription.unsubscribe());
+}
 
   onGroupSelected(groupId: string) {
-    this.selectedGroupIdSignal.set(groupId);
-    const subscription = this._musclesServices.getAllMuscles(groupId).subscribe(data => {
-      this.muscles = data;
-      this.data = this.muscles.map(muscle=>({
+  this.selectedGroupIdSignal.set(groupId);
+  const subscription = this._musclesServices.getAllMuscles(groupId).subscribe({
+    next: (res) => {
+      this.muscles = res;
+      this.data = this.muscles.map(muscle => ({
         id: muscle._id,
         label: muscle.name,
         image: muscle.image
-      }))
-    });
-    this._destroyRef.onDestroy(() => subscription.unsubscribe());
-  }
+      }));
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  });
+  this._destroyRef.onDestroy(() => subscription.unsubscribe());
+}
 }

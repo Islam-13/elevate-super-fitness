@@ -23,9 +23,11 @@
 
     <!-- Caursoul -->
     <div class="main-padding">
-    <app-caursoul [data]="data">
+    <app-caursoul
+    [data]="data"
+    (itemClicked)="goToDetails($any($event))">
     </app-caursoul> 
-    </div>
+</div>
 </div>
 </section>
 <app-banner></app-banner>

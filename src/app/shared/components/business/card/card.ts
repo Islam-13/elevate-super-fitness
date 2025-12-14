@@ -9,7 +9,7 @@ import { GlobalData } from '../../../interfaces/global-data/global-data';
   styleUrl: './card.scss',
 })
 export class Card {
-  @Output() cardClick = new EventEmitter<{id: string; label: string }>();
+  @Output() cardClick = new EventEmitter<GlobalData>();
   @Input()data: GlobalData;
 
   handleClick() {

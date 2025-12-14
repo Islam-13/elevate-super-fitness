@@ -8,6 +8,7 @@ import { Banner } from "../../shared/components/ui/banner/banner";
 import { Caursoul } from "../../shared/components/business/caursoul/caursoul";
 import { GlobalData } from '../../shared/interfaces/global-data/global-data';
 import { MealsCategoryDTO } from '../../shared/types/mealCategory.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-healthy-page',
@@ -18,6 +19,7 @@ import { MealsCategoryDTO } from '../../shared/types/mealCategory.interface';
 export class HealthyPage implements OnInit {
   private _mealsCategories = inject(MealsCategories);
   private _destroyRef = inject(DestroyRef);
+  private _router = inject(Router);
   data: GlobalData[] = [];
   meals: Meal[] = [];
   mealsGroupsSignal = signal<MealsCategoryDTO[]>([]);
@@ -28,35 +30,51 @@ export class HealthyPage implements OnInit {
   }
 
   getAllCategories() {
-    const subscription = this._mealsCategories.getAllCategories().subscribe(res => {
-    const categories = res.categories ?? [];
-    this.categories = categories;
-    this.mealsGroupsSignal.set(categories);
+  const subscription = this._mealsCategories.getAllCategories().subscribe({
+    next: (res) => {
+      const categories = res.categories ?? [];
+      this.categories = categories;
+      this.mealsGroupsSignal.set(categories);
       if (categories.length > 0) {
         const firstId = categories[0].idCategory;
         this.selectedGroupIdSignal.set(firstId);
         this.getAllMealsInCard(firstId);
       }
-    });
-    this._destroyRef.onDestroy(() => subscription.unsubscribe());
-  }
+    },
+    error: (err) => {
+      console.log(err);
+    }
+  });
+  this._destroyRef.onDestroy(() => subscription.unsubscribe());
+}
 
   getAllMealsInCard(categoryId: string) {
-    this.selectedGroupIdSignal.set(categoryId);
-    const category = this.categories.find(
-      c => c.idCategory === categoryId
-    );
-    if (!category) return;
-    const subscription = this._mealsCategories
-      .getMealsByCategory(category.strCategory)
-      .subscribe(res => {
+  this.selectedGroupIdSignal.set(categoryId);
+  const category = this.categories.find(
+    c => c.idCategory === categoryId
+  );
+  if (!category) return;
+  const subscription = this._mealsCategories
+    .getMealsByCategory(category.strCategory)
+    .subscribe({
+      next: (res) => {
         this.meals = res.meals ?? [];
         this.data = this.meals.map(meal => ({
           id: meal.idMeal,
           label: meal.strMeal,
           image: meal.strMealThumb,
         }));
-      });
-    this._destroyRef.onDestroy(() => subscription.unsubscribe());
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    });
+  this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
+  goToDetails(cardData: GlobalData) {
+    console.log(cardData)
+  this._router.navigate(['/details', cardData.id], {
+    state: { data: cardData },
+  });
+}
 }
