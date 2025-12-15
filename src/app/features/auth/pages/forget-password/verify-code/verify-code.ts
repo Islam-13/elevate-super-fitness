@@ -31,6 +31,7 @@ export class VerifyCode implements OnInit {
   form: FormGroup;
 
   error = signal<string>('');
+  message = signal<string>('');
   isSubmitting = signal<boolean>(false);
 
   steps = output();
@@ -57,6 +58,7 @@ export class VerifyCode implements OnInit {
       return;
     } else {
       this.isSubmitting.set(true);
+      this.message.set('');
       this.error.set('');
 
       const subscription = this._authService
@@ -65,6 +67,35 @@ export class VerifyCode implements OnInit {
           next: () => {
             this.steps.emit();
           },
+          error: (err) => {
+            this.error.set(err);
+            this.isSubmitting.set(false);
+          },
+          complete: () => {
+            this.isSubmitting.set(false);
+            this.form.reset();
+          },
+        });
+
+      this._destroyRef.onDestroy(() => subscription.unsubscribe());
+    }
+  }
+
+  onResendCode() {
+    const email = sessionStorage.getItem('forgetEmail');
+
+    if (!email) {
+      this.error.set('Something went wrong, Please try again later!!');
+    } else {
+      this.isSubmitting.set(true);
+      this.message.set('');
+      this.error.set('');
+      this.form.reset();
+
+      const subscription = this._authService
+        .forgetPassword({ email })
+        .subscribe({
+          next: () => this.message.set('Code resent successfully'),
           error: (err) => {
             this.error.set(err);
             this.isSubmitting.set(false);
