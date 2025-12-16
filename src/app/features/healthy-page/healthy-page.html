@@ -16,7 +16,7 @@
     <!-- Tabs -->
     <app-taps
     [data]="mealsGroupsSignal()"
-    [module]="'healthy'"
+    [carouselType]="'healthy'"
     [selected]="selectedGroupIdSignal()"
     (tabClicked)="getAllMealsInCard($event)">
 </app-taps>

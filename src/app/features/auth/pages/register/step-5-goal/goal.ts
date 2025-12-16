@@ -15,11 +15,11 @@ import { OptionPicker } from '../../../components/option-picker/option-picker';
 })
 export class Goal {
   options = [
-    'Gain Weight',
-    'Lose Weight',
-    'Get Fitter',
-    'Gain more flexible',
-    'Learn The Basic',
+    { label: 'Gain Weight', value: 'Gain weight' },
+    { label: 'Lose Weight', value: 'Lose weight' },
+    { label: 'Get Fitter', value: 'Get fitter' },
+    { label: 'Gain more flexible', value: 'Gain more flexible' },
+    { label: 'Learn The Basic', value: 'Learn the basic' },
   ];
 
   steps = output();

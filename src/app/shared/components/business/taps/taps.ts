@@ -8,7 +8,7 @@ import { Component,EventEmitter, Input,Output,  } from '@angular/core';
   imports: [ ],
 })
 export class Taps {
-  @Input() module: 'muscles' | 'healthy';
+  @Input() carouselType: 'muscles' | 'healthy';
   @Output() tabClicked = new EventEmitter<string>();
   selectedItemId: string | null = null;
   private _selected: string | null = null;

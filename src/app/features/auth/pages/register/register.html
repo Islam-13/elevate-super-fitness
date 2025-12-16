@@ -1,4 +1,12 @@
 <div>
+  @if (error()) {
+  <div class="mb-4">
+    <p-message severity="error" icon="pi pi-times-circle"
+      >{{error()}}</p-message
+    >
+  </div>
+  }
+
   <ng-container [ngTemplateOutlet]="currentStep"></ng-container>
 
   <ng-template #info>
@@ -26,6 +34,6 @@
   </ng-template>
 
   <ng-template #level>
-    <app-level (steps)="onLevel()" />
+    <app-level (steps)="onLevel($event)" />
   </ng-template>
 </div>

@@ -34,6 +34,7 @@ import {
 
 import { env } from '@env/env';
 import { BASE_URL } from 'libs/auth-api/src/lib/auth-api/base/token';
+import { registerReducers } from '@store/register/register.reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -62,7 +63,7 @@ export const appConfig: ApplicationConfig = {
       },
     }),
     provideAnimations(),
-    provideStore(),
+    provideStore({ register: registerReducers }),
     provideState(healthyFeatureKey, healthyReducer),
     provideEffects([healthyEffects]),
     provideStoreDevtools({
