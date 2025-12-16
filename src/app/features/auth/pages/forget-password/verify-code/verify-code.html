@@ -16,6 +16,12 @@
         >{{error()}}</p-message
       >
     </div>
+    } @if (message()) {
+    <div>
+      <p-message severity="success" icon="pi pi-times-circle"
+        >{{message()}}</p-message
+      >
+    </div>
     }
 
     <div>
@@ -46,7 +52,12 @@
     <div class="text-center">
       <p>didn't recieve verification code?</p>
 
-      <button type="button" class="text-primary underline cursor-pointer">
+      <button
+        class="text-primary underline cursor-pointer"
+        type="button"
+        [disabled]="isSubmitting()"
+        (click)="onResendCode()"
+      >
         Resend Code?
       </button>
     </div>
