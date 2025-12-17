@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, inject, signal, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { PrimaryBtn } from '../primary-btn/primaryBtn';
 import { CommonModule } from '@angular/common';
@@ -9,6 +9,7 @@ import { Ripple } from 'primeng/ripple';
 import { AvatarModule } from 'primeng/avatar';
 import { Drawer } from 'primeng/drawer';
 import { TranslateModule } from '@ngx-translate/core';
+import { LocalStorageService } from '@shared/services/local-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -28,10 +29,12 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class Navbar {
   @ViewChild('drawerRef') drawerRef!: Drawer;
+  visible = false;
+
+  private readonly _localStorageService = inject(LocalStorageService);
+  isLogged = signal<string>(this._localStorageService.get('logged-user'));
 
   closeCallback(e): void {
     this.drawerRef.close(e);
   }
-
-  visible = false;
 }
