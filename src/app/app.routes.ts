@@ -1,8 +1,10 @@
 import { Route } from '@angular/router';
+import { loggedUserGuard } from './core/guards/auth.guard';
 
 export const appRoutes: Route[] = [
   {
     path: 'auth',
+    canActivate: [loggedUserGuard],
     loadComponent: () =>
       import('../app/layouts/auth-layout/auth-layout').then(
         (c) => c.AuthLayout
@@ -20,6 +22,13 @@ export const appRoutes: Route[] = [
           import('../app/features/auth/pages/register/register').then(
             (c) => c.Register
           ),
+      },
+      {
+        path: 'forget-password',
+        loadComponent: () =>
+          import(
+            '../app/features/auth/pages/forget-password/forget-password'
+          ).then((c) => c.ForgetPassword),
       },
     ],
   },

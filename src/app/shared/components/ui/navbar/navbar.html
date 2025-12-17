@@ -76,11 +76,11 @@
         <app-primary-btn
           text="{{'navbar.filled-btn' |translate}}"
           type="filled"
-        ></app-primary-btn>
+        />
         <app-primary-btn
           text="{{'navbar.outlined-btn' |translate}}"
           type="outlined"
-        ></app-primary-btn>
+        />
       </div>
 
       <p-drawer
@@ -192,12 +192,12 @@
                         <a
                           routerLink="/"
                           routerLinkActive="text-primary"
-                          [routerLinkActiveOptions]="
-            {exact:true}"
+                          [routerLinkActiveOptions]="{exact:true}"
                           class="block py-2 px-3 text-p-text text-xl font-bold bg-transparent rounded-sm md:p-0 md:dark:text-p-text"
                           aria-current="page"
-                          >{{'navbar.home' | translate}}</a
                         >
+                          {{'navbar.home' | translate}}
+                        </a>
                       </a>
                     </li>
                     <li>
@@ -208,11 +208,10 @@
                         <a
                           routerLink="/about"
                           routerLinkActive="text-primary"
-                          [routerLinkActiveOptions]="
-            {exact:true}"
+                          [routerLinkActiveOptions]="{exact:true}"
                           class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text"
-                          >{{'navbar.about' | translate}}</a
-                        >
+                          >{{'navbar.about' | translate}}
+                        </a>
                       </a>
                     </li>
                     <li>
@@ -223,11 +222,10 @@
                         <a
                           routerLink="/classes"
                           routerLinkActive="text-primary"
-                          [routerLinkActiveOptions]="
-            {exact:true}"
+                          [routerLinkActiveOptions]="{exact:true}"
                           class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text"
-                          >{{'navbar.classes' | translate}}</a
-                        >
+                          >{{'navbar.classes' | translate}}
+                        </a>
                       </a>
                     </li>
 
@@ -239,11 +237,10 @@
                         <a
                           routerLink="/healthy"
                           routerLinkActive="text-primary"
-                          [routerLinkActiveOptions]="
-            {exact:true}"
+                          [routerLinkActiveOptions]="{exact:true}"
                           class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text"
-                          >{{'navbar.healthy' | translate}}</a
-                        >
+                          >{{'navbar.healthy' | translate}}
+                        </a>
                       </a>
                     </li>
                   </ul>
@@ -255,7 +252,7 @@
       </p-drawer>
 
       <div class="flex gap-4 lg:hidden items-center max-w-[110px]">
-        <a href="/login">
+        <a routerLink="/auth/login">
           <img src="./images/user.png" alt="" />
         </a>
 
@@ -278,42 +275,38 @@
           <a
             routerLink="/"
             routerLinkActive="text-primary"
-            [routerLinkActiveOptions]="
-            {exact:true}"
+            [routerLinkActiveOptions]="{exact:true}"
             class="block py-2 px-3 text-p-text text-xl font-bold bg-transparent rounded-sm md:p-0 md:dark:text-p-text"
             aria-current="page"
-            >{{'navbar.home' | translate}}</a
-          >
+            >{{'navbar.home' | translate}}
+          </a>
         </li>
         <li>
           <a
             routerLink="/about"
             routerLinkActive="text-primary"
-             [routerLinkActiveOptions]="
-            {exact:true}"
+            [routerLinkActiveOptions]="{exact:true}"
             class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text"
-            >{{'navbar.about' | translate}}</a
-          >
+            >{{'navbar.about' | translate}}
+          </a>
         </li>
         <li>
           <a
             routerLink="/classes"
             routerLinkActive="text-primary"
-             [routerLinkActiveOptions]="
-            {exact:true}"
+            [routerLinkActiveOptions]="{exact:true}"
             class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text"
-            >{{'navbar.classes' | translate}}</a
-          >
+            >{{'navbar.classes' | translate}}
+          </a>
         </li>
         <li>
           <a
             routerLink="/healthy"
             routerLinkActive="text-primary"
-             [routerLinkActiveOptions]="
-            {exact:true}"
+            [routerLinkActiveOptions]="{exact:true}"
             class="block py-2 px-3 font-bold text-xl text-p-text bg-transparent rounded-sm md:p-0 md:dark:text-p-text"
-            >{{'navbar.healthy' | translate}}</a
-          >
+            >{{'navbar.healthy' | translate}}
+          </a>
         </li>
       </ul>
     </div>
