@@ -73,14 +73,25 @@
     </a>
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <div class="hidden lg:flex gap-6">
-        <app-primary-btn
-          text="{{'navbar.filled-btn' |translate}}"
-          type="filled"
-        />
-        <app-primary-btn
-          text="{{'navbar.outlined-btn' |translate}}"
-          type="outlined"
-        />
+        @if(!isLogged()){
+        <a routerLink="/auth/login">
+          <app-primary-btn
+            text="{{'navbar.filled-btn' |translate}}"
+            type="filled"
+          />
+        </a>
+
+        <a routerLink="/auth/register">
+          <app-primary-btn
+            text="{{'navbar.outlined-btn' |translate}}"
+            type="outlined"
+          />
+        </a>
+        } @else {
+        <a routerLink="/account">
+          <img src="./images/user.png" alt="" />
+        </a>
+        }
       </div>
 
       <p-drawer
@@ -252,7 +263,7 @@
       </p-drawer>
 
       <div class="flex gap-4 lg:hidden items-center max-w-[110px]">
-        <a routerLink="/auth/login">
+        <a routerLink="/account">
           <img src="./images/user.png" alt="" />
         </a>
 
