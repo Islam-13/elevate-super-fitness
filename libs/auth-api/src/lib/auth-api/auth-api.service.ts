@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, of, throwError } from 'rxjs';
 
 import { AuthApi } from './base/authApi';
 import { LoginApiData, LoginRes } from './interfaces/loginRes';
@@ -9,7 +9,7 @@ import { AuthEndPoint } from './enums/AuthApi.endPoints';
 import { RegisterData } from './interfaces/registerData';
 import { Code, CodeRes } from './interfaces/verifyCodeData';
 import { AuthApiAdaptorService } from './adaptor/authApi.adaptor';
-import { SetPassword, SetPasswordRes } from './interfaces/setPasswordData';
+import {LogoutRes, SetPassword, SetPasswordRes } from './interfaces/setPasswordData';
 import {
   ForgetPasswordData,
   ForgetPasswordRes,
@@ -78,6 +78,15 @@ export class AuthApiService implements AuthApi {
         catchError(() =>
           throwError(() => new Error('Incorrect email or password!!'))
         )
+      );
+  }
+
+    logout(): Observable<LogoutRes> {
+    return this._http
+      .get(`${this._baseURL}${AuthEndPoint.LOGOUT}`)
+      .pipe(
+        map((res:any) => res),
+        catchError((err) => of(err))
       );
   }
 }

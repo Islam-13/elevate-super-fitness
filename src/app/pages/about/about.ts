@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AboutAs } from '../../shared/components/ui/about-us/about-as';
+import { Aboutus } from '../../shared/components/ui/about-us/about-us';
 
 @Component({
   selector: 'app-about',
-  imports: [AboutAs],
+  imports: [Aboutus],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })

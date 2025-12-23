@@ -1,15 +1,15 @@
 import { Component, input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { SectionTitle } from '../section-title/sectionTitle';
-import { PrimaryBtn } from "../primary-btn/primaryBtn";
+import { PrimaryBtn } from '../primary-btn/primaryBtn';
 @Component({
-  selector: 'app-about-as',
+  selector: 'app-about-us',
   imports: [SectionTitle, TranslateModule, PrimaryBtn],
-  templateUrl: './about-as.html',
-  styleUrl: './about-as.scss',
+  templateUrl: './about-us.html',
+  styleUrl: './about-us.scss',
 })
-export class AboutAs {
-    paddingSpace = input.required<boolean>();
+export class Aboutus {
+  paddingSpace = input.required<boolean>();
 
   features = [
     {
