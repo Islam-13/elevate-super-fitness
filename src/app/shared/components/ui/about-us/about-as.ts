@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { SectionTitle } from '../section-title/sectionTitle';
 import { PrimaryBtn } from "../primary-btn/primaryBtn";
@@ -9,7 +9,8 @@ import { PrimaryBtn } from "../primary-btn/primaryBtn";
   styleUrl: './about-as.scss',
 })
 export class AboutAs {
-  
+    paddingSpace = input.required<boolean>();
+
   features = [
     {
       title: 'Personal Trainer',
