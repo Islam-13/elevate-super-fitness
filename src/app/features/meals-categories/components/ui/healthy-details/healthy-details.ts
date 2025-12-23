@@ -15,11 +15,10 @@ import { mealsActions } from '../../../store/actions';
 import { MealDetails } from '../meal-details/meal-details';
 import { LoadingComponent } from "../../../../../shared/components/ui/loading/loading.component";
 import { GlobalData } from '@shared/interfaces/global-data/global-data';
-import { Banner } from "@shared/components/ui/banner/banner";
 
 @Component({
   selector: 'app-healthy-details',
-  imports: [Taps, AsyncPipe, Meal, MealDetails, LoadingComponent, Banner],
+  imports: [Taps, AsyncPipe, Meal, MealDetails, LoadingComponent],
   templateUrl: './healthy-details.html',
   styleUrl: './healthy-details.scss',
 })
