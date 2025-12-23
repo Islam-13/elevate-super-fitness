@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { SectionTitle } from '../section-title/sectionTitle';
 import { PrimaryBtn } from "../primary-btn/primaryBtn";
