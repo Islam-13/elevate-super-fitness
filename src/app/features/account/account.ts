@@ -7,15 +7,24 @@ import { AuthApiService } from '@elevate-super-fitness/auth-api';
 import { Router } from '@angular/router';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { Subject, takeUntil } from 'rxjs';
+import {
+  DialogService,
+  DynamicDialogModule,
+  DynamicDialogRef,
+} from 'primeng/dynamicdialog';
+import { ChangePassword } from './components/business/change-password/change-password';
 
 @Component({
   selector: 'app-account',
-  imports: [TranslateModule],
+  imports: [TranslateModule, DynamicDialogModule],
   templateUrl: './account.html',
   styleUrl: './account.scss',
+  providers:[DialogService],
 })
 export class Account implements OnDestroy {
   private destroy$ = new Subject<void>();
+  ref: DynamicDialogRef | undefined;
+
   themeService = inject(ThemeService);
   languageService = inject(TranslationService);
   currentTheme: WritableSignal<string> = this.themeService.getTheme();
@@ -23,6 +32,7 @@ export class Account implements OnDestroy {
   private readonly _authService = inject(AuthApiService);
   private readonly _router = inject(Router);
   private readonly _localStorage = inject(LocalStorageService);
+  public dialogService = inject(DialogService);
 
   ngOnDestroy(): void {
     this.destroy$.next();
@@ -32,7 +42,7 @@ export class Account implements OnDestroy {
   changeLanguage() {
     const currentLang = this.cookies.getCookie('lang');
     const useLanguage = currentLang === 'en' ? 'ar' : 'en';
-    this.languageService.changeLang(useLanguage); 
+    this.languageService.changeLang(useLanguage);
   }
   // light or dark theme
   toggleMood() {
@@ -56,7 +66,15 @@ export class Account implements OnDestroy {
       });
   }
   openChangePasswordModal() {
-
-
+    this.ref = this.dialogService.open(ChangePassword, {
+      header: 'Change Password',
+      width: '50vw',
+      modal: true,
+      closable:true,
+      breakpoints: {
+        '960px': '75vw',
+        '640px': '90vw',
+      },
+    });
   }
 }
