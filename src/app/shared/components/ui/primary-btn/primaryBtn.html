@@ -1,9 +1,11 @@
-<button class=" px-6 py-3 rounded-full relative cursor-pointer border-[1px] "
-[ngClass]="{
+<button
+  class="px-6 py-3 rounded-full relative cursor-pointer border"
+  [ngClass]="{
       'bg-transparent text-primary border-primary': type === 'outlined',
       'bg-primary text-white border-primary': type === 'filled'
-    }">
- {{text}} 
+    }"
+>
+  {{text}}
   <div
     class="rounded-full w-[35.36px] h-[35.36px] bg-primary flex items-center justify-center border-3 border-white absolute ltr:end-0 rtl:start-0 top-1/2 -translate-y-1/2 translate-x-1/2"
   >
@@ -21,6 +23,5 @@
         fill="#F3F3F4"
       />
     </svg>
-    
   </div>
 </button>
