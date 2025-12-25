@@ -36,7 +36,6 @@ import { Level } from './step-6-level/level';
 export class Register implements OnInit {
   error = signal<string>('');
   currentStep!: TemplateRef<unknown>;
-
   info = viewChild.required<TemplateRef<unknown>>('info');
   gender = viewChild.required<TemplateRef<unknown>>('gender');
   age = viewChild.required<TemplateRef<unknown>>('age');

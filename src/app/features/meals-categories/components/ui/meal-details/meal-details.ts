@@ -1,5 +1,5 @@
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
   selectIsLoading,
@@ -9,6 +9,7 @@ import {
 import { combineLatest, take } from 'rxjs';
 import { mealsActions } from '../../../store/actions';
 import { LoadingComponent } from '../../../../../shared/components/ui/loading/loading.component';
+import { GlobalData } from '@shared/interfaces/global-data/global-data';
 @Component({
   selector: 'app-meal-details',
   imports: [NgOptimizedImage, AsyncPipe, LoadingComponent],
@@ -16,6 +17,8 @@ import { LoadingComponent } from '../../../../../shared/components/ui/loading/lo
   styleUrl: './meal-details.scss',
 })
 export class MealDetails implements OnInit {
+  @Input() meal: GlobalData | null = null;
+
   _store = inject(Store);
   mealDetails$ = combineLatest({
     mealDetails: this._store.select(selectMealDetail),

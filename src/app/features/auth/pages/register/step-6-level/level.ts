@@ -76,6 +76,7 @@ export class Level implements OnInit {
       return;
     } else {
       this.isSubmitting.set(true);
+console.log(this.data())
 
       const subscription = this._authService.register(this.data()).subscribe({
         next: () => this._router.navigate(['auth/login']),

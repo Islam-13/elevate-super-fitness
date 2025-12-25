@@ -1,8 +1,8 @@
-<section class="text-center pt-30 bg-bg-workouts">
+<section class="text-center bg-bg-workouts pt-30">
     <!-- Section Title -->
     <app-section-title
-    [title]="'WORKOUTS_PAGE.TITLE' | translate"
-    [subTitle]="'WORKOUTS_PAGE.SUBTITLE' | translate"
+    [title]="'HEALTHY_PAGE.TITLE' | translate"
+    [subTitle]="'HEALTHY_PAGE.SUBTITLE' | translate"
     [subTitlePositionStart]="false"
     class="flex justify-center pt-[15px]">
     </app-section-title>
@@ -11,24 +11,23 @@
     <!-- Description -->
     <h1
     class="font-baloo font-bold text-[2.5rem] leading-[120%] tracking-[0%] text-center text-title-text uppercase mb-2"
-    [innerHTML]="'WORKOUTS_PAGE.DESCRIPTION' | translate">
+    [innerHTML]="'HEALTHY_PAGE.DESCRIPTION' | translate">
     </h1>
-
     <!-- Tabs -->
     <app-taps
-    [data]="muscleGroupsSignal()"
-    [carouselType]="'muscles'"
+    [data]="mealsGroupsSignal()"
+    [carouselType]="'healthy'"
     [selected]="selectedGroupIdSignal()"
-    (tabClicked)="onGroupSelected($event)">
+    (tabClicked)="getAllMealsInCard($event)">
 </app-taps>
 
     <!-- Caursoul -->
     <div class="main-padding">
-    <app-caursoul [data]="data"
+    <app-caursoul
+    [data]="data"
     (itemClicked)="goToDetails($any($event))">
     </app-caursoul> 
-    </div>
-
-    </div>
+</div>
+</div>
 </section>
 <app-banner></app-banner>

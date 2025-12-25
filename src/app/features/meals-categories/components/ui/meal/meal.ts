@@ -1,4 +1,4 @@
-import { Component, inject, input, InputSignal } from '@angular/core';
+import { Component, inject, input, } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { MealDTO } from '../../../types/meal-response.interface';
 import { Store } from '@ngrx/store';

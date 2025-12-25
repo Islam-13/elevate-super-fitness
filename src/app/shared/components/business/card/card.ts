@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { GlobalData } from '../../../interfaces/global-data/global-data';
 
 @Component({
   selector: 'app-card',
@@ -8,6 +9,10 @@ import { Component, Input } from '@angular/core';
   styleUrl: './card.scss',
 })
 export class Card {
-    @Input() muscle: any; 
+  @Output() cardClick = new EventEmitter<GlobalData>();
+  @Input()data: GlobalData;
 
+  handleClick() {
+    this.cardClick.emit(this.data);
+  }
 }
