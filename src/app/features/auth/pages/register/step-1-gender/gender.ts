@@ -5,10 +5,11 @@ import { Store } from '@ngrx/store';
 import { onGender } from '@store/register/register.actions';
 import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { RegisterHeader } from '../../../components/register-header/register-header';
+import { Progress } from '../../../components/progress/progress';
 
 @Component({
   selector: 'app-gender',
-  imports: [RegisterHeader, SubmitBtn, FormsModule],
+  imports: [RegisterHeader, SubmitBtn, FormsModule, Progress],
   templateUrl: './gender.html',
   styleUrl: './gender.scss',
 })

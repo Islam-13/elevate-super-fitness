@@ -11,13 +11,43 @@
         <main class="font-extrabold text-3xl capitalize">
           {{'account.yourGoal'|translate}}
         </main>
-        <button
-          class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
-        >
-          {{'account.tAPTOCHANGE'|translate}}
-        </button>
+
+        <div class="card flex justify-center">
+          <button
+            class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
+            (click)="showGoalDialog()"
+          >
+            {{'account.tAPTOCHANGE'|translate}}
+          </button>
+
+          <p-dialog
+            header=""
+            [modal]="true"
+            [(visible)]="goalVisible"
+            [style]="{ width: 'min(95%, 600px)' }"
+          >
+            <app-register-header
+              heading="what is your goal ?"
+              description="this helps us create Your personalized plan"
+            />
+
+            <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmitGoal()">
+              <app-option-picker
+                [options]="goalOptions"
+                (payload)="onGoalSelect($event)"
+              />
+
+              <app-submit-btn
+                label="Save"
+                [disable]="!updatedGoal()"
+                [isSubmitting]="isSubmitting()"
+              />
+            </form>
+          </p-dialog>
+        </div>
+
         <div class="bg-container">
-          <h6 class="font-bold font-baloo text-base">lose weight</h6>
+          <h6 class="font-bold font-baloo text-base">{{goal()}}</h6>
           <svg
             width="24"
             height="24"
@@ -38,13 +68,42 @@
         <main class="font-extrabold text-3xl capitalize">
           {{'account.level'|translate}}
         </main>
-        <button
-          class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
-        >
-          {{'account.tAPTOCHANGE'|translate}}
-        </button>
+
+        <div class="card flex justify-center">
+          <button
+            class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
+            (click)="showLevelDialog()"
+          >
+            {{'account.tAPTOCHANGE'|translate}}
+          </button>
+
+          <p-dialog
+            header=""
+            [modal]="true"
+            [(visible)]="levelVisible"
+            [style]="{ width: 'min(95%, 630px)' }"
+          >
+            <app-register-header
+              heading="your regular physicalactivity level ?"
+              description="this helps us create Your personalized plan"
+            />
+
+            <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmitLevel()">
+              <app-option-picker
+                [options]="levelOptions"
+                (payload)="onLevelSelect($event)"
+              />
+
+              <app-submit-btn
+                label="Save"
+                [isSubmitting]="isSubmitting()"
+                [disable]="!updatedLevel()"
+              />
+            </form>
+          </p-dialog>
+        </div>
         <div class="bg-container">
-          <h6 class="font-bold font-baloo text-base">lose weight</h6>
+          <h6 class="font-bold font-baloo text-base">{{ level()}}</h6>
           <svg
             width="24"
             height="24"
@@ -64,13 +123,47 @@
         <main class="font-extrabold text-3xl capitalize">
           {{'account.weight'|translate}}
         </main>
-        <button
-          class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
-        >
-          {{'account.tAPTOCHANGE'|translate}}
-        </button>
+
+        <div>
+          <button
+            class="font-baloo text-base font-normal underline cursor-pointer pb-4 uppercase"
+            (click)="showWeightDialog()"
+          >
+            {{'account.tAPTOCHANGE'|translate}}
+          </button>
+
+          <p-dialog
+            header=""
+            [modal]="true"
+            [(visible)]="weightVisible"
+            [style]="{ width: 'min(95%, 630px)' }"
+          >
+            <app-register-header
+              heading="what is your weight ?"
+              description="this helps us create Your personalized plan"
+            />
+
+            <form
+              class="flex flex-col gap-6 mt-6"
+              (ngSubmit)="onSubmitWeight()"
+            >
+              <app-number-picker
+                [numbersRange]="numbersRange"
+                (payload)="onWeightSelect($event)"
+                unit="Kg"
+              />
+
+              <app-submit-btn
+                label="Save"
+                [isSubmitting]="isSubmitting()"
+                [disable]="!updatedWeight()"
+              />
+            </form>
+          </p-dialog>
+        </div>
+
         <div class="bg-container">
-          <h6 class="font-bold font-baloo text-base">lose weight</h6>
+          <h6 class="font-bold font-baloo text-base">{{weight()}} Kg</h6>
           <svg
             width="24"
             height="24"

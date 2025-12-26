@@ -15,6 +15,8 @@ import {
   ForgetPasswordRes,
 } from './interfaces/forgetPasswordData';
 import { BASE_URL } from './base/token';
+import { LoggedUserDataRes } from './interfaces/loggedUserDataRes';
+import { EditProfileData, EditProfileRes } from './interfaces/editProfile';
 
 @Injectable({
   providedIn: 'root',
@@ -23,6 +25,32 @@ export class AuthApiService implements AuthApi {
   private readonly _http = inject(HttpClient);
   private readonly _authAdaptor = inject(AuthApiAdaptorService);
   private readonly _baseURL = inject(BASE_URL);
+
+  loggedUserData() {
+    return this._http
+      .get<LoggedUserDataRes>(`${this._baseURL}${AuthEndPoint.PROFILE_DATA}`)
+      .pipe(
+        map((res) => res.user),
+        catchError(() =>
+          throwError(
+            () => new Error('Could not get profile data, try again later!!')
+          )
+        )
+      );
+  }
+
+  editProfile(data: EditProfileData) {
+    return this._http
+      .put<EditProfileRes>(`${this._baseURL}${AuthEndPoint.EDIT_PROFILE}`, data)
+      .pipe(
+        map((res) => res.user),
+        catchError(() =>
+          throwError(
+            () => new Error('Could not edit profile, try again later!!')
+          )
+        )
+      );
+  }
 
   login(data: LoginData): Observable<LoginRes> {
     return this._http

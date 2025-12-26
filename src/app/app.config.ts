@@ -35,6 +35,7 @@ import {
 import { env } from '@env/env';
 import { BASE_URL } from 'libs/auth-api/src/lib/auth-api/base/token';
 import { registerReducers } from '@store/register/register.reducers';
+import { tokenInterceptor } from './core/interceptors/token.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -45,7 +46,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideAnimationsAsync(),
     provideRouter(appRoutes),
-    provideHttpClient(),
+    provideHttpClient(withFetch(), withInterceptors([tokenInterceptor])),
     provideTranslateService({
       fallbackLang: 'en',
       loader: provideTranslateHttpLoader({
