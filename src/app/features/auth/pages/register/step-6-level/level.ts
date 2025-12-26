@@ -16,21 +16,17 @@ import { RegisterData } from '@shared/types/auth-register';
 import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { OptionPicker } from '../../../components/option-picker/option-picker';
 import { RegisterHeader } from '../../../components/register-header/register-header';
+import { Progress } from '../../../components/progress/progress';
+import { levelOptions } from '@shared/constants/constansts';
 
 @Component({
   selector: 'app-level',
-  imports: [RegisterHeader, SubmitBtn, FormsModule, OptionPicker],
+  imports: [RegisterHeader, SubmitBtn, FormsModule, OptionPicker, Progress],
   templateUrl: './level.html',
   styleUrl: './level.scss',
 })
 export class Level implements OnInit {
-  options = [
-    { label: 'Rookie', value: 'level1' },
-    { label: 'Beginner', value: 'level2' },
-    { label: 'Intermediate', value: 'level3' },
-    { label: 'Advance', value: 'level4' },
-    { label: 'True Beast', value: 'level5' },
-  ];
+  options = levelOptions;
 
   steps = output<string>();
 

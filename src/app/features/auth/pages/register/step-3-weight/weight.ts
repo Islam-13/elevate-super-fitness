@@ -6,10 +6,11 @@ import { onWeight } from '@store/register/register.actions';
 import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { RegisterHeader } from '../../../components/register-header/register-header';
 import { NumberPicker } from '../../../components/number-picker/number-picker';
+import { Progress } from '../../../components/progress/progress';
 
 @Component({
   selector: 'app-weight',
-  imports: [RegisterHeader, SubmitBtn, FormsModule, NumberPicker],
+  imports: [RegisterHeader, SubmitBtn, FormsModule, NumberPicker, Progress],
   templateUrl: './weight.html',
   styleUrl: './weight.scss',
 })
