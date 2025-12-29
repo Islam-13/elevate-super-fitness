@@ -6,21 +6,17 @@ import { onGoal } from '@store/register/register.actions';
 import { RegisterHeader } from '../../../components/register-header/register-header';
 import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { OptionPicker } from '../../../components/option-picker/option-picker';
+import { Progress } from '../../../components/progress/progress';
+import { goalOptions } from '@shared/constants/constansts';
 
 @Component({
   selector: 'app-goal',
-  imports: [RegisterHeader, SubmitBtn, FormsModule, OptionPicker],
+  imports: [RegisterHeader, SubmitBtn, FormsModule, OptionPicker, Progress],
   templateUrl: './goal.html',
   styleUrl: './goal.scss',
 })
 export class Goal {
-  options = [
-    { label: 'Gain Weight', value: 'Gain weight' },
-    { label: 'Lose Weight', value: 'Lose weight' },
-    { label: 'Get Fitter', value: 'Get fitter' },
-    { label: 'Gain more flexible', value: 'Gain more flexible' },
-    { label: 'Learn The Basic', value: 'Learn the basic' },
-  ];
+  options = goalOptions;
 
   steps = output();
 

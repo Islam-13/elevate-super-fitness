@@ -76,5 +76,12 @@ export const appRoutes: Route[] = [
     loadComponent: () =>
       import('../app/features/account/account').then((m) => m.Account),
   },
+        path: 'account',
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import('../app/features/account/account').then((m) => m.Account),
+      },
+    ],
+  },
 ];
 
