@@ -93,9 +93,15 @@ export class Account implements OnInit {
   toggleMood() {
     this.themeService.toggleTheme();
   }
+  
   logout() {
     console.log('logout');
   }
+
+  openChangePasswordModal() {
+    console.log('change password');
+  } 
+
   openChangePasswordModal() {
     console.log('Change PasswordModal');
   }

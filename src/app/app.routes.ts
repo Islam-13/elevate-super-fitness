@@ -70,8 +70,9 @@ export const appRoutes: Route[] = [
       },
     ],
   },
-  {
+    {
     path: 'account',
+    canActivate: [authGuard],
     loadComponent: () =>
       import('../app/features/account/account').then((m) => m.Account),
   },
@@ -83,3 +84,4 @@ export const appRoutes: Route[] = [
     ],
   },
 ];
+

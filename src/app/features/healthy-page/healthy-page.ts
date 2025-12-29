@@ -4,7 +4,6 @@ import { Meal } from '../../shared/types/meals-by-categories';
 import { SectionTitle } from "../../shared/components/ui/section-title/sectionTitle";
 import { Taps } from "../../shared/components/business/taps/taps";
 import { TranslateModule } from '@ngx-translate/core';
-import { Banner } from "../../shared/components/ui/banner/banner";
 import { Caursoul } from "../../shared/components/business/caursoul/caursoul";
 import { GlobalData } from '../../shared/interfaces/global-data/global-data';
 import { MealsCategoryDTO } from '../../shared/types/mealCategory.interface';
@@ -12,7 +11,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-healthy-page',
-  imports: [SectionTitle, Taps, TranslateModule, Banner, Caursoul],
+  imports: [SectionTitle, Taps, TranslateModule,Caursoul],
   templateUrl: './healthy-page.html',
   styleUrl: './healthy-page.scss',
 })
