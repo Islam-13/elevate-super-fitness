@@ -28,5 +28,5 @@ export class Account {
   logout() {
     console.log('logout');
   }
-  openChangePasswordModal() {}
+  openChangePasswordModal() {console.log('change password');} 
 }
