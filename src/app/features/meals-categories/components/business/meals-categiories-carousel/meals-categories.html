@@ -1,0 +1,68 @@
+<!-- <p-carousel
+  [value]="products"
+  [numVisible]="3"
+  [numScroll]="3"
+  [showNavigators]="true"
+  [showIndicators]="false"
+>
+  <ng-template let-product #item>
+    <div class="border border-dark-border rounded-2xl m-2 text-start">
+      <div class="mb-4 w-full">
+        <img
+          [src]=" product.strCategoryThumb "
+          [alt]="product.strCategoryThumb"
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="p-4 flex flex-col gap-2">
+        <h3 class="card-title">{{ product.strCategory }}</h3>
+        <div class="flex flex-row gap-2 items-center">
+          <h3 class="font-baloo font-medium text-xl text-primary capitalize">
+            read more
+          </h3>
+          <div
+            class="rounded-full w-6 h-6 bg-primary flex items-center justify-center ltr:end-0 rtl:start-0"
+          >
+            <svg
+              width="7"
+              height="7"
+              viewBox="0 0 7 7"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M5.77016 0.339556C4.94268 1.16704 3.43467 1.16738 2.60685 0.339553L2.26744 0.000141303L1.58861 0.678964L1.92803 1.01838C2.53014 1.62049 3.35898 1.92121 4.18817 1.92155L0.000172917 6.10955L0.678995 6.78837L4.86699 2.60037C4.86733 3.42956 5.16805 4.2584 5.77017 4.86051L6.10958 5.19993L6.7884 4.5211L6.44899 4.18169C5.62116 3.35387 5.6215 1.84586 6.44899 1.01838L6.7884 0.678967L6.10958 0.000144674L5.77016 0.339556Z"
+                fill="#242424"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel> -->
+
+<ng-container>
+  @if(data$ |async ;as data){ @if(data.isLoading){
+  <app-loading></app-loading>
+  } @if(data.mealsCategories===[]){
+  <h3>Something went wrong</h3>
+  } @else {
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+    @for(mealsCategory of getVisibleCategories(data.mealsCategories); track
+    $index){
+    <app-meals-category [mealsCategory]="mealsCategory"></app-meals-category>
+
+    }
+  </div>
+  <!-- see More btn -->
+  @if(data.mealsCategories!==[]){
+  <button
+    class="text-primary font-inter font-semibold capitalize cursor-pointer block ms-auto mt-5"
+    (click)="toggleShowMore()"
+  >
+    {{ showAll ? 'See Less' : 'See More' }}</button
+  >} } }
+</ng-container>

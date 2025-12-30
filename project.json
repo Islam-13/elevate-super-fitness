@@ -25,7 +25,8 @@
         ],
         "styles": [
           "./src/styles.scss",
-          "./node_modules/@fortawesome/fontawesome-free/css/all.min.css"
+          "./node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+          "./node_modules/primeicons/primeicons.css"
         ]
       },
       "configurations": {
@@ -84,7 +85,7 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "jest.config.ts",
+        "jestConfig": "jest.config.app.ts",
         "tsConfig": "tsconfig.spec.json"
       }
     },

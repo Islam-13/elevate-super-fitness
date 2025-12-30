@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { Home } from '../../features/pages/home/home';
-import { Footer } from "../../shared/components/ui/footer/footer";
+import { Navbar } from "../../shared/components/ui/navbar/navbar";
+import { RouterModule } from "@angular/router";
+import { Chatbot } from "src/app/features/chatbot/chatbot";
+import { Footer } from '@shared/components/ui/footer/footer';
 
 @Component({
   selector: 'app-app-layout',
-  imports: [Home, Footer],
+  imports: [RouterModule, Navbar, Chatbot, Footer],
   templateUrl: './appLayout.html',
   styleUrl: './appLayout.scss',
 })

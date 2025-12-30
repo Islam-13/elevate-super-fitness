@@ -1,0 +1,17 @@
+<div>
+  <app-progress [stepNum]="2" />
+  <app-register-header
+    heading="How Old Are you ?"
+    description="this helps us create Your personalized plan"
+  />
+
+  <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmit()">
+    <app-number-picker
+      [numbersRange]="numbersRange"
+      (payload)="onSelect($event)"
+      unit="Year"
+    />
+
+    <app-submit-btn label="Next" [disable]="!age()" />
+  </form>
+</div>

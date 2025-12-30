@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { AboutAs } from '../../../shared/components/ui/about-us/aboutAs';
+import { AboutAs } from '@shared/components/ui/about-us/about-as';
+import { Banner } from "@shared/components/ui/banner/banner";
 
 @Component({
   selector: 'app-about',
-  imports: [AboutAs],
+  imports: [AboutAs, Banner],
   templateUrl: './about.html',
   styleUrl: './about.scss',
 })

@@ -1,0 +1,13 @@
+<div>
+  <app-progress [stepNum]="5" />
+  <app-register-header
+    heading="what is your goal ?"
+    description="this helps us create Your personalized plan"
+  />
+
+  <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmit()">
+    <app-option-picker [options]="options" (payload)="onSelect($event)" />
+
+    <app-submit-btn label="Next" [disable]="!goal()" />
+  </form>
+</div>
