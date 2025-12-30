@@ -98,7 +98,7 @@ export class Account implements OnInit {
     console.log('logout');
   }
 
-  openChangePasswordModal() {
+  openChangePassword() {
     console.log('change password');
   } 
 

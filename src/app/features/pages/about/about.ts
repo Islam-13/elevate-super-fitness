@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AboutAs } from '../../shared/components/ui/about-us/about-as';
+import { AboutAs } from '@shared/components/ui/about-us/about-as';
 import { Banner } from "@shared/components/ui/banner/banner";
 
 @Component({
