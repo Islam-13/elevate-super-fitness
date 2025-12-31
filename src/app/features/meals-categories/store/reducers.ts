@@ -4,7 +4,7 @@ import { mealsActions } from './actions';
 
 const initialState: MealsStateInterface = {
   isLoading: false,
-  mealsCategories: [],
+  mealsCategories:null,
   meals: null,
   mealDetail: null,
   selectedCategoryOfMeals: null,

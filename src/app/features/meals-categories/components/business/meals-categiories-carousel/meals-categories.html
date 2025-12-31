@@ -47,8 +47,8 @@
 <ng-container>
   @if(data$ |async ;as data){ @if(data.isLoading){
   <app-loading></app-loading>
-  } @if(data.mealsCategories===[]){
-  <h3>Something went wrong</h3>
+  } @if(data.mealsCategories===null){
+  <h3 class="flex items-center justify-center text-white py-5 text-2xl ">Something went wrong</h3>
   } @else {
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
     @for(mealsCategory of getVisibleCategories(data.mealsCategories); track
@@ -58,7 +58,7 @@
     }
   </div>
   <!-- see More btn -->
-  @if(data.mealsCategories!==[]){
+  @if(data.mealsCategories!==null){
   <button
     class="text-primary font-inter font-semibold capitalize cursor-pointer block ms-auto mt-5"
     (click)="toggleShowMore()"

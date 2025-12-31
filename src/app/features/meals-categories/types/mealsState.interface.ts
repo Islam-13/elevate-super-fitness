@@ -4,7 +4,7 @@ import { MealDTO } from './meal-response.interface';
 
 export interface MealsStateInterface {
   isLoading: boolean;
-  mealsCategories: MealsCategoryDTO[];
+  mealsCategories: MealsCategoryDTO[]|null;
   meals: MealDTO[] | null;
   mealDetail: MealDetailDTO | null;
   selectedCategoryOfMeals: string | null;
