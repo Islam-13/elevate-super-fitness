@@ -6,7 +6,7 @@ import { mealsActions } from './actions';
 import { MealsCategoriesDTO } from '../../../shared/types/mealCategoriesRes.interface';
 import { MealsByCategoryDTO } from '../types/meal-response.interface';
 import { MealDetailsDTO } from '../types/meal-details-response.interface';
-
+ 
 export const getMealsCategoriesEffect = createEffect(
   (actions$ = inject(Actions), mealsCategories = inject(MealsCategories)) => {
     return actions$.pipe(
@@ -16,7 +16,8 @@ export const getMealsCategoriesEffect = createEffect(
           map((mealsGroupEsponse: MealsCategoriesDTO) => {
             return mealsActions.getMealsGroupsSuccess(mealsGroupEsponse);
           }),
-          catchError(() => {
+          catchError((err) => {
+            console.log(err)
             return of(mealsActions.getMealsGroupsFailure());
           })
         );
