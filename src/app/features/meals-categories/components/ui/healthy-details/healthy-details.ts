@@ -54,6 +54,9 @@ export class HealthyDetails implements OnInit {
       .pipe()
       .subscribe((groupName) => {
         this.selectedGroupId = groupName;
+        //   this._store.dispatch(
+        //   mealsActions.selectCategory({ category:groupName })
+        // );
         this._store.dispatch(
           mealsActions.getMealsByGroupsName({ groupName })
         );

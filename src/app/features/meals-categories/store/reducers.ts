@@ -24,7 +24,7 @@ export const MealsFeature = createFeature({
       ...state,
       isLoading: false,
       mealsCategories: action.categories,
-      selectedCategoryOfMeals: action.categories[0].strCategory,
+      // selectedCategoryOfMeals: action.categories[0].strCategory,
     })),
     on(mealsActions.getMealsGroupsFailure, (state) => ({
       ...state,
