@@ -40,7 +40,8 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '',
-        loadComponent: () => import('../app/features/pages/home/home').then((c) => c.Home),
+        loadComponent: () =>
+          import('../app/features/pages/home/home').then((c) => c.Home),
       },
       {
         path: 'about',
@@ -66,12 +67,12 @@ export const appRoutes: Route[] = [
         loadComponent: () =>
           import('../app/features/classes/classes').then((m) => m.Classes),
       },
+      {
+        path: 'account',
+        canActivate: [authGuard],
+        loadComponent: () =>
+          import('../app/features/account/account').then((m) => m.Account),
+      },
     ],
-  },
-  {
-    path: 'account',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('../app/features/account/account').then((m) => m.Account),
   },
 ];
