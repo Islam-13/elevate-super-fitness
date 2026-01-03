@@ -31,19 +31,21 @@
   --bg-card: #c7c6c3;
   --bg-workouts: #a8a7a7;
   --bg-gray: #ffffff99;
+  --card-overlay-bg: rgba(255, 255, 255, 0.5);
+
 }
 /* define dark theme */
 [data-theme='dark'] {
   --primay-color: #ff4100;
   --bg-section: #242424f2;
   --bg-overlay: #242424f2;
-
   --title-text: #f3f3f4;
   --p-text: #f3f3f4;
   --bg-card: #212121;
   --bg-workouts: #212121;
   --bg-gray: #24242499;
   --dark-border: #f3f3f424;
+  --card-overlay-bg: rgba(36, 36, 36, 0.5);
 }
 
 @theme {
@@ -59,6 +61,7 @@
   --color-dark-border: var(--dark-border);
   --color-bg-card: var(--bg-card);
   --color-bg-workouts: var(--bg-workouts);
+  --color-card-overlay-bg: var(--card-overlay-bg);
 }
 
 :root {

@@ -1,7 +1,7 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Muscle } from '../../../interfaces/all-muscles';
+import { Component, EventEmitter, Input, Output,  } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { Card } from "../card/card";
+import { GlobalData } from '../../../interfaces/global-data/global-data';
 
 @Component({
   selector: 'app-caursoul',
@@ -10,26 +10,19 @@ import { Card } from "../card/card";
   templateUrl: './caursoul.html',
   styleUrl: './caursoul.scss',
 })
-export class Caursoul implements OnChanges {
-  @Input() muscles: Muscle[] = [];
-
+export class Caursoul {
+  @Input() data: GlobalData[] = [];
+  @Output() itemClicked = new EventEmitter<GlobalData>();
   responsiveOptions = [
-    { breakpoint: '1400px', numVisible: 3, numScroll: 1 },
-    { breakpoint: '1199px', numVisible: 3, numScroll: 1 },
-    { breakpoint: '767px', numVisible: 2, numScroll: 1 },
+    { breakpoint: '1400px', numVisible: 3, numScroll: 3 },
+    { breakpoint: '1199px', numVisible: 3, numScroll: 3 },
+    { breakpoint: '767px', numVisible: 2, numScroll: 2 },
     { breakpoint: '575px', numVisible: 1, numScroll: 1 },
   ];
 
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['muscles'] && (!this.muscles || this.muscles.length === 0)) {
-      this.muscles = [{
-        _id: 'placeholder',
-        name: '',
-        image: null
-      }];
-    }
-  }
+goToDetails(data: GlobalData) {
+  this.itemClicked.emit(data);
+}
 }
 
 

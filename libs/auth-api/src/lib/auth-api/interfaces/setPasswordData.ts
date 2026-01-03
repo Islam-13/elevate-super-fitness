@@ -7,7 +7,8 @@ export interface SetPasswordRes {
   message: string;
   token: string;
 }
+
 export interface LogoutRes {
   message: string;
-  error:string|null
+  error: string | null;
 }

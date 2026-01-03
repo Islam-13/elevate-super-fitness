@@ -1,4 +1,4 @@
-<section class="text-center main-sec my-20">
+<section class="text-center pt-30 bg-bg-workouts">
     <!-- Section Title -->
     <app-section-title
     [title]="'WORKOUTS_PAGE.TITLE' | translate"
@@ -16,14 +16,19 @@
 
     <!-- Tabs -->
     <app-taps
-    [muscleGroups]="muscleGroupsSignal"
-    [selectedGroupId]="selectedGroupIdSignal"
-    (groupSelected)="onGroupSelected($event)">
-    </app-taps>     <div class="muscles">
+    [data]="muscleGroupsSignal()"
+    [carouselType]="'muscles'"
+    [selected]="selectedGroupIdSignal()"
+    (tabClicked)="onGroupSelected($event)">
+</app-taps>
+
+    <!-- Caursoul -->
+    <div class="main-padding">
+    <app-caursoul [data]="data"
+    (itemClicked)="goToDetails($any($event))">
+    </app-caursoul> 
+    </div>
 
     </div>
-</div>
 </section>
-
-
-
+<app-banner></app-banner>

@@ -50,9 +50,21 @@ export const appRoutes: Route[] = [
       {
         path: 'healthy',
         loadComponent: () =>
+          import('../app/features/healthy-page/healthy-page').then(
+            (m) => m.HealthyPage
+          ),
+      },
+      {
+        path: 'details/:id',
+        loadComponent: () =>
           import(
             '../app/features/meals-categories/components/ui/healthy-details/healthy-details'
           ).then((m) => m.HealthyDetails),
+      },
+      {
+        path: 'classes',
+        loadComponent: () =>
+          import('../app/features/classes/classes').then((m) => m.Classes),
       },
       {
         path: 'account',
