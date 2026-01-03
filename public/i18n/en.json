@@ -30,6 +30,34 @@
 
     "start": "Get Started"
   },
+  "why": {
+    "Title": "Why Us",
+    "SubTitle": "Elevate fitness with the <br> <span class='text-[#FF4100]'>best way</span> possible",
+    "Paragraph": "We offer a fitness journey that's tailored to your goals, supported by professional trainers and a welcoming community. Whether it's weight loss, strength building, or overall wellness, our proven methods ensure the best results.",
+
+    "Feature1.Title": "Personalized Fitness Plans",
+    "Feature1.Paragraph": "We customize every workout based on your unique goals and fitness level to ensure you achieve the best possible progress.",
+
+    "Feature2.Title": "Results-Driven Focus",
+    "Feature2.Paragraph": "Everything we offer is designed to help you achieve measurable results, whether you're aiming for weight loss or increased strength.",
+
+    "Feature3.Title": "State-of-the-Art Equipment",
+    "Feature3.Paragraph": "We provide the latest in gym equipment—from cardio machines to free weights—designed to support every training style."
+  },
+  "footer": {
+    "Slogan": "Push harder, go further. Your<br/> fitness journey starts today!",
+    
+    "ContactUs.Title": "CONTACT US",
+    "ContactUs.Phone": "+91 123 456 789",
+    "ContactUs.Email": "info@gmail.com",
+
+    "Timing.Title": "OUR GYM TIMING",
+    "Timing.Weekdays": "Mon - Fri : 08:00 AM - 10:00 PM",
+    "Timing.Weekend": "Sat - Sun : 08:00 AM - 09:00 PM",
+
+    "Location.Title": "OUR LOCATION",
+    "Location.Address": "2715 Ash Dr. San Jose, South Dakota 83475"
+  },
 
   "navbar": {
     "home": "Home",

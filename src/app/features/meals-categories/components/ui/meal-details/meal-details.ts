@@ -17,7 +17,7 @@ import { GlobalData } from '@shared/interfaces/global-data/global-data';
   styleUrl: './meal-details.scss',
 })
 export class MealDetails implements OnInit {
-  @Input() meal: GlobalData | null = null;
+ // @Input() meal: GlobalData | null = null;
 
   _store = inject(Store);
   mealDetails$ = combineLatest({

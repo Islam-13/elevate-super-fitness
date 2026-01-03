@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
-import { authGuard } from './core/guards/auth.guard';
 import { loggedUserGuard } from './core/guards/logged.user.guard';
+import { authGuard } from './core/guards/auth.guard';
 
 export const appRoutes: Route[] = [
   {
@@ -40,12 +40,13 @@ export const appRoutes: Route[] = [
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/home/home').then((c) => c.Home),
+        loadComponent: () =>
+          import('../app/features/pages/home/home').then((c) => c.Home),
       },
       {
         path: 'about',
         loadComponent: () =>
-          import('../app/pages/about/about').then((m) => m.About),
+          import('../app/features/pages/about/about').then((m) => m.About),
       },
       {
         path: 'healthy',

@@ -10,9 +10,12 @@ export class ThemeService {
   private readonly storageKey = 'app-theme';
   // private readonly currentTheme = signal<Theme>('light');
   private readonly document = inject(DOCUMENT);
-
   // Cookie utility instance
   private _CookiesService = inject(CookiesService);
+  // Create a signal with the initial theme value
+  theme = signal<string>(
+    this._CookiesService.getCookie(this.storageKey) || 'light'
+  );
   setTheme(theme: Theme) {
     this.setHtmlTheme(theme); // Apply to <html>
     this.theme.set(theme);
@@ -24,10 +27,7 @@ export class ThemeService {
   getTheme() {
     return this.theme; // returns signal<string>
   }
-  // Create a signal with the initial theme value
-  theme = signal<string>(
-    this._CookiesService.getCookie(this.storageKey) || 'light'
-  );
+
   initialTheme() {
     let currentTheme = this.theme();
     //get '' if no theme

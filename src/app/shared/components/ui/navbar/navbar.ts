@@ -2,7 +2,6 @@ import { Component, inject, signal, ViewChild } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { PrimaryBtn } from '../primary-btn/primaryBtn';
 import { CommonModule } from '@angular/common';
-
 import { DrawerModule } from 'primeng/drawer';
 import { ButtonModule } from 'primeng/button';
 import { Ripple } from 'primeng/ripple';
