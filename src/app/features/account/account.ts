@@ -17,7 +17,9 @@ import { OptionPicker } from '../auth/components/option-picker/option-picker';
 import { RegisterHeader } from '../auth/components/register-header/register-header';
 import { NumberPicker } from '../auth/components/number-picker/number-picker';
 import { goalOptions, levelOptions } from '@shared/constants/constansts';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Logout } from './logout/logout';
+import { ChangePassword } from './change-password/change-password';
 
 @Component({
   selector: 'app-account',
@@ -29,6 +31,9 @@ import { FormsModule } from '@angular/forms';
     RegisterHeader,
     NumberPicker,
     FormsModule,
+    ReactiveFormsModule,
+    Logout,
+    ChangePassword,
   ],
   templateUrl: './account.html',
   styleUrl: './account.scss',
@@ -75,35 +80,20 @@ export class Account implements OnInit {
       error: (err) => {
         console.log(err);
       },
-      complete: () => {
-        console.log('comp');
-      },
     });
 
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
 
-  // change lang
   changeLanguage() {
     const currentLang = this.cookies.getCookie('lang');
     const useLanguage = currentLang === 'en' ? 'ar' : 'en';
     this.languageService.changeLang(useLanguage);
   }
+
   // light or dark theme
   toggleMood() {
     this.themeService.toggleTheme();
-  }
-  
-  logout() {
-    console.log('logout');
-  }
-
-  openChangePassword() {
-    console.log('change password');
-  } 
-
-  openChangePasswordModal() {
-    console.log('Change PasswordModal');
   }
 
   showGoalDialog() {
