@@ -79,6 +79,11 @@
     "heroCount-thirdCount-num": "20+",
     "heroCount-thirdCount-text": "Year Of Experience",
     "filled-btn": "Get Started",
-    "outlined-btn": "Explore More"
+    "outlined-btn": "Read More"
+
+  },
+  "card": {
+    "card-btn": "Explore",
+    "no-data" : "No Data Available"
   }
 }

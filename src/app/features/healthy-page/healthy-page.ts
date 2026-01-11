@@ -27,8 +27,10 @@ export class HealthyPage implements OnInit {
   mealsGroupsSignal = signal<MealsCategoryDTO[]>([]);
   selectedGroupIdSignal = signal<string | null>(null);
   categories: MealsCategoryDTO[] = [];
+  
   ngOnInit(): void {
     this.getAllCategories();
+    
   }
 
   getAllCategories() {

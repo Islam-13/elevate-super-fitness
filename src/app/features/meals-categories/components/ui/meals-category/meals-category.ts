@@ -1,10 +1,11 @@
 import { Component, input, InputSignal } from '@angular/core';
 import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.interface';
 import { NgOptimizedImage } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-meals-category',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage , TranslateModule],
   templateUrl: './meals-category.html',
   styleUrl: './meals-category.scss',
 })
@@ -16,4 +17,6 @@ export class MealsCategory {
     console.log('see more');
     
   }
+  
+  
 }

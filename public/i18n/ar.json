@@ -62,7 +62,7 @@
     "home": "الرئيسية",
     "about": "معلومات عنا",
     "classes": "الحصص",
-    "healthy": "الطعام الصحى",
+    "healthy": "الطعام  الصحى" ,
     "filled-btn": "تسجيل الدخول",
     "outlined-btn": "تسجيل الخروج"
   },
@@ -79,6 +79,11 @@
     "heroCount-thirdCount-num": "+٢٠",
     "heroCount-thirdCount-text": "سنوات خبرة",
     "filled-btn": "ابدأ الآن",
-    "outlined-btn": "استكشف المزيد"
-  }
+    "outlined-btn": "اقرأ المزيد"
+
+  },
+    "card": {
+    "card-btn": "استكشف",
+    "no-data" : "لا توجد بيانات متاحة"
+}
 }
