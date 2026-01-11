@@ -4,16 +4,16 @@ import { Meal } from '../../shared/types/meals-by-categories';
 import { SectionTitle } from '../../shared/components/ui/section-title/sectionTitle';
 import { Taps } from '../../shared/components/business/taps/taps';
 import { TranslateModule } from '@ngx-translate/core';
-import { Caursoul } from '../../shared/components/business/caursoul/caursoul';
 import { GlobalData } from '../../shared/interfaces/global-data/global-data';
 import { MealsCategoryDTO } from '../../shared/types/mealCategory.interface';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { mealsActions } from '../meals-categories/store/actions';
+import { MultiRowCarousel } from "@shared/components/business/multi-row-carousel/multi-row-carousel";
 
 @Component({
   selector: 'app-healthy-page',
-  imports: [SectionTitle, Taps, TranslateModule, Caursoul],
+  imports: [SectionTitle, Taps, TranslateModule, MultiRowCarousel],
   templateUrl: './healthy-page.html',
   styleUrl: './healthy-page.scss',
 })
@@ -69,6 +69,8 @@ export class HealthyPage implements OnInit {
             label: meal.strMeal,
             image: meal.strMealThumb,
           }));
+          console.log(this.data);
+          
         },
         error: (err) => {
           console.log(err);
