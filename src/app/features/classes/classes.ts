@@ -4,14 +4,13 @@ import { Taps } from "../../shared/components/business/taps/taps";
 import { TranslateModule } from '@ngx-translate/core';
 import { Muscle } from '../../shared/interfaces/all-muscles';
 import { MusclesServices } from '../../shared/services/muscles/muscles-services';
-import { Banner } from "../../shared/components/ui/banner/banner";
-import { Caursoul } from "../../shared/components/business/caursoul/caursoul";
 import { GlobalData } from '../../shared/interfaces/global-data/global-data';
 import { Router } from '@angular/router';
+import { MultiRowCarousel } from "@shared/components/business/multi-row-carousel/multi-row-carousel";
 
 @Component({
   selector: 'app-classes',
-  imports: [Taps, SectionTitle, TranslateModule, Banner, Caursoul],
+  imports: [Taps, SectionTitle, TranslateModule, MultiRowCarousel],
   templateUrl: './classes.html',
   styleUrl: './classes.scss',
 })

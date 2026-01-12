@@ -3,13 +3,11 @@
   <app-loading></app-loading>
   }
   <div
-    class="relative bg-[linear-gradient(180.07deg,rgba(0,0,0,0)_25.67%,#242424_93.35%)] backdrop-blur-[55.3px] h-[536px] w-full"
-  >
-    <h3
-      class="absolute top-[-52px] start-[60px] workouts translate-y-1 z-30 hidden md:flex"
-    >
-      Healthy
-    </h3>
+    class="relative bg-[linear-gradient(180.07deg,rgba(0,0,0,0)_25.67%,#242424_93.35%)] backdrop-blur-[55.3px] h-[536px] w-full">
+  <h3
+  class="absolute top-[-52px] start-[60px] workouts translate-y-1 z-30 hidden md:flex"
+  [innerHTML]="'Meal_Details.Title' | translate">
+  </h3>
     @if(mealDetails.mealDetails.strMealThumb){
     <img
       [ngSrc]="mealDetails.mealDetails.strMealThumb"
@@ -19,58 +17,26 @@
       class="rounded-bl-2xl rounded-t-2xl"
     />
     } @else {
-
-    <div
+    <h2
       class="w-full h-full font-baloo capitalize text-title-text font-medium text-5xl text-center flex justify-center items-center"
-    >
-      No preview Available
-    </div>
-    <!-- <video controls class="h-[536px] w-full rounded-lg z-30">
-      <source
-        src="https://www.youtube.com/watch?v=xvPR2Tfw5k0"
-        type="video/mp4"
-      />
-    </video> -->
+        [innerHTML]="'Meal_Details.No_Data' | translate">
+    </h2>
     }
-
     <div
-      class="absolute bottom-0 z-40 flex flex-col gap-5 justify-end h-auto px-8 font-baloo capitalize text-title-text pt-2 backdrop-blur-[55.3px]"
-    >
+      class="absolute bottom-0 z-40 flex flex-col gap-5 justify-end h-auto px-8 font-baloo capitalize text-title-text pt-2 backdrop-blur-[55.3px]">
       <h3 class="font-medium text-5xl text-center">
         {{mealDetails.mealDetails.strMeal}}
       </h3>
       <p class="font-normal text-lg pe-49 line-clamp-3 mb-8">
         {{mealDetails.mealDetails.strInstructions}}
       </p>
-      <!-- Not getting from API  -->
-      <!-- <div class="flex flex-row mb-8 justify-between">
-        <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
-          <span>100 k</span>
-          <span class="text-primary font-bold text-base">Energy</span>
-        </div>
-        <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
-          <span>15 6</span>
-          <span class="text-primary font-bold text-base">Protein</span>
-        </div>
-        <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
-          <span>58 g</span>
-          <span class="text-primary font-bold text-base">Carbs</span>
-        </div>
-        <div class="flex flex-col border rounded-2xl p-2 backdrop-blur-[10px]">
-          <span>20 g</span>
-          <span class="text-primary font-bold text-base">Fat</span>
-        </div>
-      </div> -->
     </div>
-    <!-- background overlay -->
-    <!-- <div class="backdrop-blur-[55.3px] absolute inset-0 z-30"></div> -->
   </div>
   @if(mealDetails.mealDetails.strIngredient1){
   <!--ingredients  -->
-  <h3 class="mt-6 mb-4 font-medium font-baloo text-3xl text-p-text">
-    ingredients
+  <h3 class="mt-6 mb-4 font-medium font-baloo text-3xl text-p-text"
+    [innerHTML]="'Meal_Details.P' | translate">
   </h3>
-
   <div class="bg-[#242424CC] backdrop-blur-[20px] rounded-3xl px-2 py-4">
     <div class="flex flex-row gap-2 md:gap-30 justify-between">
       <div class="flex-1">
@@ -81,7 +47,6 @@
           <main class="font-semibold text-p-text text-base">
             {{mealDetails.mealDetails.strIngredient1}}
           </main>
-          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         } @if(mealDetails.mealDetails.strIngredient2){
         <div
@@ -90,7 +55,6 @@
           <main class="font-semibold text-p-text text-base">
             {{mealDetails.mealDetails.strIngredient2??''}}
           </main>
-          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         } @if(mealDetails.mealDetails.strIngredient3){
         <div
@@ -99,33 +63,28 @@
           <main class="font-semibold text-p-text text-base">
             {{mealDetails.mealDetails.strIngredient3??''}}
           </main>
-          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         }
       </div>
       <div class="flex-1">
         @if(mealDetails.mealDetails.strIngredient4){
         <div
-          class="flex flex-row items-center justify-between border-bottom font-baloo"
-        >
+          class="flex flex-row items-center justify-between border-bottom font-baloo">
+        
           <main class="font-semibold text-p-text text-base">
             {{mealDetails.mealDetails.strIngredient4??''}}
           </main>
-          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         } @if(mealDetails.mealDetails.strIngredient5){
         <div
-          class="flex flex-row items-center justify-between border-bottom font-baloo"
-        >
+          class="flex flex-row items-center justify-between border-bottom font-baloo">
           <main class="font-semibold text-p-text text-base">
             {{mealDetails.mealDetails.strIngredient5??''}}
           </main>
-          <!-- <span class="text-primary text-base">250g</span> -->
         </div>
         } @if(mealDetails.mealDetails.strIngredient6){
         <div
-          class="flex flex-row items-center justify-between border-bottom font-baloo"
-        >
+          class="flex flex-row items-center justify-between border-bottom font-baloo">
           <main class="font-semibold text-p-text text-base">
             {{mealDetails.mealDetails.strIngredient6 ??''}}
           </main>
