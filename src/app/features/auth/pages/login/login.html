@@ -1,7 +1,9 @@
 <div>
   <div class="text-center mb-4">
-    <span>Hey There</span>
-    <h2 class="text-4xl font-extrabold">WELCOME BACK</h2>
+    <span>{{"auth.span" | translate}}</span>
+    <h2 class="text-4xl font-extrabold">
+      {{"auth.login-page.title" | translate}}
+    </h2>
   </div>
 
   <form
@@ -9,7 +11,7 @@
     (ngSubmit)="onSubmit()"
     class="border border-[#D3D3D3] p-9 rounded-3xl flex flex-col gap-3"
   >
-    <h3 class="text-center">Login</h3>
+    <h3 class="text-center">{{"auth.login" | translate}}</h3>
 
     @if (error()) {
     <div>
@@ -25,7 +27,7 @@
         <app-base-input
           [control]="emailCtrl"
           type="email"
-          placeholder="Email"
+          [placeholder]="'auth.email' | translate"
         />
         <span class="absolute left-4 top-1/2 -translate-y-1/2">
           <svg
@@ -60,7 +62,7 @@
         <app-base-input
           [control]="passwordCtrl"
           type="password"
-          placeholder="Password"
+          [placeholder]="'auth.password'|translate"
         />
         <span class="absolute left-4 top-1/2 -translate-y-1/2">
           <svg
@@ -93,12 +95,12 @@
       routerLink="/auth/forget-password"
       class="text-primary underline w-fit ms-auto font-bold"
     >
-      Forget Password ?
+      {{"auth.login-page.forget-password" | translate}}
     </a>
 
     <div class="flex justify-evenly items-center">
       <div class="h-px w-20 bg-white"></div>
-      <span>Or</span>
+      <span>{{'auth.login-page.or' | translate}}</span>
       <div class="h-px w-20 bg-white"></div>
     </div>
 
@@ -176,13 +178,15 @@
 
     <app-submit-btn
       [isSubmitting]="isSubmitting()"
-      label="Login"
+      [label]="'auth.login' | translate"
       [disable]="form.invalid"
     />
 
     <p>
-      Dont have an account yet ?
-      <a routerLink="/auth/register" class="text-primary">Register</a>
+      {{"auth.login-page.no-account" | translate}}
+      <a routerLink="/auth/register" class="text-primary">
+        {{"auth.register" | translate}}
+      </a>
     </p>
   </form>
 </div>

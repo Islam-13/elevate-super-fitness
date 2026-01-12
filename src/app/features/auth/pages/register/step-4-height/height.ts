@@ -7,10 +7,18 @@ import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { RegisterHeader } from '../../../components/register-header/register-header';
 import { NumberPicker } from '../../../components/number-picker/number-picker';
 import { Progress } from '../../../components/progress/progress';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-height',
-  imports: [RegisterHeader, SubmitBtn, FormsModule, NumberPicker, Progress],
+  imports: [
+    RegisterHeader,
+    SubmitBtn,
+    FormsModule,
+    NumberPicker,
+    Progress,
+    TranslateModule,
+  ],
   templateUrl: './height.html',
   styleUrl: './height.scss',
 })

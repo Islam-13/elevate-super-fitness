@@ -1,8 +1,8 @@
 <div>
   <app-progress [stepNum]="4" />
   <app-register-header
-    heading="what is your height ?"
-    description="this helps us create Your personalized plan"
+    [heading]="'auth.height' | translate"
+    [description]="'auth.description' | translate"
   />
 
   <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmit()">
@@ -12,6 +12,6 @@
       unit="Cm"
     />
 
-    <app-submit-btn label="Next" [disable]="!height()" />
+    <app-submit-btn [label]="'auth.next' | translate" [disable]="!height()" />
   </form>
 </div>

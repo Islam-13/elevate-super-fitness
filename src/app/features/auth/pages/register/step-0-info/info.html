@@ -1,7 +1,9 @@
 <div>
   <div class="text-center mb-4">
-    <span>Hey There</span>
-    <h2 class="text-4xl font-extrabold">Create An Account</h2>
+    <span>{{"auth.span" | translate}}</span>
+    <h2 class="text-4xl font-extrabold">
+      {{"auth.register-page.title" | translate}}
+    </h2>
   </div>
 
   <form
@@ -9,7 +11,7 @@
     (ngSubmit)="onSubmit()"
     class="border border-[#D3D3D3] p-9 rounded-3xl flex flex-col gap-3"
   >
-    <h3 class="text-center">Register</h3>
+    <h3 class="text-center">{{"auth.register" | translate}}</h3>
 
     <div>
       <div class="relative">
@@ -17,7 +19,7 @@
         <app-base-input
           [control]="fNameCtrl"
           type="text"
-          placeholder="First Name"
+          [placeholder]="'auth.first-name' | translate"
         />
 
         <span class="absolute left-4 top-1/2 -translate-y-1/2">
@@ -53,7 +55,7 @@
         <app-base-input
           [control]="lNameCtrl"
           type="text"
-          placeholder="Last Name"
+          [placeholder]="'auth.last-name' | translate"
         />
 
         <span class="absolute left-4 top-1/2 -translate-y-1/2">
@@ -89,7 +91,7 @@
         <app-base-input
           [control]="emailCtrl"
           type="email"
-          placeholder="Email"
+          [placeholder]="'auth.email' | translate"
         />
         <span class="absolute left-4 top-1/2 -translate-y-1/2">
           <svg
@@ -124,7 +126,7 @@
         <app-base-input
           [control]="passwordCtrl"
           type="password"
-          placeholder="Password"
+          [placeholder]="'auth.password' | translate"
         />
 
         <span class="absolute left-4 top-1/2 -translate-y-1/2">
@@ -160,7 +162,7 @@
         <app-base-input
           [control]="rePasswordCtrl"
           type="password"
-          placeholder="Confirm Password"
+          [placeholder]="'auth.confirm-password' | translate"
         />
 
         <span class="absolute left-4 top-1/2 -translate-y-1/2">
@@ -193,11 +195,16 @@
       />
     </div>
 
-    <app-submit-btn label="Next" [disable]="form.invalid" />
+    <app-submit-btn
+      [label]="'auth.next' | translate"
+      [disable]="form.invalid"
+    />
 
     <p>
-      Already Have an account ?
-      <a routerLink="/auth/login" class="text-primary">Login</a>
+      {{"auth.register-page.have-account" | translate}}
+      <a routerLink="/auth/login" class="text-primary"
+        >{{"auth.login" | translate}}</a
+      >
     </p>
   </form>
 </div>

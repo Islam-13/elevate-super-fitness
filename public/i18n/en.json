@@ -46,7 +46,7 @@
   },
   "footer": {
     "Slogan": "Push harder, go further. Your<br/> fitness journey starts today!",
-    
+
     "ContactUs.Title": "CONTACT US",
     "ContactUs.Phone": "+91 123 456 789",
     "ContactUs.Email": "info@gmail.com",
@@ -80,5 +80,51 @@
     "heroCount-thirdCount-text": "Year Of Experience",
     "filled-btn": "Get Started",
     "outlined-btn": "Explore More"
+  },
+  "auth": {
+    "span": "Hey There",
+    "login": "Login",
+    "register": "Register",
+    "next": "Next",
+    "email": "Email",
+    "password": "Password",
+    "new-password": "New password",
+    "confirm-password": "Confirm password",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "login-page": {
+      "title": "WELCOME BACK",
+      "forget-password": "Forget Password ?",
+      "or": "Or",
+      "no-account": "Dont have an account yet ?"
+    },
+    "register-page": {
+      "title": "Create An Account",
+      "have-account": "Already Have an account ?"
+    },
+    "forget-password": "Forget Password",
+    "enter-email": "Enter Your Email",
+    "send-otp": "Send OTP",
+    "otp-code": "OTP Code",
+    "enter-otp": "Enter Your OTP Check your email",
+    "confirm": "Confirm",
+    "no-code": "didn't recieve verification code?",
+    "resend-code": "Resend code?",
+
+    "create-password": "Create new password",
+    "new-password-heading": "Make sure its 8 characters or more",
+    "done": "Done",
+
+    "gender.heading": "tell us about yourself!",
+    "gender.desc": "We Need To Know Your Gender",
+    "male": "Male",
+    "female": "Female",
+
+    "age": "How Old Are you ?",
+    "weight": "what is your weight ?",
+    "height": "what is your height ?",
+    "goal": "what is your goal ?",
+    "level": "your regular physicalactivity level ?",
+    "description": "this helps us create Your personalized plan"
   }
 }

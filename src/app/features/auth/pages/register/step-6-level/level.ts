@@ -18,10 +18,18 @@ import { OptionPicker } from '../../../components/option-picker/option-picker';
 import { RegisterHeader } from '../../../components/register-header/register-header';
 import { Progress } from '../../../components/progress/progress';
 import { levelOptions } from '@shared/constants/constansts';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-level',
-  imports: [RegisterHeader, SubmitBtn, FormsModule, OptionPicker, Progress],
+  imports: [
+    RegisterHeader,
+    SubmitBtn,
+    FormsModule,
+    OptionPicker,
+    Progress,
+    TranslateModule,
+  ],
   templateUrl: './level.html',
   styleUrl: './level.scss',
 })
@@ -72,7 +80,7 @@ export class Level implements OnInit {
       return;
     } else {
       this.isSubmitting.set(true);
-console.log(this.data())
+      console.log(this.data());
 
       const subscription = this._authService.register(this.data()).subscribe({
         next: () => this._router.navigate(['auth/login']),

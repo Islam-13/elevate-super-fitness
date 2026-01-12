@@ -8,10 +8,18 @@ import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { OptionPicker } from '../../../components/option-picker/option-picker';
 import { Progress } from '../../../components/progress/progress';
 import { goalOptions } from '@shared/constants/constansts';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-goal',
-  imports: [RegisterHeader, SubmitBtn, FormsModule, OptionPicker, Progress],
+  imports: [
+    RegisterHeader,
+    SubmitBtn,
+    FormsModule,
+    OptionPicker,
+    Progress,
+    TranslateModule,
+  ],
   templateUrl: './goal.html',
   styleUrl: './goal.scss',
 })

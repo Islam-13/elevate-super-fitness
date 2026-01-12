@@ -15,10 +15,18 @@ import { equalValues } from '@shared/utils/validateRePassword';
 import { CtrlError } from '../../../components/ctrl-error/ctrl-error';
 import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { BaseInput } from '../../../components/base-input/base-input';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reset-password',
-  imports: [ReactiveFormsModule, Message, CtrlError, SubmitBtn, BaseInput],
+  imports: [
+    ReactiveFormsModule,
+    Message,
+    CtrlError,
+    SubmitBtn,
+    BaseInput,
+    TranslateModule,
+  ],
   templateUrl: './reset-password.html',
   styleUrl: './reset-password.scss',
 })

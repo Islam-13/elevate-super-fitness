@@ -17,10 +17,18 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthApiService } from '@elevate-super-fitness/auth-api';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-verify-email',
-  imports: [ReactiveFormsModule, SubmitBtn, CtrlError, BaseInput, Message],
+  imports: [
+    ReactiveFormsModule,
+    SubmitBtn,
+    CtrlError,
+    BaseInput,
+    Message,
+    TranslateModule,
+  ],
   templateUrl: './verify-email.html',
   styleUrl: './verify-email.scss',
 })

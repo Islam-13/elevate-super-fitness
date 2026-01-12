@@ -14,6 +14,7 @@ import { CtrlError } from '../../components/ctrl-error/ctrl-error';
 import { SubmitBtn } from '../../components/submit-btn/submit-btn';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { AuthApiService } from 'libs/auth-api/src/lib/auth-api/auth-api.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ import { AuthApiService } from 'libs/auth-api/src/lib/auth-api/auth-api.service'
     SubmitBtn,
     CtrlError,
     BaseInput,
+    TranslateModule,
   ],
   templateUrl: './login.html',
   styleUrl: './login.scss',

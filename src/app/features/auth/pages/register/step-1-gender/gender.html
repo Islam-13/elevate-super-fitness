@@ -1,8 +1,8 @@
 <div>
   <app-progress [stepNum]="1" />
   <app-register-header
-    heading="tell us about yourself!"
-    description="We Need To Know Your Gender"
+    [heading]="'auth.gender.heading' | translate"
+    [description]="'auth.gender.desc' | translate"
   />
 
   <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmit()">
@@ -34,7 +34,7 @@
               />
             </svg>
           </span>
-          <p>Male</p>
+          <p>{{"auth.male" | translate}}</p>
         </div>
       </label>
     </div>
@@ -67,11 +67,11 @@
               />
             </svg>
           </span>
-          <p>Female</p>
+          <p>{{"auth.female" | translate}}</p>
         </div>
       </label>
     </div>
 
-    <app-submit-btn label="Next" [disable]="!gender()" />
+    <app-submit-btn [label]="'auth.next' | translate" [disable]="!gender()" />
   </form>
 </div>
