@@ -31,17 +31,18 @@ export class Taps {
         item._id ||
         item.code ||
         item.key ||
-        item.idCategory ||              
-        (index + 1).toString(),        
+        item.idCategory ||
+        (index + 1).toString(),
 
       label:
         item.label ||
         item.title ||
         item.name ||
         item.group ||
-        item.strCategory ||             
+        item.strCategory ||
         ''
     }));
+    this.updateVisibleTabs();
   }
   get data() {
     return this._data;
@@ -50,5 +51,29 @@ export class Taps {
   selectTab(id: string) {
     this.selectedItemId = id;
     this.tabClicked.emit(id);
+  }
+
+  // -------------------
+  // Slider variables
+  startIndex = 0;
+  visibleCount = 8; 
+  visibleTabs: { id: string; label: string }[] = [];
+
+  updateVisibleTabs() {
+    this.visibleTabs = this._data.slice(this.startIndex, this.startIndex + this.visibleCount);
+  }
+
+  nextSlide() {
+    if (this.startIndex + this.visibleCount < this._data.length) {
+      this.startIndex++;
+      this.updateVisibleTabs();
+    }
+  }
+
+  prevSlide() {
+    if (this.startIndex > 0) {
+      this.startIndex--;
+      this.updateVisibleTabs();
+    }
   }
 }

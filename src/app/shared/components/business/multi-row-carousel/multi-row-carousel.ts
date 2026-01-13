@@ -8,9 +8,10 @@ import {
 import { CarouselModule } from 'primeng/carousel';
 import { Card } from '../card/card';
 import { GlobalData } from '../../../interfaces/global-data/global-data';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-multi-row-carousel',
-  imports: [CarouselModule, Card],
+  imports: [CarouselModule, Card, TranslateModule],
   templateUrl: './multi-row-carousel.html',
   styleUrl: './multi-row-carousel.scss',
 })

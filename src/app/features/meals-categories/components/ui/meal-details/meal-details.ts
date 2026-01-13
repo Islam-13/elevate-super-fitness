@@ -1,5 +1,5 @@
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { Component, inject, Input, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
   selectIsLoading,
@@ -9,10 +9,10 @@ import {
 import { combineLatest, take } from 'rxjs';
 import { mealsActions } from '../../../store/actions';
 import { LoadingComponent } from '../../../../../shared/components/ui/loading/loading.component';
-import { GlobalData } from '@shared/interfaces/global-data/global-data';
+import { TranslateModule } from '@ngx-translate/core';
 @Component({
   selector: 'app-meal-details',
-  imports: [NgOptimizedImage, AsyncPipe, LoadingComponent],
+  imports: [NgOptimizedImage, AsyncPipe, LoadingComponent, TranslateModule],
   templateUrl: './meal-details.html',
   styleUrl: './meal-details.scss',
 })
