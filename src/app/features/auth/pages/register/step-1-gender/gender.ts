@@ -6,10 +6,11 @@ import { onGender } from '@store/register/register.actions';
 import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { RegisterHeader } from '../../../components/register-header/register-header';
 import { Progress } from '../../../components/progress/progress';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-gender',
-  imports: [RegisterHeader, SubmitBtn, FormsModule, Progress],
+  imports: [RegisterHeader, SubmitBtn, FormsModule, Progress, TranslateModule],
   templateUrl: './gender.html',
   styleUrl: './gender.scss',
 })

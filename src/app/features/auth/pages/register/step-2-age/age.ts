@@ -7,10 +7,18 @@ import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
 import { RegisterHeader } from '../../../components/register-header/register-header';
 import { NumberPicker } from '../../../components/number-picker/number-picker';
 import { Progress } from '../../../components/progress/progress';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-age',
-  imports: [RegisterHeader, FormsModule, SubmitBtn, NumberPicker, Progress],
+  imports: [
+    RegisterHeader,
+    FormsModule,
+    SubmitBtn,
+    NumberPicker,
+    Progress,
+    TranslateModule,
+  ],
   templateUrl: './age.html',
   styleUrl: './age.scss',
 })

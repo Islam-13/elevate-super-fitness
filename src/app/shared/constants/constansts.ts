@@ -1,15 +1,15 @@
 export const levelOptions = [
-  { label: 'Rookie', value: 'level1' },
-  { label: 'Beginner', value: 'level2' },
-  { label: 'Intermediate', value: 'level3' },
-  { label: 'Advance', value: 'level4' },
-  { label: 'True Beast', value: 'level5' },
+  { label: 'auth.level.rookie', value: 'level1' },
+  { label: 'auth.level.beginner', value: 'level2' },
+  { label: 'auth.level.intermediate', value: 'level3' },
+  { label: 'auth.level.advance', value: 'level4' },
+  { label: 'auth.level.beast', value: 'level5' },
 ];
 
 export const goalOptions = [
-  { label: 'Gain Weight', value: 'Gain weight' },
-  { label: 'Lose Weight', value: 'Lose weight' },
-  { label: 'Get Fitter', value: 'Get fitter' },
-  { label: 'Gain more flexible', value: 'Gain more flexible' },
-  { label: 'Learn The Basic', value: 'Learn the basic' },
+  { label: 'auth.goal.gain-weight', value: 'Gain weight' },
+  { label: 'auth.goal.lose-weight', value: 'Lose weight' },
+  { label: 'auth.goal.get-fitter', value: 'Get fitter' },
+  { label: 'auth.goal.more-flexible', value: 'Gain more flexible' },
+  { label: 'auth.goal.basic', value: 'Learn the basic' },
 ];

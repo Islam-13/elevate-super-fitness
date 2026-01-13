@@ -20,10 +20,18 @@ import { InputOtpModule } from 'primeng/inputotp';
 
 import { CtrlError } from '../../../components/ctrl-error/ctrl-error';
 import { SubmitBtn } from '../../../components/submit-btn/submit-btn';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-verify-code',
-  imports: [Message, CtrlError, SubmitBtn, ReactiveFormsModule, InputOtpModule],
+  imports: [
+    Message,
+    CtrlError,
+    SubmitBtn,
+    ReactiveFormsModule,
+    InputOtpModule,
+    TranslateModule,
+  ],
   templateUrl: './verify-code.html',
   styleUrl: './verify-code.scss',
 })

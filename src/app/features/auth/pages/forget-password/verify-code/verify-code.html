@@ -1,6 +1,6 @@
 <div>
   <div class="text-center mb-4">
-    <h2 class="text-4xl font-extrabold">OTP CODE</h2>
+    <h2 class="text-4xl font-extrabold">{{'auth.otp-code' | translate}}</h2>
   </div>
 
   <form
@@ -8,7 +8,7 @@
     (ngSubmit)="onSubmit()"
     class="border border-[#D3D3D3] p-9 rounded-3xl flex flex-col gap-6"
   >
-    <h3 class="text-center">Enter Your OTP Check your email</h3>
+    <h3 class="text-center">{{'auth.enter-otp' | translate}}</h3>
 
     @if (error()) {
     <div>
@@ -45,12 +45,12 @@
 
     <app-submit-btn
       [isSubmitting]="isSubmitting()"
-      label="Confirm"
+      [label]="'auth.confirm' | translate"
       [disable]="form.invalid"
     />
 
     <div class="text-center">
-      <p>didn't recieve verification code?</p>
+      <p>{{"auth.no-code" | translate}}</p>
 
       <button
         class="text-primary underline cursor-pointer"
@@ -58,7 +58,7 @@
         [disabled]="isSubmitting()"
         (click)="onResendCode()"
       >
-        Resend Code?
+        {{"auth.resend-code" | translate}}
       </button>
     </div>
   </form>

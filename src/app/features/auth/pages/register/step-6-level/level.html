@@ -1,15 +1,15 @@
 <div>
   <app-progress [stepNum]="6" />
   <app-register-header
-    heading="your regular physicalactivity level ?"
-    description="this helps us create Your personalized plan"
+    [heading]="'auth.level' | translate"
+    [description]="'auth.description' | translate"
   />
 
   <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmit()">
     <app-option-picker [options]="options" (payload)="onSelect($event)" />
 
     <app-submit-btn
-      label="Register"
+      [label]="'auth.register' | translate"
       [disable]="!level()"
       [isSubmitting]="isSubmitting()"
     />

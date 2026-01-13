@@ -16,23 +16,23 @@
     "start": "Get Started"
   },
   "Features": [
-  {
-    "title": "Personal Trainer",
-    "description": "Achieve your fitness goals with the<br>guidance of our certified trainers."
-  },
-  {
-    "title": "Cardio Programs",
-    "description": "From steady-state runs to interval<br>sprints, our treadmill programs."
-  },
-  {
-    "title": "Quality Equipment",
-    "description": "Our gym is equipped with the<br>latest cardio & strength machines."
-  },
-  {
-    "title": "Healthy Nutritions",
-    "description": "Fuel your fitness journey with<br>customized meal plans for you."
-  }
-],
+    {
+      "title": "Personal Trainer",
+      "description": "Achieve your fitness goals with the<br>guidance of our certified trainers."
+    },
+    {
+      "title": "Cardio Programs",
+      "description": "From steady-state runs to interval<br>sprints, our treadmill programs."
+    },
+    {
+      "title": "Quality Equipment",
+      "description": "Our gym is equipped with the<br>latest cardio & strength machines."
+    },
+    {
+      "title": "Healthy Nutritions",
+      "description": "Fuel your fitness journey with<br>customized meal plans for you."
+    }
+  ],
   "account": {
     "English": "English",
     "yourGoal": "your Goal",
@@ -67,7 +67,6 @@
     "Location.Title": "OUR LOCATION",
     "Location.Address": "2715 Ash Dr. San Jose, South Dakota 83475"
   },
-
   "navbar": {
     "home": "Home",
     "about": "About",
@@ -88,12 +87,75 @@
     "heroCount-thirdCount-num": "20+",
     "heroCount-thirdCount-text": "Year Of Experience",
     "filled-btn": "Get Started",
-    "outlined-btn": "Read More"
-
+    "outlined-btn": "Explore More"
   },
+  "auth": {
+    "span": "Hey There",
+    "login": "Login",
+    "register": "Register",
+    "next": "Next",
+    "email": "Email",
+    "password": "Password",
+    "new-password": "New password",
+    "confirm-password": "Confirm password",
+    "first-name": "First Name",
+    "last-name": "Last Name",
+    "login-page": {
+      "title": "WELCOME BACK",
+      "forget-password": "Forget Password ?",
+      "or": "Or",
+      "no-account": "Dont have an account yet ?"
+    },
+    "register-page": {
+      "title": "Create An Account",
+      "have-account": "Already Have an account ?"
+    },
+    "forget-password": "Forget Password",
+    "enter-email": "Enter Your Email",
+    "send-otp": "Send OTP",
+    "otp-code": "OTP Code",
+    "enter-otp": "Enter Your OTP Check your email",
+    "confirm": "Confirm",
+    "no-code": "didn't recieve verification code?",
+    "resend-code": "Resend code?",
+
+    "create-password": "Create new password",
+    "new-password-heading": "Make sure its 8 characters or more",
+    "done": "Done",
+
+    "gender.heading": "tell us about yourself!",
+    "gender.desc": "We Need To Know Your Gender",
+    "male": "Male",
+    "female": "Female",
+
+    "age": "How Old Are you ?",
+    "weight": "what is your weight ?",
+    "height": "what is your height ?",
+    "goal": "what is your goal ?",
+    "level": "your regular physicalactivity level ?",
+    "description": "this helps us create Your personalized plan",
+
+    "required": "is required!!",
+    "invalid": "is invalid!!",
+    "password-pattern": "Password should have at least uppercase and lowercase letter, number and special char!!",
+    "password-mismatch": "Password and confirm password should match!!",
+
+    "goal.gain-weight": "Gain Weight",
+    "goal.lose-weight": "Lose Weight",
+    "goal.get-fitter": "Get Fitter",
+    "goal.more-flexible": "Gain more flexible",
+    "goal.basic": "Learn The Basic",
+
+    "level.rookie": "Rookie",
+    "level.beginner": "Beginner",
+    "level.intermediate": "Intermediate",
+    "level.advance": "Advance",
+    "level.beast": "True Beast"
+  },
+  "outlined-btn": "Read More",
   "card": {
     "card-btn": "Explore",
-    "no-data" : "No Data Available"
+    "no-data": "No Data Available"
   },
   "Healthy_Nutritions": {
     "TITLE": "Healthy",
@@ -104,11 +166,8 @@
   },
   "Meal_Details": {
     "SomethingWentWrong": "Something went wrong",
-    "Title" : "Healthy",
-    "No_Data" : "No preview Available",
-    "P" : "Ingredients"
+    "Title": "Healthy",
+    "No_Data": "No preview Available",
+    "P": "Ingredients"
   }
 }
-
-
-
