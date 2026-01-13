@@ -53,7 +53,10 @@
         </span>
       </div>
 
-      <app-ctrl-error [inputCtrl]="emailCtrl" fieldName="Email" />
+      <app-ctrl-error
+        [inputCtrl]="emailCtrl"
+        [fieldName]="'auth.email' | translate"
+      />
     </div>
 
     <div>
@@ -88,7 +91,10 @@
         </span>
       </div>
 
-      <app-ctrl-error [inputCtrl]="passwordCtrl" fieldName="Password" />
+      <app-ctrl-error
+        [inputCtrl]="passwordCtrl"
+        [fieldName]="'auth.password' | translate"
+      />
     </div>
 
     <a

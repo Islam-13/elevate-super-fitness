@@ -2,22 +2,21 @@
 
     @if (inputCtrl().errors['required']) {
       <p-message severity="error" variant="simple" styleClass="mt-1">
-        {{fieldName()}} is required!!
+        {{fieldName()}} {{'auth.required' | translate}}
       </p-message>}
 
     @if(inputCtrl().errors['email']) {
       <p-message severity="error" variant="simple" styleClass="mt-1">
-        {{fieldName()}} is invalid!!
+        {{fieldName()}} {{'auth.invalid' | translate}}
       </p-message>}
       
     @if (inputCtrl().errors['pattern']) {
       <p-message severity="error" variant="simple" styleClass="mt-1">
-        Password should have at least uppercase and lowercase letter, number and
-        special char!!
+        {{'auth.password-pattern' | translate}}
       </p-message>}
 
     @if(inputCtrl().errors['misMatch']) {
       <p-message severity="error" variant="simple" styleClass="mt-1">
-        Password and confirm password should match!!
+        {{'auth.password-mismatch' | translate}}
       </p-message>}
 }

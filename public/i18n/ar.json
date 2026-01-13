@@ -125,6 +125,23 @@
     "height": "كم طولك ؟",
     "goal": "ما هو هدفك ؟",
     "level": "ما هو مستوى نشاطك المعتاد ؟",
-    "description": "هذا يساعدنا في إنشاء خطة مخصصة لك"
+    "description": "هذا يساعدنا في إنشاء خطة مخصصة لك",
+
+    "required": "مطلوب !!",
+    "invalid": "غير صيحيح !!",
+    "password-pattern": "كلمة المرور يجب أن تحتوي على الأقل حرف كبير وحرف صغير ورقم وعلامة خاصة !!",
+    "password-mismatch": "كلمة المرور وتأكيدها يجب أن يتطابقوا !!",
+
+    "goal.gain-weight": "اكتساب وزن",
+    "goal.lose-weight": "فقدان وزن",
+    "goal.get-fitter": "أكون لائق",
+    "goal.more-flexible": "اكتساب مرونة",
+    "goal.basic": "تعلم الأساسيات",
+
+    "level.rookie": "هاوي",
+    "level.beginner": "مبتدئ",
+    "level.intermediate": "متوسط",
+    "level.advance": "متقدم",
+    "level.beast": "وحش"
   }
 }

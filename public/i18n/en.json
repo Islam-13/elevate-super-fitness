@@ -125,6 +125,23 @@
     "height": "what is your height ?",
     "goal": "what is your goal ?",
     "level": "your regular physicalactivity level ?",
-    "description": "this helps us create Your personalized plan"
+    "description": "this helps us create Your personalized plan",
+
+    "required": "is required!!",
+    "invalid": "is invalid!!",
+    "password-pattern": "Password should have at least uppercase and lowercase letter, number and special char!!",
+    "password-mismatch": "Password and confirm password should match!!",
+
+    "goal.gain-weight": "Gain Weight",
+    "goal.lose-weight": "Lose Weight",
+    "goal.get-fitter": "Get Fitter",
+    "goal.more-flexible": "Gain more flexible",
+    "goal.basic": "Learn The Basic",
+
+    "level.rookie": "Rookie",
+    "level.beginner": "Beginner",
+    "level.intermediate": "Intermediate",
+    "level.advance": "Advance",
+    "level.beast": "True Beast"
   }
 }

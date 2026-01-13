@@ -1,8 +1,9 @@
 import { Component, input, output } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-option-picker',
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './option-picker.html',
   styleUrl: './option-picker.scss',
 })

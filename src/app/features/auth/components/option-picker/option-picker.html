@@ -6,7 +6,9 @@
     (click)="handleClick(item.value)"
     type="button"
   >
-    <label [for]="item.label" class="flex-1 py-2">{{ item.label }}</label>
+    <label [for]="item.label" class="flex-1 py-2"
+      >{{ item.label | translate}}
+    </label>
 
     <input
       type="radio"

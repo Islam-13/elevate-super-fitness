@@ -46,7 +46,10 @@
         </span>
       </div>
 
-      <app-ctrl-error [inputCtrl]="fNameCtrl" fieldName="First name" />
+      <app-ctrl-error
+        [inputCtrl]="fNameCtrl"
+        [fieldName]="'auth.first-name' | translate"
+      />
     </div>
 
     <div>
@@ -82,7 +85,10 @@
         </span>
       </div>
 
-      <app-ctrl-error [inputCtrl]="lNameCtrl" fieldName="Last name" />
+      <app-ctrl-error
+        [inputCtrl]="lNameCtrl"
+        [fieldName]="'auth.last-name' | translate"
+      />
     </div>
 
     <div>
@@ -117,7 +123,10 @@
         </span>
       </div>
 
-      <app-ctrl-error [inputCtrl]="emailCtrl" fieldName="Email" />
+      <app-ctrl-error
+        [inputCtrl]="emailCtrl"
+        [fieldName]="'auth.email' | translate"
+      />
     </div>
 
     <div>
@@ -153,7 +162,10 @@
         </span>
       </div>
 
-      <app-ctrl-error [inputCtrl]="passwordCtrl" fieldName="Password" />
+      <app-ctrl-error
+        [inputCtrl]="passwordCtrl"
+        [fieldName]="'auth.password' | translate"
+      />
     </div>
 
     <div>
@@ -191,7 +203,7 @@
 
       <app-ctrl-error
         [inputCtrl]="rePasswordCtrl"
-        fieldName="Confirm password"
+        [fieldName]="'auth.confirm-password' | translate"
       />
     </div>
 
