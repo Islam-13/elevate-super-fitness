@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output,  } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { Card } from "../card/card";
 import { GlobalData } from '../../../interfaces/global-data/global-data';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-caursoul',
   standalone: true,
-  imports: [CarouselModule, Card],
+  imports: [CarouselModule, Card, TranslateModule],
   templateUrl: './caursoul.html',
   styleUrl: './caursoul.scss',
 })

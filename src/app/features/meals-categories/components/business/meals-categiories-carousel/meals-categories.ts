@@ -12,10 +12,12 @@ import { AsyncPipe } from '@angular/common';
 import { mealsActions } from '../../../store/actions';
 import { LoadingComponent } from '../../../../../shared/components/ui/loading/loading.component';
 import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.interface';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-meals-categories',
-  imports: [CarouselModule, MealsCategory, AsyncPipe, LoadingComponent, ],
+  imports: [CarouselModule, MealsCategory, AsyncPipe, LoadingComponent,TranslateModule ],
   templateUrl: './meals-categories.html',
   styleUrl: './meals-categories.scss',
 })
