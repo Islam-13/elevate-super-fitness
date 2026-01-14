@@ -1,6 +1,7 @@
 import {
   Component,
   EventEmitter,
+  HostListener,
   Input,
   OnChanges,
   Output,
@@ -27,17 +28,40 @@ export class MultiRowCarousel implements OnChanges {
   //   // }
   //   // console.log(this.data);
   // }
-  ngOnChanges() {
-    if (this.data?.length) {
-      this.groupedItems = [];
-      const size = 6;
-      for (let i = 0; i < this.data.length; i += size) {
-        this.groupedItems.push(this.data.slice(i, i + size));
-      }
-      console.log('grouped:', this.groupedItems);
-    }
+  @HostListener('window:resize')
+  onResize() {
+    this.buildGroups();
   }
 
+  ngOnChanges() {
+    this.buildGroups();
+  }
+  buildGroups() {
+    if (this.data?.length) {
+      this.groupedItems = [];
+      //  const size = 6;
+      // const isSmall = window.innerWidth < 768; // sm breakpoint
+      // const size = isSmall ? 2 : 6; // 1×2 vs 3×2
+      let cols;
+      const w = window.innerWidth;
+
+      if (w >= 1024) {
+        cols = 3; // desktop
+      } else if (w >= 768) {
+        cols = 2; // tablet
+      } else {
+        cols = 1; // phone
+      }
+
+      const rows = 2;
+      const size = cols * rows;
+      for (let i = 0; i < this.data.length; i += size) {
+        this.groupedItems.push(this.data.slice(i, i + size));
+       // console.log('grouped in for:', this.groupedItems);
+      }
+    //  console.log('grouped:', this.groupedItems);
+    }
+  }
   goToDetails(data: GlobalData) {
     this.itemClicked.emit(data);
   }
