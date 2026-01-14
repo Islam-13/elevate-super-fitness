@@ -1,6 +1,4 @@
 
-
-
   .hero{
     display: block;
     position: relative;
@@ -11,8 +9,7 @@
     background-repeat: no-repeat;
     //  background-attachment: fixed;
     //  overflow-y: hidden;
-
-  }
+}
 
 .overlay {
   // position: absolute;
@@ -22,7 +19,7 @@
 
   // backdrop-filter: blur(86px);
   // -webkit-backdrop-filter: blur(86px);
-   top: 0;
+    top: 0;
     left: 0;
     padding: 0;
     height: 100%;
@@ -33,6 +30,4 @@
   // padding: 200px 80px 0px 80px;
   // padding-top: 200px;
   // padding-left: 30px;
-  
-  
 }

@@ -1,13 +1,13 @@
-import { Component,EventEmitter, Input,Output,  } from '@angular/core';
+import { Component, EventEmitter, Input, Output, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-taps',
   standalone: true,
   templateUrl: './taps.html',
   styleUrls: ['./taps.scss'],
-  imports: [ ],
+  imports: [],
 })
-export class Taps {
+export class Taps implements OnInit {
   @Input() carouselType: 'muscles' | 'healthy';
   @Output() tabClicked = new EventEmitter<string>();
   selectedItemId: string | null = null;
@@ -33,7 +33,6 @@ export class Taps {
         item.key ||
         item.idCategory ||
         (index + 1).toString(),
-
       label:
         item.label ||
         item.title ||
@@ -47,7 +46,6 @@ export class Taps {
   get data() {
     return this._data;
   }
-
   selectTab(id: string) {
     this.selectedItemId = id;
     this.tabClicked.emit(id);
@@ -56,20 +54,36 @@ export class Taps {
   // -------------------
   // Slider variables
   startIndex = 0;
-  visibleCount = 8; 
+  visibleCount = 8;
   visibleTabs: { id: string; label: string }[] = [];
 
+  ngOnInit() {
+    this.updateVisibleCount();
+  }
+  @HostListener('window:resize')
+  onResize() {
+    this.updateVisibleCount();
+  }
+  updateVisibleCount() {
+    const width = window.innerWidth;
+    if (width < 640) { 
+      this.visibleCount = 4;
+    } else if (width < 1024) {   
+      this.visibleCount = 6;
+    } else { 
+      this.visibleCount = 8;
+    }
+    this.updateVisibleTabs();
+  }
   updateVisibleTabs() {
     this.visibleTabs = this._data.slice(this.startIndex, this.startIndex + this.visibleCount);
   }
-
   nextSlide() {
     if (this.startIndex + this.visibleCount < this._data.length) {
       this.startIndex++;
       this.updateVisibleTabs();
     }
   }
-
   prevSlide() {
     if (this.startIndex > 0) {
       this.startIndex--;
