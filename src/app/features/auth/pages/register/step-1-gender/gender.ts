@@ -1,4 +1,4 @@
-import { Component, inject, output, signal } from '@angular/core';
+import { Component, inject, Input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 
@@ -20,6 +20,9 @@ export class Gender {
   gender = signal<string>('');
 
   private _store = inject(Store);
+
+  @Input() descriptionClass = '';
+
 
   onSubmit() {
     if (!this.gender()) return;

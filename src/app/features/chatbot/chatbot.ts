@@ -17,27 +17,22 @@ interface Msg {
 })
 export class Chatbot implements OnInit {
   
-   messages: Msg[] = [];
+  messages: Msg[] = [];
   userInput = '';
   sending= false;
   chatVisible = false;
   isOpen = false;
   floatingBtnText = 'Hey Ask Me';
   isMobile = window.innerWidth < 640;
-
-
-   private gemini=inject(GeminiService) 
-
+  private gemini=inject(GeminiService) 
 
   @ViewChild('drawerRef') drawerRef!: Drawer;
-  
-Visiable=false;
-
+    Visiable=false;
 
   ngOnInit(): void {
     
     this.simulateBotTyping('Welcome to Fitness App, Say Hey to Team 5');
-     this.adjustPositions();
+    this.adjustPositions();
   }
   // floating div
     floatingDivStyle: any = {
@@ -110,7 +105,6 @@ adjustPositions() {
   async sendMessage() {
     const message = this.userInput.trim();
     if (!message) return;
-
     this.messages.push({ text: message, sender: 'user' });
     this.sending = true;
     this.userInput = '';
@@ -146,6 +140,4 @@ adjustPositions() {
       if (container) container.scrollTop = container.scrollHeight;
     }, 50);
   }
- 
-
 }

@@ -118,28 +118,23 @@
     "confirm": "Confirm",
     "no-code": "didn't recieve verification code?",
     "resend-code": "Resend code?",
-
     "create-password": "Create new password",
     "new-password-heading": "Make sure its 8 characters or more",
     "done": "Done",
-
     "gender.heading": "tell us about yourself!",
     "gender.desc": "We Need To Know Your Gender",
     "male": "Male",
     "female": "Female",
-
     "age": "How Old Are you ?",
     "weight": "what is your weight ?",
     "height": "what is your height ?",
     "goal": "what is your goal ?",
     "level": "your regular physicalactivity level ?",
     "description": "this helps us create Your personalized plan",
-
     "required": "is required!!",
     "invalid": "is invalid!!",
     "password-pattern": "Password should have at least uppercase and lowercase letter, number and special char!!",
     "password-mismatch": "Password and confirm password should match!!",
-
     "goal.gain-weight": "Gain Weight",
     "goal.lose-weight": "Lose Weight",
     "goal.get-fitter": "Get Fitter",
@@ -169,5 +164,18 @@
     "Title": "Healthy",
     "No_Data": "No preview Available",
     "P": "Ingredients"
-  }
+  },
+  "BannerItems": [
+  "Live Classes",
+  "Outdoor & Online",
+  "Personal Training",
+  "Live Classes",
+  "Personal Trainers",
+  "Personal Trainers",
+  "Live Classes",
+  "Outdoor & Online",
+  "Personal Trainers",
+  "Live Classes",
+  "Personal Trainers"
+]
 }
