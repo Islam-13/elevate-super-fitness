@@ -169,5 +169,13 @@
     "Title": "Healthy",
     "No_Data": "No preview Available",
     "P": "Ingredients"
+  },
+   "Chatbot": {
+    "HeyAskMe": "Hey Ask Me",
+    "TapToClose": "Tap To Close",
+    "WelcomeMessage":"Welcome to Fitness App, Say Hey to Team 5",
+    "SmartCoach":"Smart Coach",
+   "PreviousConversations":"Previous Conversations",
+  "AskMeAnything": "Ask me anything..."
   }
 }

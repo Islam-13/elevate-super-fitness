@@ -1,32 +1,42 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+
+import { Component, inject, OnInit, ViewChild,ChangeDetectorRef, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GeminiService } from '../../core/services/google.service';
 import { Drawer } from "primeng/drawer";
 import { Button } from "primeng/button";
 import { HostListener } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 interface Msg {
   text: string;
   sender: 'user' | 'bot';
 }
 @Component({
   selector: 'app-chatbot',
-  imports: [CommonModule, FormsModule, Drawer, Button],
+  imports: [CommonModule, FormsModule, Drawer, Button,TranslateModule],
   templateUrl: './chatbot.html',
   styleUrl: './chatbot.scss',
 })
 export class Chatbot implements OnInit {
+    private gemini=inject(GeminiService) 
+   private translate=inject(TranslateService)
+   private cdr = inject(ChangeDetectorRef);
+   
   
    messages: Msg[] = [];
   userInput = '';
   sending= false;
   chatVisible = false;
   isOpen = false;
-  floatingBtnText = 'Hey Ask Me';
+placeholderText = signal<string>('Default Placeholder');
+
+  
+   floatingBtnText!: string;
   isMobile = window.innerWidth < 640;
 
 
-   private gemini=inject(GeminiService) 
+ 
 
 
   @ViewChild('drawerRef') drawerRef!: Drawer;
@@ -35,9 +45,36 @@ Visiable=false;
 
 
   ngOnInit(): void {
-    
-    this.simulateBotTyping('Welcome to Fitness App, Say Hey to Team 5');
+
+
+     this.floatingBtnText = this.translate.instant('Chatbot.HeyAskMe');
+       this.sendWelcomeMessage();
+
+  this.translate.onLangChange.subscribe(() => {
+    this.sendWelcomeMessage();
+  });
      this.adjustPositions();
+   this.updateTexts();
+
+ 
+  this.translate.onLangChange.subscribe(() => {
+    this.updateTexts();
+    this.cdr.detectChanges();
+  });
+
+ 
+}
+sendWelcomeMessage() {
+  const message = this.translate.instant('Chatbot.WelcomeMessage');
+  this.simulateBotTyping(message);
+}
+
+updateTexts() {
+  this.floatingBtnText = this.translate.instant(
+    this.isOpen ? 'Chatbot.TapToClose' : 'Chatbot.HeyAskMe'
+  );
+
+  this.placeholderText = this.translate.instant('Chatbot.AskMeAnything');
   }
   // floating div
     floatingDivStyle: any = {
@@ -56,7 +93,8 @@ chatWindowStyle = {
 toggleChat() {
   this.chatVisible = !this.chatVisible;
 this.isOpen = !this.isOpen;
-    this.floatingBtnText = this.isOpen ? 'Tap to Close' : 'Hey Ask Me';
+    this.floatingBtnText = this.isOpen ? this.translate.instant('Chatbot.TapToClose')
+  : this.translate.instant('Chatbot.HeyAskMe');
   if (this.chatVisible) {
     // Opening chat
     setTimeout(() => {
