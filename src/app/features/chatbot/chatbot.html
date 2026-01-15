@@ -25,7 +25,7 @@
 
   <!-- Header -->
   <div class="flex items-center justify-between   text-[#F3F3F4] px-4 py-3">
-    <h3 class="font-semibold">Smart coach</h3>
+    <h3 class="font-semibold">{{'Chatbot.SmartCoach' | translate}}</h3>
 
       <p-drawer 
       [visible]="Visiable"
@@ -39,7 +39,7 @@
             <div class="flex items-center px-3 pt-4 shrink-0">
                 <span class="inline-flex items-center gap-2">
               
-                    <span class="font-semibold text-xl fony-baloo text-white"> Previous conversations</span>
+                    <span class="font-semibold text-xl fony-baloo text-white">{{'Chatbot.PreviousConversations' | translate}}</span>
                 </span>
             </div>
             <div class="overflow-y-auto">
@@ -154,17 +154,22 @@
     </div>
     }
     
+    
     <input
+    
       type="text"
       pInputText
       [(ngModel)]="userInput"
       (keydown.enter)="sendMessage()"
-      placeholder="Ask Me Anything..."
-      class="w-full border rounded-full pl-10 p-2 focus:outline-none text-[#F3F3F4] border-[#F3F3F4]"/>
+      [placeholder]="'Chatbot.AskMeAnything' | translate"
+      class="w-full border rounded-full pl-10 p-2 focus:outline-none text-[#F3F3F4] border-[#F3F3F4]"
+    />
+  </div>
+
 </div>
 </div>
 </div>
-</div>
+
 }
 </div>
 

@@ -166,6 +166,15 @@
     "No_Data": "لا توجد معاينة متاحة",
     "P": "المكونات"
   },
+   "Chatbot": {
+    "HeyAskMe": "أهلا أسالنى",
+    "TapToClose": "انقر للاغلاق",
+    "WelcomeMessage":"أهلا بيك فى تطبيق اللياقه البدنيه",
+    "SmartCoach":"المدرب الذكى",
+    "PreviousConversations":"المحادثات السابقة",
+    "AskMeAnything": "أسالنى فى أى شيء..."
+   
+  },
   "BannerItems": [
   "حصص مباشرة",
   "خارجي وأونلاين",
