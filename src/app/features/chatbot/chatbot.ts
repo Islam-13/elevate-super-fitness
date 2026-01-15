@@ -24,7 +24,7 @@ export class Chatbot implements OnInit {
    private cdr = inject(ChangeDetectorRef);
    
   
-   messages: Msg[] = [];
+  messages: Msg[] = [];
   userInput = '';
   sending= false;
   chatVisible = false;
@@ -40,9 +40,7 @@ placeholderText = signal<string>('Default Placeholder');
 
 
   @ViewChild('drawerRef') drawerRef!: Drawer;
-  
-Visiable=false;
-
+    Visiable=false;
 
   ngOnInit(): void {
 
@@ -148,7 +146,6 @@ adjustPositions() {
   async sendMessage() {
     const message = this.userInput.trim();
     if (!message) return;
-
     this.messages.push({ text: message, sender: 'user' });
     this.sending = true;
     this.userInput = '';
@@ -184,6 +181,4 @@ adjustPositions() {
       if (container) container.scrollTop = container.scrollHeight;
     }, 50);
   }
- 
-
 }
