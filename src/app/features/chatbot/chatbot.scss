@@ -8,14 +8,11 @@
   inset: -20px;
   background: rgba(255, 65, 0, 1);
   filter: blur(63.92px);
- 
   border-radius: 9999px;
   z-index: -1;
 }
 
-
-
- .chat{
+.chat{
     // display: block;
     position: absolute;
     height: 100%;
@@ -23,13 +20,12 @@
     background-size: cover;
     background-position: center  ;
     background-repeat: no-repeat;
-     background-attachment: fixed;
-     overflow-y: hidden;
-
+    background-attachment: fixed;
+    overflow-y: hidden;
   }
 
 .overlay{
-  position: absolute;
+position: absolute;
 inset: 0;
 background: #1A1A1A80;
 backdrop-filter: blur(8.5px);
@@ -38,7 +34,6 @@ left: 0;
 padding: 0;
 height: 100%;
 width: 100%;
-    
 }
 
 
@@ -112,11 +107,16 @@ width: 100%;
 }
 
 .toggle{
- background-color: rgba(36, 36, 36, 0.8);
- backdrop-filter: blur(20px);
- 
-
-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-
+  background-color: rgba(36, 36, 36, 0.8);
+  backdrop-filter: blur(20px);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
+
+#chat-container::-webkit-scrollbar {
+  width: 6px;
+}
+#chat-container::-webkit-scrollbar-thumb {
+  border-radius: 9999px;
+    background: rgb(96, 95, 95);
+}
