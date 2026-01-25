@@ -29,6 +29,7 @@ export class Chatbot implements OnInit {
   sending= false;
   chatVisible = false;
   isOpen = false;
+  welcomeShown = false;
 placeholderText = signal<string>('Default Placeholder');
 
   
@@ -46,11 +47,7 @@ placeholderText = signal<string>('Default Placeholder');
 
 
      this.floatingBtnText = this.translate.instant('Chatbot.HeyAskMe');
-       this.sendWelcomeMessage();
-
-  this.translate.onLangChange.subscribe(() => {
-    this.sendWelcomeMessage();
-  });
+ 
      this.adjustPositions();
    this.updateTexts();
 
@@ -93,6 +90,12 @@ toggleChat() {
 this.isOpen = !this.isOpen;
     this.floatingBtnText = this.isOpen ? this.translate.instant('Chatbot.TapToClose')
   : this.translate.instant('Chatbot.HeyAskMe');
+//Shown the welcome message when open the chatbot
+  if (this.chatVisible && !this.welcomeShown) {
+    this.sendWelcomeMessage();
+    this.welcomeShown = true;
+  }
+
   if (this.chatVisible) {
     // Opening chat
     setTimeout(() => {
