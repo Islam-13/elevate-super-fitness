@@ -9,6 +9,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { Drawer } from 'primeng/drawer';
 import { TranslateModule } from '@ngx-translate/core';
 import { LocalStorageService } from '@shared/services/local-storage.service';
+import { ThemeService } from 'src/app/core/services/theme-service.service';
 
 @Component({
   selector: 'app-navbar',
@@ -29,11 +30,13 @@ import { LocalStorageService } from '@shared/services/local-storage.service';
 export class Navbar {
   @ViewChild('drawerRef') drawerRef!: Drawer;
   visible = false;
+themeService = inject(ThemeService);
 
   private readonly _localStorageService = inject(LocalStorageService);
   isLogged = signal<string>(this._localStorageService.get('logged-user'));
-
+isDarkMode = this.themeService.isDarkMode;
   closeCallback(e): void {
     this.drawerRef.close(e);
   }
+
 }

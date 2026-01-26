@@ -7,6 +7,7 @@ import { Theme } from '../../shared/types/theme.type';
   providedIn: 'root',
 })
 export class ThemeService {
+  isDarkMode = signal(false);
   private readonly storageKey = 'app-theme';
   // private readonly currentTheme = signal<Theme>('light');
   private readonly document = inject(DOCUMENT);
@@ -56,6 +57,8 @@ export class ThemeService {
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     this.setTheme(newTheme);
     this._CookiesService.setCookie(this.storageKey, newTheme);
+      this.isDarkMode.set(!this.isDarkMode());
+  document.body.classList.toggle('dark', this.isDarkMode());
   }
 
   private setHtmlTheme(theme: string) {
@@ -64,4 +67,6 @@ export class ThemeService {
     this.document.documentElement.setAttribute('data-theme', theme);
     // this.cookieUtils.setCookie(this.storageKey, theme);
   }
+
+
 }
