@@ -16,6 +16,7 @@ export class ThemeService {
   theme = signal<string>(
     this._CookiesService.getCookie(this.storageKey) || 'light'
   );
+ 
   setTheme(theme: Theme) {
     this.setHtmlTheme(theme); // Apply to <html>
     this.theme.set(theme);
@@ -56,6 +57,7 @@ export class ThemeService {
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     this.setTheme(newTheme);
     this._CookiesService.setCookie(this.storageKey, newTheme);
+  
   }
 
   private setHtmlTheme(theme: string) {
@@ -64,4 +66,6 @@ export class ThemeService {
     this.document.documentElement.setAttribute('data-theme', theme);
     // this.cookieUtils.setCookie(this.storageKey, theme);
   }
+
+
 }
