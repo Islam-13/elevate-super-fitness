@@ -1,4 +1,4 @@
-import { Component, inject, signal, ViewChild } from '@angular/core';
+import { Component, inject, signal, ViewChild, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { PrimaryBtn } from '../primary-btn/primaryBtn';
 import { CommonModule } from '@angular/common';
@@ -27,16 +27,17 @@ import { ThemeService } from 'src/app/core/services/theme-service.service';
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar {
+export class Navbar implements OnInit {
   @ViewChild('drawerRef') drawerRef!: Drawer;
   visible = false;
 themeService = inject(ThemeService);
 
   private readonly _localStorageService = inject(LocalStorageService);
   isLogged = signal<string>(this._localStorageService.get('logged-user'));
-isDarkMode = this.themeService.isDarkMode;
   closeCallback(e): void {
     this.drawerRef.close(e);
   }
-
+ ngOnInit() {
+  this.themeService.initialTheme();
+}
 }
