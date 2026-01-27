@@ -10,6 +10,7 @@ import { Drawer } from 'primeng/drawer';
 import { TranslateModule } from '@ngx-translate/core';
 import { LocalStorageService } from '@shared/services/local-storage.service';
 import { ThemeService } from 'src/app/core/services/theme-service.service';
+import { MealsCategories } from 'src/app/features/meals-categories/services/meals-categories';
 
 @Component({
   selector: 'app-navbar',
@@ -30,14 +31,17 @@ import { ThemeService } from 'src/app/core/services/theme-service.service';
 export class Navbar implements OnInit {
   @ViewChild('drawerRef') drawerRef!: Drawer;
   visible = false;
-themeService = inject(ThemeService);
-
+  themeService = inject(ThemeService);
+  mealsCategories = inject(MealsCategories);
   private readonly _localStorageService = inject(LocalStorageService);
   isLogged = signal<string>(this._localStorageService.get('logged-user'));
   closeCallback(e): void {
     this.drawerRef.close(e);
   }
- ngOnInit() {
-  this.themeService.initialTheme();
-}
+  ngOnInit() {
+    this.themeService.initialTheme();
+  }
+  updateView() {
+    this.mealsCategories.selectedMeal.set(false);
+  }
 }

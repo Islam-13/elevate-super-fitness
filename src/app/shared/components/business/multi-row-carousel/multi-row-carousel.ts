@@ -53,14 +53,14 @@ export class MultiRowCarousel implements OnChanges {
         cols = 1; // phone
       }
 
-      const rows = 2;
+      const rows = this.data?.length>3?2:1;
       const size = cols * rows;
       for (let i = 0; i < this.data.length; i += size) {
         this.groupedItems.push(this.data.slice(i, i + size));
-       // console.log('grouped in for:', this.groupedItems);
+        // console.log('grouped in for:', this.groupedItems);
       }
-    //  console.log('grouped:', this.groupedItems);
-    }
+      //  console.log('grouped:', this.groupedItems);
+    }  
   }
   goToDetails(data: GlobalData) {
     this.itemClicked.emit(data);

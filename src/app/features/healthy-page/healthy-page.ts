@@ -6,14 +6,21 @@ import { Taps } from '../../shared/components/business/taps/taps';
 import { TranslateModule } from '@ngx-translate/core';
 import { GlobalData } from '../../shared/interfaces/global-data/global-data';
 import { MealsCategoryDTO } from '../../shared/types/mealCategory.interface';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { mealsActions } from '../meals-categories/store/actions';
-import { MultiRowCarousel } from "@shared/components/business/multi-row-carousel/multi-row-carousel";
+import { MultiRowCarousel } from '@shared/components/business/multi-row-carousel/multi-row-carousel';
+import { HealthyDetails } from '../meals-categories/components/ui/healthy-details/healthy-details';
 
 @Component({
   selector: 'app-healthy-page',
-  imports: [SectionTitle, Taps, TranslateModule, MultiRowCarousel],
+  imports: [
+    SectionTitle,
+    Taps,
+    TranslateModule,
+    MultiRowCarousel,
+    HealthyDetails,
+  ],
   templateUrl: './healthy-page.html',
   styleUrl: './healthy-page.scss',
 })
@@ -29,10 +36,19 @@ export class HealthyPage implements OnInit {
   mealsGroupsSignal = signal<MealsCategoryDTO[]>([]);
   selectedGroupIdSignal = signal<string | null>(null);
   categories: MealsCategoryDTO[] = [];
+  //selectedMeal = false;
+  selectedMeal = this._mealsCategories.selectedMeal;
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.getAllCategories(params['tab']);
+    });
+    this._router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if (event.url === '/healthy') {
+          this.selectedMeal.set(false);
+        }
+      }
     });
   }
 
@@ -45,7 +61,7 @@ export class HealthyPage implements OnInit {
 
         if (categories.length > 0) {
           const selectedId =
-            tabFromUrl && categories.find(c => c.idCategory === tabFromUrl)
+            tabFromUrl && categories.find((c) => c.idCategory === tabFromUrl)
               ? tabFromUrl
               : categories[0].idCategory;
           this.selectedGroupIdSignal.set(selectedId);
@@ -63,7 +79,9 @@ export class HealthyPage implements OnInit {
     const category = this.categories.find((c) => c.idCategory === categoryId);
 
     // dispatch selected tab
-    this.store.dispatch(mealsActions.selectCategory({ category: category?.strCategory ?? '' }));
+    this.store.dispatch(
+      mealsActions.selectCategory({ category: category?.strCategory ?? '' })
+    );
     if (!category) return;
     const subscription = this._mealsCategories
       .getMealsByCategory(category.strCategory)
@@ -88,9 +106,10 @@ export class HealthyPage implements OnInit {
   goToDetails(cardData: GlobalData) {
     // dispatch selected meal
     this.store.dispatch(mealsActions.selectMeal({ mealID: cardData.id }));
-    console.log(cardData.id, cardData.name);
-    this._router.navigate(['/details', cardData.id], {
-      state: { data: cardData },
-    });
+    // console.log(cardData.id, cardData.name);
+    // this._router.navigate(['/details', cardData.id], {
+    //   state: { data: cardData },
+    // });
+    this.selectedMeal.set(true);
   }
 }

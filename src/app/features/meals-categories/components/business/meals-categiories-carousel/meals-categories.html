@@ -1,16 +1,23 @@
-
 <ng-container>
   @if(data$ |async ;as data){ @if(data.isLoading){
   <app-loading></app-loading>
   } @if(data.mealsCategories===null){
-  <h3 class="flex items-center justify-center text-white py-5 text-2xl "
-    [innerHTML]="'Meal_Details.SomethingWentWrong' | translate">
-</h3>
+  <h3
+    class="flex items-center justify-center text-white py-5 text-2xl"
+    [innerHTML]="'Meal_Details.SomethingWentWrong' | translate"
+  ></h3>
   } @else {
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
     @for(mealsCategory of getVisibleCategories(data.mealsCategories); track
     $index){
-    <app-meals-category [mealsCategory]="mealsCategory"></app-meals-category>
+
+    <app-card
+      [data]="{id:mealsCategory.idCategory  ,label:mealsCategory.strCategory,image:mealsCategory.strCategoryThumb}"
+      (cardClick)="readMore(data)"
+    >
+    </app-card>
+    <!-- (cardClick)="itemClicked.emit(data)" -->
+    <!-- <app-meals-category [mealsCategory]="mealsCategory"></app-meals-category> -->
 
     }
   </div>
@@ -18,7 +25,9 @@
   @if(data.mealsCategories!==null){
   <button
     class="text-primary font-inter font-semibold capitalize cursor-pointer block ms-auto mt-5"
-    (click)="toggleShowMore()">
-  {{ showAll ? ('Healthy_Nutritions.see_less' | translate) : ('Healthy_Nutritions.see_more' | translate) }}
-    </button>} } }
+    (click)="toggleShowMore()"
+  >
+    {{ showAll ? ('Healthy_Nutritions.see_less' | translate) :
+    ('Healthy_Nutritions.see_more' | translate) }}</button
+  >} } }
 </ng-container>

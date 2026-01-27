@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
-import { MealsCategory } from '../../ui/meals-category/meals-category';
-import { Store } from '@ngrx/store';
+ import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import {
   selectIsLoading,
@@ -13,11 +12,12 @@ import { mealsActions } from '../../../store/actions';
 import { LoadingComponent } from '../../../../../shared/components/ui/loading/loading.component';
 import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.interface';
 import { TranslateModule } from '@ngx-translate/core';
-
+import { Card } from '@shared/components/business/card/card';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-meals-categories',
-  imports: [CarouselModule, MealsCategory, AsyncPipe, LoadingComponent,TranslateModule ],
+  imports: [CarouselModule, AsyncPipe, LoadingComponent, TranslateModule, Card],
   templateUrl: './meals-categories.html',
   styleUrl: './meals-categories.scss',
 })
@@ -25,7 +25,8 @@ export class MealsCategories implements OnInit {
   showAll = false;
   private store = inject(Store);
   data$: Observable<MealsCategoriesStateInterface>;
-  
+  private router = inject(Router);
+
   ngOnInit(): void {
     this.initData();
   }
@@ -52,5 +53,13 @@ export class MealsCategories implements OnInit {
 
   toggleShowMore() {
     this.showAll = !this.showAll;
+  }
+
+  readMore(category) {
+    this.router.navigate(['/healthy'], {
+      queryParams: {
+        tab: category.idCategory,
+      },
+    });
   }
 }
