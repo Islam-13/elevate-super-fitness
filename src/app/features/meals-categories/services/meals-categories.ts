@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MealsCategoriesDTO } from '../../../shared/types/mealCategoriesRes.interface';
 import { MealsByCategoryDTO } from '../types/meal-response.interface';
@@ -11,7 +11,6 @@ import { MealDetailsDTO } from '../types/meal-details-response.interface';
 export class MealsCategories {
   baseUrl = 'https://www.themealdb.com/api/json/v1/1';
   http = inject(HttpClient);
-  selectedMeal = signal<boolean>(false);
   getAllCategories(): Observable<MealsCategoriesDTO> {
     const url = `${this.baseUrl}/categories.php`;
     return this.http.get<MealsCategoriesDTO>(url);
