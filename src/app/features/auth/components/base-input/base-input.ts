@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 import { AbstractControl, FormsModule } from '@angular/forms';
 
 @Component({
@@ -12,8 +12,13 @@ export class BaseInput {
   type = input.required<string>();
   placeholder = input.required<string>();
   value = '';
+  showPassword = signal<boolean>(false);
 
   onChange() {
     this.control().setValue(this.value);
+  }
+
+  togglePassword() {
+    this.showPassword.update((cur) => !cur);
   }
 }
