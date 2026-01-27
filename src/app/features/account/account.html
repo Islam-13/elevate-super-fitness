@@ -91,8 +91,7 @@
             <form class="flex flex-col gap-6 mt-6" (ngSubmit)="onSubmitLevel()">
               <app-option-picker
                 [options]="levelOptions"
-                (payload)="onLevelSelect($event)"
-              />
+                (payload)="onLevelSelect($event)"/>
 
               <app-submit-btn
                 label="Save"
