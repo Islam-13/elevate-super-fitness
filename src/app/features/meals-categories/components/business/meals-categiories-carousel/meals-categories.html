@@ -13,11 +13,9 @@
 
     <app-card
       [data]="{id:mealsCategory.idCategory  ,label:mealsCategory.strCategory,image:mealsCategory.strCategoryThumb}"
-      (cardClick)="readMore(data)"
+      (cardClick)="readMore(mealsCategory)"
     >
     </app-card>
-    <!-- (cardClick)="itemClicked.emit(data)" -->
-    <!-- <app-meals-category [mealsCategory]="mealsCategory"></app-meals-category> -->
 
     }
   </div>

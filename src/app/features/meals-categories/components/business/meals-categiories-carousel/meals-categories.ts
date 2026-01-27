@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
- import { Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { combineLatest, Observable } from 'rxjs';
 import {
   selectIsLoading,
@@ -55,7 +55,7 @@ export class MealsCategories implements OnInit {
     this.showAll = !this.showAll;
   }
 
-  readMore(category) {
+  readMore(category: MealsCategoryDTO) {
     this.router.navigate(['/healthy'], {
       queryParams: {
         tab: category.idCategory,
