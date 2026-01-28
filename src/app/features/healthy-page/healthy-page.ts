@@ -9,7 +9,7 @@ import { MealsCategoryDTO } from '../../shared/types/mealCategory.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { mealsActions } from '../meals-categories/store/actions';
-import { MultiRowCarousel } from "@shared/components/business/multi-row-carousel/multi-row-carousel";
+import { MultiRowCarousel } from '@shared/components/business/multi-row-carousel/multi-row-carousel';
 
 @Component({
   selector: 'app-healthy-page',
@@ -31,7 +31,7 @@ export class HealthyPage implements OnInit {
   categories: MealsCategoryDTO[] = [];
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.getAllCategories(params['tab']);
     });
   }
@@ -45,7 +45,7 @@ export class HealthyPage implements OnInit {
 
         if (categories.length > 0) {
           const selectedId =
-            tabFromUrl && categories.find(c => c.idCategory === tabFromUrl)
+            tabFromUrl && categories.find((c) => c.idCategory === tabFromUrl)
               ? tabFromUrl
               : categories[0].idCategory;
           this.selectedGroupIdSignal.set(selectedId);
@@ -63,7 +63,9 @@ export class HealthyPage implements OnInit {
     const category = this.categories.find((c) => c.idCategory === categoryId);
 
     // dispatch selected tab
-    this.store.dispatch(mealsActions.selectCategory({ category: category?.strCategory ?? '' }));
+    this.store.dispatch(
+      mealsActions.selectCategory({ category: category?.strCategory ?? '' })
+    );
     if (!category) return;
     const subscription = this._mealsCategories
       .getMealsByCategory(category.strCategory)
@@ -84,7 +86,6 @@ export class HealthyPage implements OnInit {
 
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
-
   goToDetails(cardData: GlobalData) {
     // dispatch selected meal
     this.store.dispatch(mealsActions.selectMeal({ mealID: cardData.id }));

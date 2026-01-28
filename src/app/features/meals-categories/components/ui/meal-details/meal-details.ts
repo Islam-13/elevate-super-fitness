@@ -1,12 +1,12 @@
 import { AsyncPipe, NgOptimizedImage } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {
   selectIsLoading,
   selectMealDetail,
   selectSelectedMeal,
 } from '../../../store/reducers';
-import { combineLatest, take } from 'rxjs';
+import { combineLatest, filter, Subject, takeUntil } from 'rxjs';
 import { mealsActions } from '../../../store/actions';
 import { LoadingComponent } from '../../../../../shared/components/ui/loading/loading.component';
 import { TranslateModule } from '@ngx-translate/core';
@@ -16,10 +16,9 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './meal-details.html',
   styleUrl: './meal-details.scss',
 })
-export class MealDetails implements OnInit {
- // @Input() meal: GlobalData | null = null;
-
+export class MealDetails implements OnInit, OnDestroy {
   _store = inject(Store);
+  private destroy$ = new Subject<void>();
   mealDetails$ = combineLatest({
     mealDetails: this._store.select(selectMealDetail),
     isLoading: this._store.select(selectIsLoading),
@@ -27,10 +26,18 @@ export class MealDetails implements OnInit {
   ngOnInit(): void {
     this._store
       .select(selectSelectedMeal)
-      .pipe(take(1))
+      .pipe(
+        filter((mealID) => !!mealID),
+        takeUntil(this.destroy$)
+      ) // wait until id is set
+
       .subscribe((mealID) => {
         console.log(mealID);
         this._store.dispatch(mealsActions.getMealDetail({ mealID: mealID }));
       });
+  }
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
