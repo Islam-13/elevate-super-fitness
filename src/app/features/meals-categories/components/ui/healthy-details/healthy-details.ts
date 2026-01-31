@@ -1,7 +1,7 @@
 import { Meal } from './../meal/meal';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
-import { Taps } from '../meals-group-taps/taps';
+// import { Taps } from '../meals-group-taps/taps';
 import { Store } from '@ngrx/store';
 import {
   selectIsLoading,
@@ -9,12 +9,13 @@ import {
   selectMealsCategoriesData,
   selectSelectedCategoryOfMeals,
 } from '../../../store/reducers';
-import { combineLatest, Observable,  } from 'rxjs';
+import { combineLatest, map, Observable, take } from 'rxjs';
 import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.interface';
 import { mealsActions } from '../../../store/actions';
 import { MealDetails } from '../meal-details/meal-details';
-import { LoadingComponent } from "../../../../../shared/components/ui/loading/loading.component";
+import { LoadingComponent } from '../../../../../shared/components/ui/loading/loading.component';
 import { GlobalData } from '@shared/interfaces/global-data/global-data';
+import { Taps } from '@shared/components/business/taps/taps';
 
 @Component({
   selector: 'app-healthy-details',
@@ -23,10 +24,9 @@ import { GlobalData } from '@shared/interfaces/global-data/global-data';
   styleUrl: './healthy-details.scss',
 })
 export class HealthyDetails implements OnInit {
- data: GlobalData | null = null;
+  // data: GlobalData | null = null;
   selectedMeal: GlobalData | null = null;
-  selectedGroupId!: string;
-
+  selectedGroupId = signal<string | null>(null);
   private _store = inject(Store);
 
   mealsData$ = combineLatest({
@@ -37,11 +37,11 @@ export class HealthyDetails implements OnInit {
   mealsCategories!: Observable<MealsCategoryDTO[]>;
 
   ngOnInit(): void {
-    this.data = history.state.data ?? null;
+    //this.data = history.state.data ?? null;
     this.initMealsGroups();
-    if (this.data) {
-      this.selectedMeal = this.data;
-    }
+    // if (this.data) {
+    //   this.selectedMeal = this.data;
+    // }
   }
 
   private initMealsGroups(): void {
@@ -53,23 +53,45 @@ export class HealthyDetails implements OnInit {
       .select(selectSelectedCategoryOfMeals)
       .pipe()
       .subscribe((groupName) => {
-        this.selectedGroupId = groupName;
+        console.log(groupName);
+        //get group-id from group-name
+        this.mealsCategories
+          .pipe(
+            map(
+              (categories) =>
+                categories.find((c) => c.strCategory === groupName)
+                  ?.idCategory ?? null
+            ),
+            take(1)
+          )
+          .subscribe((id) => {
+            this.selectedGroupId.set(id);
+          });
+        ///   this.selectedGroupId.set(groupId());
         //   this._store.dispatch(
         //   mealsActions.selectCategory({ category:groupName })
         // );
-        this._store.dispatch(
-          mealsActions.getMealsByGroupsName({ groupName })
-        );
+        this._store.dispatch(mealsActions.getMealsByGroupsName({ groupName }));
       });
   }
 
-  onGroupSelected(groupName: string): void {
-    this._store.dispatch(
-      mealsActions.getMealsByGroupsName({ groupName })
-    );
+  onGroupSelected(groupId: string): void {
+    // get group name from group id
+    this.mealsCategories
+      .pipe(
+        map(
+          (categories) =>
+            categories.find((c) => c.idCategory === groupId)?.strCategory ??
+            null
+        ),
+        take(1)
+      )
+      .subscribe((groupName) => {
+        this._store.dispatch(mealsActions.getMealsByGroupsName({ groupName }));
+      });
   }
 
-  goToDetails(meal: GlobalData): void {
-    this.selectedMeal = meal;
-  }
+  // goToDetails(meal: GlobalData): void {
+  //   this.selectedMeal = meal;
+  // }
 }
