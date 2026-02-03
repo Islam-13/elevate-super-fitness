@@ -87,6 +87,12 @@
   transition: all 0.3s ease;
 }
 
+.p-carousel-indicator.p-carousel-indicator-active button {
+  width: 22px;
+  border-radius: 6px;
+}
+
+
 html {
   //background-color: var(--primay-color);
   font-family: 'Baloo Thambi 2';
