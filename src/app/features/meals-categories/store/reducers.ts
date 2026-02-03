@@ -4,7 +4,7 @@ import { mealsActions } from './actions';
 
 const initialState: MealsStateInterface = {
   isLoading: false,
-  mealsCategories:null,
+  mealsCategories: null,
   meals: null,
   mealDetail: null,
   selectedCategoryOfMeals: null,
@@ -24,6 +24,8 @@ export const MealsFeature = createFeature({
       ...state,
       isLoading: false,
       mealsCategories: action.categories,
+      selectedCategoryOfMeals:
+        state.selectedCategoryOfMeals ?? action.categories[0].strCategory,
       // selectedCategoryOfMeals: action.categories[0].strCategory,
     })),
     on(mealsActions.getMealsGroupsFailure, (state) => ({
@@ -40,6 +42,7 @@ export const MealsFeature = createFeature({
       ...state,
       isLoading: false,
       meals: action.meals,
+      selectedMeal: state.selectedMeal ?? action.meals[0].idMeal,
     })),
     on(mealsActions.getMealsByGroupsNameFailure, (state) => ({
       ...state,
@@ -55,7 +58,7 @@ export const MealsFeature = createFeature({
       ...state,
       isLoading: false,
       mealDetail: action.meals[0],
-      selectedMeal:action.meals[0].idMeal
+      selectedMeal: action.meals[0].idMeal,
     })),
     on(mealsActions.getMealDetailFailure, (state) => ({
       ...state,
@@ -65,13 +68,13 @@ export const MealsFeature = createFeature({
     on(mealsActions.selectCategory, (state, action) => ({
       ...state,
       selectedCategoryOfMeals: action.category,
+      selectedMeal: null, // reset for new category
     })),
 
     //select meal/////////////
     on(mealsActions.selectMeal, (state, action) => ({
       ...state,
       selectedMeal: action.mealID,
-       
     }))
   ),
 });
@@ -84,5 +87,5 @@ export const {
   selectMealDetail,
   selectMeals,
   selectSelectedCategoryOfMeals,
-  selectSelectedMeal // feature selector
+  selectSelectedMeal, // feature selector
 } = MealsFeature;
