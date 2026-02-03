@@ -12,8 +12,8 @@ import { mealsActions } from '../../../store/actions';
 import { LoadingComponent } from '../../../../../shared/components/ui/loading/loading.component';
 import { MealsCategoryDTO } from '../../../../../shared/types/mealCategory.interface';
 import { TranslateModule } from '@ngx-translate/core';
-import { Card } from '@shared/components/business/card/card';
 import { Router } from '@angular/router';
+import { Card } from '@shared/components/business/card/card';
 
 @Component({
   selector: 'app-meals-categories',
