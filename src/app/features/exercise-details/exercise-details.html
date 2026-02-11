@@ -1,0 +1,123 @@
+<div class="flex flex-col md:flex-row min-h-screen md:h-screen md:overflow-hidden bg-gray-950 text-white mt-[120px]">
+  <aside class="w-full md:w-80 lg:w-96 bg-[#24242480] border-b md:border-r border-gray-800/70 flex flex-col">
+    <div class="p-3 sticky top-0 bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800/50">
+      
+      <div class="flex items-center gap-3 my-4 relative">
+        @if (difficultyLevels().length > 3) {
+          <button 
+            class="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition disabled:opacity-50 flex justify-content-center"
+            [disabled]="currentLevelIndex() === 0"
+            (click)="prevLevel()">
+            <i class="pi pi-arrow-left"></i>
+          </button>
+        }
+
+        <div class="flex gap-3 flex-1 ">
+          @for (level of visibleLevels(); track level.id) {
+            <button 
+              class="flex-1 py-2 px-1 rounded-2xl font-medium transition-all"
+              [ngClass]="selectedLevelId() === level.id 
+                ? 'bg-[#FF4100] text-text-white shadow-lg scale-105' 
+                : 'bg-gray-800 hover:bg-gray-700 text-gray-300'"
+              (click)="selectLevel(level.id)">
+              {{ level.name }}
+            </button>
+          }
+        </div>
+
+
+        @if (difficultyLevels().length > 3){
+        <button 
+          class="p-2 bg-gray-800 rounded-full hover:bg-gray-700 transition disabled:opacity-50 flex justify-content-center"
+          [disabled]="currentLevelIndex() + 3 >= difficultyLevels().length"
+          (click)="nextLevel()">
+          <i class="pi pi-arrow-right"></i>
+        </button>
+        }
+
+      </div>
+    </div>
+
+    <div class="p-4 space-y-3 flex-1 overflow-y-auto">
+      @for (ex of exercises(); track ex._id) {
+        <div class="group flex items-center gap-4 p-4 rounded-2xl cursor-pointer transition-all "
+            [ngClass]="selectedExercise()?._id === ex._id 
+              ? 'bg-orange-900/30 border-orange-700/50' 
+              : 'hover:bg-gray-800/70'"
+            (click)="selectExercise(ex)"
+          >
+
+          <div class="w-16 h-16 rounded-xl overflow-hidden bg-gray-800 flex-shrink-0">
+            <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800" class="w-full h-full object-cover">
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <h4 class="font-medium truncate"> {{ ex.primary_equipment }} </h4>
+            <p class="text-sm text-gray-400 mt-1 truncate">
+                {{ ex.exercise }}
+              </p>
+          </div>
+
+          <a [href]="ex.in_depth_youtube_explanation_link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-orange-500 cursor-pointer
+                hover:scale-110 transform transition-transform">
+              <i class="pi pi-youtube !text-[25px]"></i>
+          </a>
+
+        </div>
+
+        <div class="h-px w-3/4 mx-auto bg-gray-700/50 last:hidden"></div>
+      }
+    </div>
+  </aside>
+
+  <main class="flex-1 flex flex-col">
+    <div class="relative h-[50vh] md:h-[50vh] w-full">
+      <img
+        [src]="'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800'"
+        [alt]="selectedExercise()?.exercise"
+        class="absolute inset-0 w-full h-full object-cover brightness-[0.62]"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent/30 rounded-3xl flex flex-col justify-end pb-16 px-8 md:px-16">
+        <div class="max-w-5xl mx-auto w-full text-center">
+          <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-2xl">
+            {{ selectedExercise()?.primary_equipment}}
+          </h1>
+          <p class="text-xl text-gray-300">
+            {{ selectedExercise()?.exercise }}
+          </p>
+        </div>
+      </div>
+
+      <a
+        [href]="selectedExercise()?.short_youtube_demonstration_link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-orange-600 hover:bg-orange-700 
+          rounded-full w-20 h-20 md:w-28 md:h-28 
+          flex items-center justify-center 
+          shadow-2xl transition hover:scale-110">
+        <span class="text-5xl md:text-6xl text-white">▶</span>
+      </a>
+
+    </div>
+    
+    <div class="flex justify-around gap-4 py-6">
+      <div class="flex items-center gap-2 text-sm text-gray-300">
+        <span class="bg-orange-600 p-1 rounded-full">➜</span>
+        Expertly designed workout.
+      </div>
+      <div class="flex items-center gap-2 text-sm text-gray-300">
+        <span class="bg-orange-600 p-1 rounded-full">➜</span>
+        Expertly designed workout.
+      </div>
+      <div class="flex items-center gap-2 text-sm text-gray-300">
+        <span class="bg-orange-600 p-1 rounded-full">➜</span>
+        Expertly designed workout.
+      </div>
+    </div>
+
+  </main>
+</div>

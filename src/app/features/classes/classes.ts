@@ -65,8 +65,9 @@ loadMuscleGroups() {
     this._destroyRef.onDestroy(() => subscription.unsubscribe());
   }
   goToDetails(cardData: GlobalData) {
-  this._router.navigate(['/muscles/details', cardData.id], {
-    state: { data: cardData },
-  });
+    console.log(cardData.id, cardData.name);
+    this._router.navigate(['/exercise', cardData.id], {
+      state: { data: cardData },
+    });
 }
 }
