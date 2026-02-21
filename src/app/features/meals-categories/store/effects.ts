@@ -1,11 +1,13 @@
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MealsCategories } from '../services/meals-categories';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, concat, EMPTY, map, of, switchMap, withLatestFrom } from 'rxjs';
 import { mealsActions } from './actions';
 import { MealsCategoriesDTO } from '../../../shared/types/mealCategoriesRes.interface';
 import { MealsByCategoryDTO } from '../types/meal-response.interface';
 import { MealDetailsDTO } from '../types/meal-details-response.interface';
+import { selectSelectedMeal } from './reducers';
+import { Store } from '@ngrx/store';
  
 export const getMealsCategoriesEffect = createEffect(
   (actions$ = inject(Actions), mealsCategories = inject(MealsCategories)) => {
@@ -17,7 +19,7 @@ export const getMealsCategoriesEffect = createEffect(
             return mealsActions.getMealsGroupsSuccess(mealsGroupEsponse);
           }),
           catchError((err) => {
-            console.log(err)
+            console.log(err);
             return of(mealsActions.getMealsGroupsFailure());
           })
         );
@@ -26,28 +28,44 @@ export const getMealsCategoriesEffect = createEffect(
   },
   { functional: true }
 );
+ 
 export const getMealsEffect = createEffect(
-  (actions$ = inject(Actions), mealsCategories = inject(MealsCategories)) => {
+  (
+    actions$ = inject(Actions),
+    mealsCategories = inject(MealsCategories),
+    store = inject(Store)
+  ) => {
     return actions$.pipe(
       ofType(mealsActions.getMealsByGroupsName),
-      switchMap(({ groupName }) => {
-        return mealsCategories.getMealsByCategory(groupName).pipe(
-          map((mealsResponse: MealsByCategoryDTO) => {
-            return mealsActions.getMealsByGroupsNameSuccess(mealsResponse);
+      withLatestFrom(store.select(selectSelectedMeal)),
+      switchMap(([{ groupName }, selected]) =>
+        mealsCategories.getMealsByCategory(groupName).pipe(
+          switchMap((mealsResponse: MealsByCategoryDTO) => {
+            const firstMeal = mealsResponse.meals[0]?.idMeal;
+
+            return concat(
+              // always emit success first
+              of(mealsActions.getMealsByGroupsNameSuccess(mealsResponse)),
+
+              // auto-load first meal only if no previous selection
+              !selected && firstMeal
+                ? of(mealsActions.getMealDetail({ mealID: firstMeal }))
+                : EMPTY
+            );
           }),
-          catchError(() => {
-            return of(mealsActions.getMealsByGroupsNameFailure());
-          })
-        );
-      })
+          catchError(() => of(mealsActions.getMealsByGroupsNameFailure()))
+        )
+      )
     );
   },
   { functional: true }
 );
+
+
 export const getMealDetailsEffect = createEffect(
   (actions$ = inject(Actions), mealsCategories = inject(MealsCategories)) => {
     return actions$.pipe(
-      ofType(mealsActions.getMealDetail,mealsActions.selectMeal),
+      ofType(mealsActions.getMealDetail, mealsActions.selectMeal),
       switchMap(({ mealID }) => {
         return mealsCategories.getMealDetails(mealID).pipe(
           map((mealDetailsResponse: MealDetailsDTO) => {
@@ -62,3 +80,4 @@ export const getMealDetailsEffect = createEffect(
   },
   { functional: true }
 );
+ 

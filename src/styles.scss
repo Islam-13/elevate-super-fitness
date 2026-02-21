@@ -79,6 +79,20 @@
   background-color: var(--p-carousel-indicator-background) !important;
 }
 
+.p-carousel-indicator button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--p-text);
+  transition: all 0.3s ease;
+}
+
+.p-carousel-indicator.p-carousel-indicator-active button {
+  width: 22px;
+  border-radius: 6px;
+}
+
+
 html {
   //background-color: var(--primay-color);
   font-family: 'Baloo Thambi 2';

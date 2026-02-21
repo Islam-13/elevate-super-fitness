@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { Banner } from "../banner/banner";
+import { ThemeService } from 'src/app/core/services/theme-service.service';
 
 @Component({
   selector: 'app-footer',
@@ -8,4 +9,10 @@ import { Banner } from "../banner/banner";
   templateUrl: './footer.html',
   styleUrl: './footer.scss',
 })
-export class Footer {}
+export class Footer implements OnInit {
+themeService = inject(ThemeService);
+
+ ngOnInit() {
+  this.themeService.initialTheme();
+}
+}

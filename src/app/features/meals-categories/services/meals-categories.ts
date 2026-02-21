@@ -25,5 +25,4 @@ export class MealsCategories {
     const url = `${this.baseUrl}/lookup.php?i=${idMeal}`;
     return this.http.get<MealDetailsDTO>(url);
   }
-  
 }
