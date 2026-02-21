@@ -25,11 +25,10 @@
 
     <!-- Caursoul -->
     <div class="main-padding">
-      <app-multi-row-carousel
-        [data]="data"
-        (itemClicked)="goToDetails($any($event))"
-      >
-      </app-multi-row-carousel>
+    <app-multi-row-carousel
+    [data]="data"
+    (itemClicked)="goToDetails($any($event))">
+    </app-multi-row-carousel> 
     </div>
-  </div>
+</div>
 </section>
